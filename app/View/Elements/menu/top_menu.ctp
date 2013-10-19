@@ -6,12 +6,13 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button><!-- /.navbar-toggle -->
-		<?php echo $this->Html->Link('CakeStrap', 'http://twitter.github.com/bootstrap/', array('class' => 'navbar-brand')); ?>
+		<?php echo $this->Html->Link('PACHA', '/', array('class' => 'navbar-brand')); ?>
 	</div><!-- /.navbar-header -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
+			<li class="active"><a href="#">Link 1</a></li>
+			<li><a href="#">Link 2</a></li>
+			<li><a href="#">Link 3</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 				<ul class="dropdown-menu">
