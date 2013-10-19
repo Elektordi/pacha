@@ -16,14 +16,14 @@ Installation
 Éléments utilisés
 =================
 
-CakePHP 2.4.1: http://cakephp.org/ - https://github.com/cakephp/cakephp
-Bootstrap 2.3.2: http://getbootstrap.com/2.3.2/ - https://github.com/twbs/bootstrap
-Cakestrap: https://github.com/Rhym/cakeStrap/
+* CakePHP 2.4.1: http://cakephp.org/ - https://github.com/cakephp/cakephp
+* Bootstrap 2.3.2: http://getbootstrap.com/2.3.2/ - https://github.com/twbs/bootstrap
+* Cakestrap: https://github.com/Rhym/cakeStrap/
 
 
 Liens
 =====
 
-ECLVYS: http://www.chatlibre.org/
-Guillaume Genty: https://github.com/Elektordi
+* ECLVYS: http://www.chatlibre.org/
+* Guillaume Genty: https://github.com/Elektordi
 
