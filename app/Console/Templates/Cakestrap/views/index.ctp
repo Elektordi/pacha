@@ -19,13 +19,13 @@
 
 <div id="page-container" class="row">
 
+<? /*
 	<div id="sidebar" class="col-sm-3">
 		
 		<div class="actions">
 		
 			<ul class="list-group">
-				<?php echo "<li class=\"list-group-item\"><?php echo \$this->Html->link(__('New " . $singularHumanName . "'), array('action' => 'add'), array('class' => '')); ?></li>"; ?>
-				<?php
+				<?php 
 					$done = array();
 					foreach ($associations as $type => $data) {
 						foreach ($data as $alias => $details) {
@@ -35,7 +35,7 @@
 								$done[] = $details['controller'];
 							}
 						}
-					}
+					} 
 				?>
 			</ul><!-- /.list-group -->
 			
@@ -44,6 +44,8 @@
 	</div><!-- /#sidebar .col-sm-3 -->
 	
 	<div id="page-content" class="col-sm-9">
+*/ ?>
+	<div id="page-content">
 
 		<div class="<?php echo $pluralVar; ?> index">
 		
@@ -81,9 +83,9 @@
 							}
 
 							echo "\t\t<td class=\"actions\">\n";
-							echo "\t\t\t<?php echo \$this->Html->link(__('View'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
-							echo "\t\t\t<?php echo \$this->Html->link(__('Edit'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
-							echo "\t\t\t<?php echo \$this->Form->postLink(__('Delete'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
+							echo "\t\t\t<?php echo \$this->Html->link(__('Ouvrir'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
+							echo "\t\t\t<?php echo \$this->Html->link(__('Modifier'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
+							/*echo "\t\t\t<?php echo \$this->Form->postLink(__('Effacer'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";*/
 							echo "\t\t</td>\n";
 						echo "\t</tr>\n";
 
@@ -110,6 +112,9 @@
 					echo "\t?>\n";
 				?>
 			</ul><!-- /.pagination -->
+			<ul class="pagination">
+				<?php echo "<li class=\"\"><?php echo \$this->Html->link(__('<span class=\"glyphicon glyphicon-plus\"></span> Nouveau " . $singularHumanName . "'), array('action' => 'add'), array('class' => '', 'escape' => FALSE)); ?></li>"; ?>
+			</ul>
 			
 		</div><!-- /.index -->
 	

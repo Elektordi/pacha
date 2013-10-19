@@ -25,7 +25,7 @@
 		
 			<ul class="list-group">
 				<?php if (strpos($action, 'add') === false): ?>
-						<li class="list-group-item"><?php echo "<?php echo \$this->Form->postLink(__('Delete'), array('action' => 'delete', \$this->Form->value('{$modelClass}.{$primaryKey}')), null, __('Are you sure you want to delete # %s?', \$this->Form->value('{$modelClass}.{$primaryKey}'))); ?>"; ?></li>
+						<li class="list-group-item"><?php echo "<?php echo \$this->Form->postLink(__('Effacer'), array('action' => 'delete', \$this->Form->value('{$modelClass}.{$primaryKey}')), null, __('Are you sure you want to delete # %s?', \$this->Form->value('{$modelClass}.{$primaryKey}'))); ?>"; ?></li>
 				<?php endif; ?>
 						<li class="list-group-item"><?php echo "<?php echo \$this->Html->link(__('List " . $pluralHumanName . "'), array('action' => 'index')); ?>"; ?></li>
 				<?php

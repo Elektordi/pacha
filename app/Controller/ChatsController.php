@@ -34,7 +34,7 @@ class ChatsController extends AppController {
  */
 	public function view($id = null) {
 		if (!$this->Chat->exists($id)) {
-			throw new NotFoundException(__('Invalid chat'));
+			throw new NotFoundException(__('Chat invalide.'));
 		}
 		$options = array('conditions' => array('Chat.' . $this->Chat->primaryKey => $id));
 		$this->set('chat', $this->Chat->find('first', $options));
@@ -49,10 +49,10 @@ class ChatsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Chat->create();
 			if ($this->Chat->save($this->request->data)) {
-				$this->Session->setFlash(__('The chat has been saved'), 'flash/success');
+				$this->Session->setFlash(__('Chat enregistré.'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The chat could not be saved. Please, try again.'), 'flash/error');
+				$this->Session->setFlash(__('Chat impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
 		}
 	}
@@ -67,14 +67,14 @@ class ChatsController extends AppController {
 	public function edit($id = null) {
         $this->Chat->id = $id;
 		if (!$this->Chat->exists($id)) {
-			throw new NotFoundException(__('Invalid chat'));
+			throw new NotFoundException(__('Chat invalide.'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Chat->save($this->request->data)) {
-				$this->Session->setFlash(__('The chat has been saved'), 'flash/success');
+				$this->Session->setFlash(__('Chat sauvegardé.'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The chat could not be saved. Please, try again.'), 'flash/error');
+				$this->Session->setFlash(__('Chat impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
 		} else {
 			$options = array('conditions' => array('Chat.' . $this->Chat->primaryKey => $id));
@@ -96,12 +96,12 @@ class ChatsController extends AppController {
 		}
 		$this->Chat->id = $id;
 		if (!$this->Chat->exists()) {
-			throw new NotFoundException(__('Invalid chat'));
+			throw new NotFoundException(__('Chat invalide.'));
 		}
 		if ($this->Chat->delete()) {
-			$this->Session->setFlash(__('Chat deleted'), 'flash/success');
+			$this->Session->setFlash(__('Chat supprimé.'), 'flash/success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Chat was not deleted'), 'flash/error');
+		$this->Session->setFlash(__('Chat impossible à supprimer.'), 'flash/error');
 		$this->redirect(array('action' => 'index'));
 	}}

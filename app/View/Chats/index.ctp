@@ -1,18 +1,7 @@
 
 <div id="page-container" class="row">
 
-	<div id="sidebar" class="col-sm-3">
-		
-		<div class="actions">
-		
-			<ul class="list-group">
-				<li class="list-group-item"><?php echo $this->Html->link(__('New Chat'), array('action' => 'add'), array('class' => '')); ?></li>							</ul><!-- /.list-group -->
-			
-		</div><!-- /.actions -->
-		
-	</div><!-- /#sidebar .col-sm-3 -->
-	
-	<div id="page-content" class="col-sm-9">
+	<div id="page-content">
 
 		<div class="chats index">
 		
@@ -42,9 +31,8 @@
 		<td><?php echo h($chat['Chat']['race']); ?>&nbsp;</td>
 		<td><?php echo h($chat['Chat']['couleur']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs')); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs')); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', $chat['Chat']['id'])); ?>
+			<?php echo $this->Html->link(__('Ouvrir'), array('action' => 'view', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs')); ?>
+			<?php echo $this->Html->link(__('Modifier'), array('action' => 'edit', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs')); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -66,6 +54,8 @@
 		echo $this->Paginator->next(__('Next') . ' >', array('tag' => 'li'), null, array('class' => 'disabled', 'tag' => 'li', 'disabledTag' => 'a'));
 	?>
 			</ul><!-- /.pagination -->
+			<ul class="pagination">
+				<li class=""><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span> Nouveau Chat'), array('action' => 'add'), array('class' => '', 'escape' => FALSE)); ?></li>			</ul>
 			
 		</div><!-- /.index -->
 	

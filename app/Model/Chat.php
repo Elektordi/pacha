@@ -7,10 +7,20 @@ App::uses('AppModel', 'Model');
 class Chat extends AppModel {
 
 /**
- * Display field
+ * Validation rules
  *
- * @var string
+ * @var array
  */
-	public $displayField = 'nom';
-
+	public $validate = array(
+		'nom' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+	);
 }
