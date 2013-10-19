@@ -16,7 +16,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-$cakeDescription = __d('cake_dev', 'PACHA: Plateforme d\'Accompagnement des CHAts');
+$cakeDescription = __d('cake_dev', 'PACHA');
 ?>
 <?php echo $this->Html->docType('html5'); ?> 
 <html>
@@ -63,7 +63,9 @@ $cakeDescription = __d('cake_dev', 'PACHA: Plateforme d\'Accompagnement des CHAt
 			<br/>
 			
 			<div id="footer" class="container">
-				<?php //Silence is golden ?>
+				<p class="text-right">
+					<?php echo $this->element('cat'); ?>
+				</p>
 			</div><!-- /#footer .container -->
 			
 		</div><!-- /#main-container -->

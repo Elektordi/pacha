@@ -23,8 +23,7 @@ $cakeDescription = __d('cake_dev', 'PACHA: Plateforme d\'Accompagnement des CHAt
 	<head>
 		<?php echo $this->Html->charset(); ?>
 		<title>
-			<?php echo $cakeDescription ?>:
-			<?php echo $title_for_layout; ?>
+			<?php echo $cakeDescription ?>
 		</title>
 		<?php
 			echo $this->Html->meta('icon');
@@ -90,14 +89,10 @@ $cakeDescription = __d('cake_dev', 'PACHA: Plateforme d\'Accompagnement des CHAt
 	<body>
 			
 			<div class="container">
-				<h1 class="text-center"><b>É</b>cole du <b>C</b>hat <b>L</b>ibre <b>V</b>als d'<b>Y</b>erre et de <b>S</b>eine</h1>
-				<h2 class="text-center"><b>P</b>lateforme d'<b>A</b>ccompagnement des <b>CHA</b>ts</h2>
+				<?php echo $this->Session->flash(); ?>
 			</div>
 			
-			<div class="jumbotron container">
-				<?php echo $this->Session->flash(); ?>
-				<?php echo $this->fetch('content'); ?>
-			</div><!-- /#content .container -->
+			<?php echo $this->fetch('content'); ?>
 		
 	</body>
 
