@@ -31,6 +31,8 @@ if(empty($img)) {
 		$img = 'cage';
 	} elseif($ctrl == 'users') {
 		$img = 'poo';
+	} elseif($ctrl == 'search') {
+		$img = 'slippers';
 	} else {
 		return;
 	}
