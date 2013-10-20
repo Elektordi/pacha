@@ -1,5 +1,5 @@
 <div class="container">
-	<h1 class="text-center"><b>É</b>cole du <b>C</b>hat <b>L</b>ibre - <b>V</b>als d'<b>Y</b>erre et de <b>S</b>eine</h1>
+	<h1 class="text-center"><b>É</b>cole du <b>C</b>hat <b>L</b>ibre - <b>V</b>als d'<b>Y</b>erres et de <b>S</b>eine</h1>
 	<h2 class="text-center"><b>P</b>lateforme d'<b>A</b>ccompagnement des <b>CHA</b>ts</h2>
 </div>
 

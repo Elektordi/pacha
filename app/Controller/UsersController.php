@@ -116,13 +116,17 @@ class UsersController extends AppController {
 
 	
     public function login() {
+        if($this->Auth->loggedIn()) {
+            $this->redirect('/'); // Évite la faille permettant de générer le cookie à postériori
+        }
+    
         $this->layout = 'guest';
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
             
                 if (isset($this->request->data['remember_me'])) {
                     $this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
-                    $this->Cookie->write('remember_me_cookie', $this->request->data['User'], true, '2 weeks');
+                    $this->Cookie->write('remember_me_cookie', $this->request->data['User'], true, '4 weeks');
                 }
             
                 $this->Session->setFlash(__('Connexion réussie. Bonjour '.$this->Auth->user('username').' !'), 'flash/success');
