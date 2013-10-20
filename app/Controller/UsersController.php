@@ -15,6 +15,13 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator');
 
+
+
+    public function beforeRender() {
+        $this->set('levels', $this->levels);
+        parent::beforeRender();
+    }
+
 /**
  * index method
  *
@@ -112,7 +119,13 @@ class UsersController extends AppController {
         $this->layout = 'guest';
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                $this->Session->setFlash(__('Connexion à l\'application réussie.'), 'flash/success');
+            
+                if (isset($this->request->data['remember_me'])) {
+                    $this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
+                    $this->Cookie->write('remember_me_cookie', $this->request->data['User'], true, '2 weeks');
+                }
+            
+                $this->Session->setFlash(__('Connexion réussie. Bonjour '.$this->Auth->user('username').' !'), 'flash/success');
                 return $this->redirect($this->Auth->redirect());
             } else {
                 $this->Session->setFlash(__('Identifiant ou mot de passe invalide, réessayez.'), 'flash/error');
@@ -122,6 +135,7 @@ class UsersController extends AppController {
 
     public function logout() {
         $this->Session->setFlash(__('Vous avez été déconnecté de l\'application.'), 'flash/success');
+        $this->Cookie->delete('remember_me_cookie');
         return $this->redirect($this->Auth->logout());
     }
     

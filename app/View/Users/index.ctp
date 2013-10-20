@@ -13,7 +13,6 @@
 						<tr>
 															<th><?php echo $this->Paginator->sort('id'); ?></th>
 															<th><?php echo $this->Paginator->sort('username'); ?></th>
-															<th><?php echo $this->Paginator->sort('password'); ?></th>
 															<th><?php echo $this->Paginator->sort('initiales'); ?></th>
 															<th><?php echo $this->Paginator->sort('level'); ?></th>
 															<th class="actions"><?php echo __('Actions'); ?></th>
@@ -25,9 +24,8 @@
 	<tr>
 		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['initiales']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['level']); ?>&nbsp;</td>
+		<td><?php echo h($levels[$user['User']['level']]); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ouvrir'), array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-default btn-xs')); ?>
 			<?php echo $this->Html->link(__('Modifier'), array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-default btn-xs')); ?>

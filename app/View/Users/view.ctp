@@ -36,11 +36,6 @@
 			<?php echo h($user['User']['username']); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Password'); ?></strong></td>
-		<td>
-			<?php echo h($user['User']['password']); ?>
-			&nbsp;
-		</td>
 </tr><tr>		<td><strong><?php echo __('Initiales'); ?></strong></td>
 		<td>
 			<?php echo h($user['User']['initiales']); ?>
@@ -48,7 +43,7 @@
 		</td>
 </tr><tr>		<td><strong><?php echo __('Level'); ?></strong></td>
 		<td>
-			<?php echo h($user['User']['level']); ?>
+			<?php echo h($levels[$user['User']['level']].' ('.$user['User']['level'].')'); ?>
 			&nbsp;
 		</td>
 </tr>					</tbody>

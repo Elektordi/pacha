@@ -44,7 +44,7 @@ class User extends AppModel {
 		),
 		'level' => array(
 			'numeric' => array(
-				'rule' => array('numeric'),
+				'rule' => array('range',0,10),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

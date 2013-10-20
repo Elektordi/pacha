@@ -13,7 +13,7 @@
 		<input name="data[User][username]" type="text" class="form-control" placeholder="Identifiant" autofocus>
 		<input name="data[User][password]" type="password" class="form-control" placeholder="Mot de passe">
 		<label class="checkbox">
-		  <input name="remember" type="checkbox" value="1"> Se souvenir de moi
+		  <input name="data[remember_me]" type="checkbox" value="1"> Se connecter automatiquement
 		</label>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
 	</form>

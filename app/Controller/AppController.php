@@ -33,16 +33,49 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
+    public $levels = array(
+        1 => 'Lecture seule',
+        5 => 'Accès simplifié',
+        7 => 'Accès complet',
+        9 => 'Super-administrateur'
+    );
+
     public $components = array(
         'Session',
         'Auth' => array(
             'loginRedirect' => '/',
             'logoutRedirect' => '/',
             'authorize' => array('Controller')
+        ),
+        'Cookie' => array(
+            'key' => 'vKh5SYhHDzZ99cA1m19SDgwbNfgpLBUM8ZtVAf06pLiEp2gTwT31KEhrWbXnMZ5w',
+            'httpOnly' => true
         )
     );
+    
+    public $uses = array('User');
 
     public function beforeFilter() {
+
+        if (!$this->Auth->loggedIn() && $this->Cookie->read('remember_me_cookie')) {
+            $cookie = $this->Cookie->read('remember_me_cookie');
+
+            $user = $this->User->find('first', array(
+                'conditions' => array(
+                    'User.username' => $cookie['username'],
+                    'User.password' => $cookie['password']
+                )
+            ));
+
+            if ($user) {
+                if($this->Auth->login($user)) {
+                    $this->Session->setFlash(__('Reconnexion automatique réussie. Bonjour '.$this->Auth->user('username').' !'), 'flash/success');
+                } else {
+                    $this->redirect('/users/logout');
+                }
+            }
+        }
+    
         $this->Auth->allow('users', 'login');
         //$this->set('authuser', $this->Auth->user);
     }
