@@ -1,4 +1,4 @@
-<div class="alert alert-danger">
+<div class="alert alert-warning">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<?php echo $message ?>
-</div><!-- /.alert alert-danger -->
+</div><!-- /.alert alert-warning -->

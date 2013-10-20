@@ -26,7 +26,7 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestion <b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><?php echo $this->Html->Link('Familles d\'accueil', '/familles'); ?></li>
-					<li><?php echo $this->Html->Link('Comptes utilisateurs', '/users'); ?></li>
+					<li><?php echo $this->Html->Link('Comptes utilisateurs', '/admins'); ?></li>
 					<li class="divider"></li>
 					<li><?php echo $this->Html->Link('A propos de...', '/pages/about'); ?></li>
 				</ul>
@@ -41,8 +41,8 @@
     </form>
     
     <ul class="nav navbar-nav navbar-right">
-    	<li><?php echo $this->Html->Link('<span class="glyphicon glyphicon-user"></span> GG', '/profile', array('escape'=>FALSE)); ?></li>
-	    <li><?php echo $this->Html->Link('<span class="glyphicon glyphicon-remove"></span> Déconnexion', '/auth/logout', array('escape'=>FALSE)); ?></li>
+    	<li><?php echo $this->Html->Link('<span class="glyphicon glyphicon-user"></span> '.$session->read('Auth.User.initiales'), '/users/profile', array('escape'=>FALSE)); ?></li>
+	    <li><?php echo $this->Html->Link('<span class="glyphicon glyphicon-remove"></span> Déconnexion', '/users/logout', array('escape'=>FALSE)); ?></li>
     </ul>
 	</div><!-- /.navbar-collapse -->
 </nav><!-- /.navbar navbar-default -->

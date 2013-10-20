@@ -8,12 +8,12 @@
 </div>
 
 <div class="container">
-	<form class="form-signin">
+	<form class="form-signin" method="post">
 		<h2 class="form-signin-heading text-center">Identifiez-vous:</h2>
-		<input type="text" class="form-control" placeholder="Identifiant" autofocus>
-		<input type="password" class="form-control" placeholder="Mot de passe">
+		<input name="data[User][username]" type="text" class="form-control" placeholder="Identifiant" autofocus>
+		<input name="data[User][password]" type="password" class="form-control" placeholder="Mot de passe">
 		<label class="checkbox">
-		  <input type="checkbox" value="remember-me"> Se souvenir de moi
+		  <input name="remember" type="checkbox" value="1"> Se souvenir de moi
 		</label>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
 	</form>

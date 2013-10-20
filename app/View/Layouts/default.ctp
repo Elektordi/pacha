@@ -50,7 +50,7 @@ $cakeDescription = __d('cake_dev', 'PACHA');
 		<div id="main-container">
 		
 			<div id="header" class="container">
-				<?php echo $this->element('menu/top_menu'); ?>
+				<?php echo $this->element('menu/top_menu', array('session'=>$this->Session)); ?>
 			</div><!-- /#header .container -->
 			
 			<br/><br/>
