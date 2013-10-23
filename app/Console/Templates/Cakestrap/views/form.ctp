@@ -30,7 +30,6 @@
                                         <?php if (strpos($action, 'add') === false) { ?>
                                         <div class="btn-group">
                                             <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-file\"></span> '.__('Retour fiche " . $singularHumanName . "'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
-                                            <?php echo "<?php echo \$this->Form->postLink('<span class=\"glyphicon glyphicon-remove\"></span> '.__('Supprimer " . $singularHumanName . "'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>"; ?>
                                         </div>
                                         <?php } ?>
                                         <div class="btn-group">
