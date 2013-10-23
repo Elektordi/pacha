@@ -79,6 +79,7 @@ class ChatsController extends AppController {
 		} else {
 			$options = array('conditions' => array('Chat.' . $this->Chat->primaryKey => $id));
 			$this->request->data = $this->Chat->find('first', $options);
+                        $this->set('chat', $this->request->data);
 		}
 	}
 

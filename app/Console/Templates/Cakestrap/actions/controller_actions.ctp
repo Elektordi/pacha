@@ -111,6 +111,7 @@
 		} else {
 			$options = array('conditions' => array('<?php echo $currentModelName; ?>.' . $this-><?php echo $currentModelName; ?>->primaryKey => $id));
 			$this->request->data = $this-><?php echo $currentModelName; ?>->find('first', $options);
+                        $this->set('<?php echo $singularName; ?>', $this->request->data);
 		}
 <?php
 		foreach (array('belongsTo', 'hasAndBelongsToMany') as $assoc):

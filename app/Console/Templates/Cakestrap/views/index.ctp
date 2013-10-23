@@ -19,36 +19,13 @@
 
 <div id="page-container" class="row">
 
-<? /*
-	<div id="sidebar" class="col-sm-3">
-		
-		<div class="actions">
-		
-			<ul class="list-group">
-				<?php 
-					$done = array();
-					foreach ($associations as $type => $data) {
-						foreach ($data as $alias => $details) {
-							if ($details['controller'] != $this->name && !in_array($details['controller'], $done)) {
-								echo "\t\t<li class=\"list-group-item\"><?php echo \$this->Html->link(__('List " . Inflector::humanize($details['controller']) . "'), array('controller' => '{$details['controller']}', 'action' => 'index'), array('class' => '')); ?></li> \n";
-								echo "\t\t<li class=\"list-group-item\"><?php echo \$this->Html->link(__('New " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add'), array('class' => '')); ?></li> \n";
-								$done[] = $details['controller'];
-							}
-						}
-					} 
-				?>
-			</ul><!-- /.list-group -->
-			
-		</div><!-- /.actions -->
-		
-	</div><!-- /#sidebar .col-sm-3 -->
-	
-	<div id="page-content" class="col-sm-9">
-*/ ?>
 	<div id="page-content">
 
 		<div class="<?php echo $pluralVar; ?> index">
 		
+                        <div class="btn-group pull-right">
+                                <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus\"></span> '.__('Nouveau " . $singularHumanName . "'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
+                        </div>
 			<h2><?php echo "<?php echo __('{$pluralHumanName}'); ?>"; ?></h2>
 			
 			<div class="table-responsive">
@@ -83,8 +60,8 @@
 							}
 
 							echo "\t\t<td class=\"actions\">\n";
-							echo "\t\t\t<?php echo \$this->Html->link(__('Ouvrir'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
-							echo "\t\t\t<?php echo \$this->Html->link(__('Modifier'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
+							echo "\t\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-file\"></span> '.__('Fiche'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
+							echo "\t\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-edit\"></span> '.__('Modifier'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
 							/*echo "\t\t\t<?php echo \$this->Form->postLink(__('Effacer'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";*/
 							echo "\t\t</td>\n";
 						echo "\t</tr>\n";
@@ -106,15 +83,12 @@
 			<ul class="pagination">
 				<?php
 					echo "<?php\n";
-					echo "\t\techo \$this->Paginator->prev('< ' . __('Previous'), array('tag' => 'li'), null, array('class' => 'disabled', 'tag' => 'li', 'disabledTag' => 'a'));\n";
+					echo "\t\techo \$this->Paginator->prev('< ' . __('Page précédente'), array('tag' => 'li'), null, array('class' => 'disabled', 'tag' => 'li', 'disabledTag' => 'a'));\n";
 					echo "\t\techo \$this->Paginator->numbers(array('separator' => '', 'currentTag' => 'a', 'tag' => 'li', 'currentClass' => 'disabled'));\n";
-					echo "\t\techo \$this->Paginator->next(__('Next') . ' >', array('tag' => 'li'), null, array('class' => 'disabled', 'tag' => 'li', 'disabledTag' => 'a'));\n";
+					echo "\t\techo \$this->Paginator->next(__('Page suivante') . ' >', array('tag' => 'li'), null, array('class' => 'disabled', 'tag' => 'li', 'disabledTag' => 'a'));\n";
 					echo "\t?>\n";
 				?>
 			</ul><!-- /.pagination -->
-			<ul class="pagination">
-				<?php echo "<li class=\"\"><?php echo \$this->Html->link(__('<span class=\"glyphicon glyphicon-plus\"></span> Nouveau " . $singularHumanName . "'), array('action' => 'add'), array('class' => '', 'escape' => FALSE)); ?></li>"; ?>
-			</ul>
 			
 		</div><!-- /.index -->
 	

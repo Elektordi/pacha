@@ -18,41 +18,27 @@
 ?>
 
 <div id="page-container" class="row">
-
-	<div id="sidebar" class="col-sm-3">
-		
-		<div class="actions">
-		
-			<ul class="list-group">
-				<?php if (strpos($action, 'add') === false): ?>
-						<li class="list-group-item"><?php echo "<?php echo \$this->Form->postLink(__('Effacer'), array('action' => 'delete', \$this->Form->value('{$modelClass}.{$primaryKey}')), null, __('Are you sure you want to delete # %s?', \$this->Form->value('{$modelClass}.{$primaryKey}'))); ?>"; ?></li>
-				<?php endif; ?>
-						<li class="list-group-item"><?php echo "<?php echo \$this->Html->link(__('List " . $pluralHumanName . "'), array('action' => 'index')); ?>"; ?></li>
-				<?php
-						$done = array();
-						foreach ($associations as $type => $data) {
-							foreach ($data as $alias => $details) {
-								if ($details['controller'] != $this->name && !in_array($details['controller'], $done)) {
-									echo "\t\t<li class=\"list-group-item\"><?php echo \$this->Html->link(__('List " . Inflector::humanize($details['controller']) . "'), array('controller' => '{$details['controller']}', 'action' => 'index')); ?> </li>\n";
-									echo "\t\t<li class=\"list-group-item\"><?php echo \$this->Html->link(__('New " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add')); ?> </li>\n";
-									$done[] = $details['controller'];
-								}
-							}
-						}
-				?>
-			</ul><!-- /.list-group -->
-		
-		</div><!-- /.actions -->
-		
-	</div><!-- /#sidebar .col-sm-3 -->
 	
-	<div id="page-content" class="col-sm-9">
-
+	<div id="page-content">
 		<div class="<?php echo $pluralVar; ?> form">
-		
+                    
+                    		
 			<?php echo "<?php echo \$this->Form->create('{$modelClass}', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>\n"; ?>
 				<fieldset>
-					<h2><?php printf("<?php echo __('%s %s'); ?>", Inflector::humanize($action), $singularHumanName); ?></h2>
+
+                                    <div class="btn-toolbar pull-right">
+                                        <?php if (strpos($action, 'add') === false) { ?>
+                                        <div class="btn-group">
+                                            <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-file\"></span> '.__('Retour fiche " . $singularHumanName . "'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
+                                            <?php echo "<?php echo \$this->Form->postLink('<span class=\"glyphicon glyphicon-remove\"></span> '.__('Supprimer " . $singularHumanName . "'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>"; ?>
+                                        </div>
+                                        <?php } ?>
+                                        <div class="btn-group">
+                                            <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-list\"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
+                                        </div>
+                                    </div>
+                    
+                                    <h2><?php echo "<?php  echo __('Modifier {$singularHumanName}'); ?>"; ?>: XXX</h2>
 			<?php
 				foreach ($fields as $field) {
 					if (strpos($action, 'add') !== false && $field == $primaryKey) {
@@ -73,7 +59,7 @@
 			?>
 				</fieldset>
 			<?php
-				echo "<?php echo \$this->Form->submit('Submit', array('class' => 'btn btn-large btn-primary')); ?>\n";
+				echo "<?php echo \$this->Form->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>\n";
 				echo "<?php echo \$this->Form->end(); ?>\n";
 			?>
 			

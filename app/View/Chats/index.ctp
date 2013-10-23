@@ -5,6 +5,8 @@
 
 		<div class="chats index">
 		
+                        <div class="btn-group pull-right">
+                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Nouveau Chat'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
 			<h2><?php echo __('Chats'); ?></h2>
 			
 			<div class="table-responsive">
@@ -31,8 +33,8 @@
 		<td><?php echo h($chat['Chat']['race']); ?>&nbsp;</td>
 		<td><?php echo h($chat['Chat']['couleur']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('Ouvrir'), array('action' => 'view', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs')); ?>
-			<?php echo $this->Html->link(__('Modifier'), array('action' => 'edit', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs')); ?>
+			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -49,13 +51,11 @@
 
 			<ul class="pagination">
 				<?php
-		echo $this->Paginator->prev('< ' . __('Previous'), array('tag' => 'li'), null, array('class' => 'disabled', 'tag' => 'li', 'disabledTag' => 'a'));
+		echo $this->Paginator->prev('< ' . __('Page précédente'), array('tag' => 'li'), null, array('class' => 'disabled', 'tag' => 'li', 'disabledTag' => 'a'));
 		echo $this->Paginator->numbers(array('separator' => '', 'currentTag' => 'a', 'tag' => 'li', 'currentClass' => 'disabled'));
-		echo $this->Paginator->next(__('Next') . ' >', array('tag' => 'li'), null, array('class' => 'disabled', 'tag' => 'li', 'disabledTag' => 'a'));
+		echo $this->Paginator->next(__('Page suivante') . ' >', array('tag' => 'li'), null, array('class' => 'disabled', 'tag' => 'li', 'disabledTag' => 'a'));
 	?>
 			</ul><!-- /.pagination -->
-			<ul class="pagination">
-				<li class=""><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span> Nouveau Chat'), array('action' => 'add'), array('class' => '', 'escape' => FALSE)); ?></li>			</ul>
 			
 		</div><!-- /.index -->
 	

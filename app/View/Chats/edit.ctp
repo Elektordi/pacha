@@ -1,26 +1,21 @@
 
 <div id="page-container" class="row">
-
-	<div id="sidebar" class="col-sm-3">
-		
-		<div class="actions">
-		
-			<ul class="list-group">
-										<li class="list-group-item"><?php echo $this->Form->postLink(__('Effacer'), array('action' => 'delete', $this->Form->value('Chat.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Chat.id'))); ?></li>
-										<li class="list-group-item"><?php echo $this->Html->link(__('List Chats'), array('action' => 'index')); ?></li>
-							</ul><!-- /.list-group -->
-		
-		</div><!-- /.actions -->
-		
-	</div><!-- /#sidebar .col-sm-3 -->
 	
-	<div id="page-content" class="col-sm-9">
-
+	<div id="page-content">
 		<div class="chats form">
-		
+                    
+                    		
 			<?php echo $this->Form->create('Chat', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
 				<fieldset>
-					<h2><?php echo __('Edit Chat'); ?></h2>
+
+                                    <div class="btn-toolbar pull-right">
+                                                                                <div class="btn-group">
+                                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Retour fiche Chat'), array('action' => 'view', $chat['Chat']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> '.__('Supprimer Chat'), array('action' => 'delete', $chat['Chat']['id']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', $chat['Chat']['id'])); ?>                                        </div>
+                                                                                <div class="btn-group">
+                                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                        </div>
+                                    </div>
+                    
+                                    <h2><?php  echo __('Modifier Chat'); ?>: XXX</h2>
 			<div class="form-group">
 	<?php echo $this->Form->label('id', 'id');?>
 		<?php echo $this->Form->input('id', array('class' => 'form-control')); ?>
@@ -52,7 +47,7 @@
 </div><!-- .form-group -->
 
 				</fieldset>
-			<?php echo $this->Form->submit('Submit', array('class' => 'btn btn-large btn-primary')); ?>
+			<?php echo $this->Form->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
 <?php echo $this->Form->end(); ?>
 			
 		</div><!-- /.form -->

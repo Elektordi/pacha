@@ -1,27 +1,17 @@
 
 <div id="page-container" class="row">
-
-	<div id="sidebar" class="col-sm-3">
-		
-		<div class="actions">
-			
-			<ul class="list-group">			
-						<li class="list-group-item"><?php echo $this->Html->link(__('Edit Chat'), array('action' => 'edit', $chat['Chat']['id']), array('class' => '')); ?> </li>
-		<li class="list-group-item"><?php echo $this->Form->postLink(__('Delete Chat'), array('action' => 'delete', $chat['Chat']['id']), array('class' => ''), __('Are you sure you want to delete # %s?', $chat['Chat']['id'])); ?> </li>
-		<li class="list-group-item"><?php echo $this->Html->link(__('List Chats'), array('action' => 'index'), array('class' => '')); ?> </li>
-		<li class="list-group-item"><?php echo $this->Html->link(__('New Chat'), array('action' => 'add'), array('class' => '')); ?> </li>
-				
-			</ul><!-- /.list-group -->
-			
-		</div><!-- /.actions -->
-		
-	</div><!-- /#sidebar .span3 -->
 	
-	<div id="page-content" class="col-sm-9">
+	<div id="page-content">
 		
 		<div class="chats view">
 
-			<h2><?php  echo __('Chat'); ?></h2>
+                    <div class="btn-toolbar pull-right">
+                        <div class="btn-group">
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier Chat'), array('action' => 'edit', $chat['Chat']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> '.__('Supprimer Chat'), array('action' => 'delete', $chat['Chat']['id']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', $chat['Chat']['id'])); ?>                        </div>
+                        <div class="btn-group">
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+                    </div>
+                    <h2><?php  echo __('Fiche Chat'); ?>: XXX</h2>
 			
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
