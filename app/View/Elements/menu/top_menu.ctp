@@ -16,9 +16,9 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Suivi médical <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><?php echo $this->Html->Link('Vaccinations', '/sante?type=v'); ?></li>
+					<li><?php echo $this->Html->Link('Vaccination', '/sante?type=v'); ?></li>
 					<li><?php echo $this->Html->Link('Stérilisation', '/sante?type=s'); ?></li>
-					<li><?php echo $this->Html->Link('Pucage', '/sante?type=p'); ?></li>
+					<li><?php echo $this->Html->Link('Identification', '/sante?type=i'); ?></li>
 					<li><?php echo $this->Html->Link('Divers', '/sante?type=x'); ?></li>
 				</ul>
 			</li>
