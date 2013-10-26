@@ -69,7 +69,7 @@ class AppController extends Controller {
 
             if ($user) {
                 if($this->Auth->login($user['User'])) {
-                    $this->Session->setFlash(__('Reconnexion automatique réussie. Bonjour '.$this->Auth->user('username').' !'), 'flash/success');
+                    $this->loginSuccessFlash("Reconnexion automatique");
                 } else {
                     $this->redirect('/users/logout');
                 }
@@ -78,6 +78,28 @@ class AppController extends Controller {
     
         $this->Auth->allow('users', 'login');
         //$this->set('authuser', $this->Auth->user);
+    }
+    
+    public function loginSuccessFlash($action = "Connexion") {
+        $h = date('H');
+        if($h>=0 && $h<4) {
+            $prefix = "Bonsoir";
+            $suffix = "Encore debout ?";
+        } elseif ($h>=4 && $h<7) {
+            $prefix = "Bonjour";
+            $suffix = "Déjà debout ?";
+        } elseif ($h>=7 && $h<12) {
+            $prefix = "Bonjour";
+            $suffix = "Passez une bonne journée...";
+        } elseif ($h>=12 && $h<20) {
+            $prefix = "Bonjour";
+            $suffix = "Je peux vous aider ?";
+        } elseif ($h>=20) {
+            $prefix = "Bonsoir";
+            $suffix = "Passez une bonne soirée...";
+        }
+        
+        $this->Session->setFlash(__($action.' réussie. '.$prefix.' '.$this->Auth->user('initiales').' ! '.$suffix), 'flash/success');
     }
     
     public function isAuthorized($user) {

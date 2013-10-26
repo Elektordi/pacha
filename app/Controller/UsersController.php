@@ -129,16 +129,16 @@ class UsersController extends AppController {
                     $this->Cookie->write('remember_me_cookie', $this->request->data['User'], true, '4 weeks');
                 }
             
-                $this->Session->setFlash(__('Connexion réussie. Bonjour '.$this->Auth->user('username').' !'), 'flash/success');
+                $this->loginSuccessFlash();
                 return $this->redirect($this->Auth->redirect());
             } else {
-                $this->Session->setFlash(__('Identifiant ou mot de passe invalide, réessayez.'), 'flash/error');
+                $this->Session->setFlash(__('Identifiant ou mot de passe invalide, veuillez réessayer.'), 'flash/error');
             }
         }
     }
 
     public function logout() {
-        $this->Session->setFlash(__('Vous avez été déconnecté de l\'application.'), 'flash/success');
+        $this->Session->setFlash(__('Vous avez été déconnecté de l\'application... A bientôt !'), 'flash/success');
         $this->Cookie->delete('remember_me_cookie');
         return $this->redirect($this->Auth->logout());
     }
