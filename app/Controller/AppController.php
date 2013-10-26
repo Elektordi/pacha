@@ -68,7 +68,7 @@ class AppController extends Controller {
             ));
 
             if ($user) {
-                if($this->Auth->login($user)) {
+                if($this->Auth->login($user['User'])) {
                     $this->Session->setFlash(__('Reconnexion automatique réussie. Bonjour '.$this->Auth->user('username').' !'), 'flash/success');
                 } else {
                     $this->redirect('/users/logout');
