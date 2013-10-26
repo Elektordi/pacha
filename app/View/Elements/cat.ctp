@@ -13,6 +13,8 @@ if(empty($img)) {
 		} elseif($page=='about') {
 			$img = 'random';
 		}
+	} elseif($ctrl == 'homepage') {
+		$img = 'sing';
 	} elseif($ctrl == 'chats') {
 		if($action == 'index') {
 			$img = 'sleep';
