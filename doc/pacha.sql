@@ -49,12 +49,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `initiales` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
   `level` tinyint(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `initiales`, `level`) VALUES
-(1, 'Elektordi', '7ad675118e733735bc63900962d2c24f306f37d6', 'GG', 9),
-(2, 'test', '7ad675118e733735bc63900962d2c24f306f37d6', 'TEST', 1);
+(1, 'admin', MD5('admin'), 'ADMIN', 9);
