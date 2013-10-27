@@ -48,7 +48,7 @@ class AppController extends Controller {
             'authorize' => array('Controller')
         ),
         'Cookie' => array(
-            'key' => 'vKh5SYhHDzZ99cA1m19SDgwbNfgpLBUM8ZtVAf06pLiEp2gTwT31KEhrWbXnMZ5w',
+            //'key' => Configure::read('Cookie.SecurityKey'),
             'httpOnly' => true
         )
     );
@@ -56,6 +56,8 @@ class AppController extends Controller {
     public $uses = array('User');
 
     public function beforeFilter() {
+
+	$this->Cookie->key = Configure::read('Cookie.SecurityKey');
 
         if (!$this->Auth->loggedIn() && $this->Cookie->read('remember_me_cookie')) {
             $cookie = $this->Cookie->read('remember_me_cookie');

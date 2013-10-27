@@ -21,7 +21,12 @@ Sécurité
 
 Conseils de sécurité:
 * Changez immédiatement l'identifiant et le mot de passe administrateur
+* Modifiez immédiatement les clés de sécurité dans app/Config/core.php
+	* Security.salt (au moins 50 caractères)
+	* Security.cipherSeed (au moins 30 chiffres)
+	* Cookie.SecurityKey (plus de 32 caractères)
 * Si vous disposez de votre propre vhost apache, il faut mieux faire pointer celui-ci vers app/webroot/
+* Pour une utilisation en production, mettez le niveau de débug à 0 (dans app/Config/core.php)
 
 Bugs
 ====
