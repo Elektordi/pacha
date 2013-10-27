@@ -41,7 +41,9 @@
 		<td><?php echo h($chat['Chat']['sexe']); ?>&nbsp;</td>
 		<td><?php echo h($chat['Chat']['etat']); ?>&nbsp;</td>
 		<td><?php echo h($chat['Chat']['deces']); ?>&nbsp;</td>
-		<td><?php echo h($chat['Chat']['accueil_id']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($chat['Accueil']['id'], array('controller' => 'accueils', 'action' => 'view', $chat['Accueil']['id'])); ?>
+		</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
@@ -55,7 +57,7 @@
 			<p><small>
 				<?php
 				echo $this->Paginator->counter(array(
-				'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+				'format' => __('Page {:page} sur {:pages}, avec {:current} lignes affichés sur un total de {:count}, de la ligne {:start} à la ligne {:end}')
 				));
 				?>			</small></p>
 

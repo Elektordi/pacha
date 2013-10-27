@@ -14,6 +14,10 @@ class ChatsControllerTest extends ControllerTestCase {
  */
 	public $fixtures = array(
 		'app.chat',
+		'app.accueil',
+		'app.adoption',
+		'app.commentaire',
+		'app.soin',
 		'app.user'
 	);
 

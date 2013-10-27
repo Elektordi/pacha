@@ -15,6 +15,9 @@ class AccueilsControllerTest extends ControllerTestCase {
 	public $fixtures = array(
 		'app.accueil',
 		'app.chat',
+		'app.adoption',
+		'app.commentaire',
+		'app.soin',
 		'app.user'
 	);
 
