@@ -26,6 +26,11 @@
 			<?php echo h($chat['Chat']['nom']); ?>
 			&nbsp;
 		</td>
+</tr><tr>		<td><strong><?php echo __('Nom2'); ?></strong></td>
+		<td>
+			<?php echo h($chat['Chat']['nom2']); ?>
+			&nbsp;
+		</td>
 </tr><tr>		<td><strong><?php echo __('Naissance'); ?></strong></td>
 		<td>
 			<?php echo h($chat['Chat']['naissance']); ?>
@@ -41,9 +46,29 @@
 			<?php echo h($chat['Chat']['race']); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Couleur'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Robe'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['couleur']); ?>
+			<?php echo h($chat['Chat']['robe']); ?>
+			&nbsp;
+		</td>
+</tr><tr>		<td><strong><?php echo __('Sexe'); ?></strong></td>
+		<td>
+			<?php echo h($chat['Chat']['sexe']); ?>
+			&nbsp;
+		</td>
+</tr><tr>		<td><strong><?php echo __('Etat'); ?></strong></td>
+		<td>
+			<?php echo h($chat['Chat']['etat']); ?>
+			&nbsp;
+		</td>
+</tr><tr>		<td><strong><?php echo __('Deces'); ?></strong></td>
+		<td>
+			<?php echo h($chat['Chat']['deces']); ?>
+			&nbsp;
+		</td>
+</tr><tr>		<td><strong><?php echo __('Accueil Id'); ?></strong></td>
+		<td>
+			<?php echo h($chat['Chat']['accueil_id']); ?>
 			&nbsp;
 		</td>
 </tr>					</tbody>

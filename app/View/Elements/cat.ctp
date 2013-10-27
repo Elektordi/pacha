@@ -27,9 +27,9 @@ if(empty($img)) {
 		} 
 	} elseif($ctrl == 'adoptions') {
 		$img = 'box';
-	} elseif($ctrl == 'sante') {
+	} elseif($ctrl == 'soins') {
 		$img = 'eyes';
-	} elseif($ctrl == 'familles') {
+	} elseif($ctrl == 'accueils') {
 		$img = 'cage';
 	} elseif($ctrl == 'users') {
 		$img = 'poo';

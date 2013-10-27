@@ -27,6 +27,11 @@
 </div><!-- .form-group -->
 
 <div class="form-group">
+	<?php echo $this->Form->label('nom2', 'nom2');?>
+		<?php echo $this->Form->input('nom2', array('class' => 'form-control')); ?>
+</div><!-- .form-group -->
+
+<div class="form-group">
 	<?php echo $this->Form->label('naissance', 'naissance');?>
 		<?php echo $this->Form->input('naissance', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
@@ -42,8 +47,28 @@
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('couleur', 'couleur');?>
-		<?php echo $this->Form->input('couleur', array('class' => 'form-control')); ?>
+	<?php echo $this->Form->label('robe', 'robe');?>
+		<?php echo $this->Form->input('robe', array('class' => 'form-control')); ?>
+</div><!-- .form-group -->
+
+<div class="form-group">
+	<?php echo $this->Form->label('sexe', 'sexe');?>
+		<?php echo $this->Form->input('sexe', array('class' => 'form-control')); ?>
+</div><!-- .form-group -->
+
+<div class="form-group">
+	<?php echo $this->Form->label('etat', 'etat');?>
+		<?php echo $this->Form->input('etat', array('class' => 'form-control')); ?>
+</div><!-- .form-group -->
+
+<div class="form-group">
+	<?php echo $this->Form->label('deces', 'deces');?>
+		<?php echo $this->Form->input('deces', array('class' => 'form-control')); ?>
+</div><!-- .form-group -->
+
+<div class="form-group">
+	<?php echo $this->Form->label('accueil_id', 'accueil_id');?>
+		<?php echo $this->Form->input('accueil_id', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 				</fieldset>

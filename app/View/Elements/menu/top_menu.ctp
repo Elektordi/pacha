@@ -16,16 +16,18 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Suivi médical <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><?php echo $this->Html->Link('Vaccination', '/sante?type=v'); ?></li>
-					<li><?php echo $this->Html->Link('Stérilisation', '/sante?type=s'); ?></li>
-					<li><?php echo $this->Html->Link('Identification', '/sante?type=i'); ?></li>
-					<li><?php echo $this->Html->Link('Divers', '/sante?type=x'); ?></li>
+                                        <li><?php echo $this->Html->Link('Médicaments', '/soins?type=m'); ?></li>
+					<li><?php echo $this->Html->Link('Vaccination', '/soins?type=v'); ?></li>
+					<li><?php echo $this->Html->Link('Stérilisation', '/soins?type=s'); ?></li>
+					<li><?php echo $this->Html->Link('Identification', '/soins?type=i'); ?></li>
+                                        <li><?php echo $this->Html->Link('Test', '/soins?type=t'); ?></li>
+					<li><?php echo $this->Html->Link('Autre', '/soins?type=x'); ?></li>
 				</ul>
 			</li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestion <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><?php echo $this->Html->Link('Familles d\'accueil', '/familles'); ?></li>
+					<li><?php echo $this->Html->Link('Familles d\'accueil', '/accueils'); ?></li>
 					<li><?php echo $this->Html->Link('Comptes utilisateurs', '/users'); ?></li>
 					<li class="divider"></li>
 					<li><?php echo $this->Html->Link('A propos de...', '/pages/about'); ?></li>

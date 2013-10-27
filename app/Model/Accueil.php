@@ -1,14 +1,11 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Chat Model
+ * Accueil Model
  *
- * @property Accueil $Accueil
- * @property Adoption $Adoption
- * @property Commentaire $Commentaire
- * @property Soin $Soin
+ * @property Chat $Chat
  */
-class Chat extends AppModel {
+class Accueil extends AppModel {
 
 /**
  * Validation rules
@@ -26,7 +23,7 @@ class Chat extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'sexe' => array(
+		'adresse' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -36,19 +33,9 @@ class Chat extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'etat' => array(
+		'telephone1' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'accueil_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -61,55 +48,14 @@ class Chat extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * belongsTo associations
- *
- * @var array
- */
-	public $belongsTo = array(
-		'Accueil' => array(
-			'className' => 'Accueil',
-			'foreignKey' => 'accueil_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
-
-/**
  * hasMany associations
  *
  * @var array
  */
 	public $hasMany = array(
-		'Adoption' => array(
-			'className' => 'Adoption',
-			'foreignKey' => 'chat_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Commentaire' => array(
-			'className' => 'Commentaire',
-			'foreignKey' => 'chat_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Soin' => array(
-			'className' => 'Soin',
-			'foreignKey' => 'chat_id',
+		'Chat' => array(
+			'className' => 'Chat',
+			'foreignKey' => 'accueil_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
