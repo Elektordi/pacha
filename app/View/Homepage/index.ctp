@@ -32,7 +32,7 @@
                 <td><?php echo h($event['affectation']); ?>&nbsp;<?php if($event['affectation']==$user) echo '<span class="glyphicon glyphicon-flag"></span>'; ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche chat'), array('controller' => 'Chats','action' => 'view', $event['chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-exclamation-sign"></span> '.__('Plus d\'infos'), array('controller' => 'Chats','action' => 'view', $event['chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-exclamation-sign"></span> '.__('Plus d\'infos'), array('controller' => 'Rappels','action' => 'view', $event['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
                         <?php if($event['affectation']=="") echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span> '.__('M\'affecter'), array('controller' => 'Chats','action' => 'view', $event['chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 		</td>
 	</tr>

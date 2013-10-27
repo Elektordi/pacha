@@ -12,15 +12,17 @@ class EventHelper {
     
     static function getNextEvents() {
         
+        App::uses('Rappel', 'Model');
         App::uses('Chat', 'Model');
+        
         $day = 3600 * 24;
         $events = array();
-        
-        for($i = 0; $i<8; $i++) {
-            $options = array('conditions' => array('Chat.id' => 1));
-            $model = new Chat();
-            $chat = $model->find('first', $options);
-            $date = 1382904328+($day*$i);
+        $model = new Rappel();
+        $options = array('conditions' => array('Rappel.ok' => 0), 'order' => 'echeance ASC');
+        $rappels = $model->find('all', $options);
+        foreach($rappels as $rappel) {
+            
+            $date = strtotime($rappel['Rappel']['echeance']);
             $diff = floor($date / $day) - floor(time() / $day);
             $importance = "info"; // Importances: default, primary, success, info, warning, danger
             if(false) {
@@ -47,8 +49,13 @@ class EventHelper {
             } else {
                 $echeance = "$diff jours";
             }
-            $affecte = ($i==5)?'GG':'TT';
-            $events[] = array('date' => $date, 'chat' => $chat['Chat'], 'message' => 'Rappel de vaccin contre de Tétanos', 'importance' => $importance, 'echeance'=>$echeance, 'affectation'=>$affecte);
+            $events[] = array('date' => $date,
+                'chat' => $rappel['Chat'],
+                'message' => $rappel['Rappel']['texte'],
+                'importance' => $importance,
+                'echeance'=>$echeance,
+                'affectation'=>$rappel['Rappel']['affectation'],
+                'id'=>$rappel['Rappel']['id']);
         }
         return $events;
     }

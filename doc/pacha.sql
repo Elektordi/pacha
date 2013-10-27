@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Dim 27 Octobre 2013 à 02:02
+-- Généré le : Dim 27 Octobre 2013 à 13:05
 -- Version du serveur: 5.1.72
 -- Version de PHP: 5.3.2-1ubuntu4.21
 
@@ -113,6 +113,29 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
 INSERT INTO `commentaires` (`id`, `chat_id`, `date`, `auteur`, `texte`, `source`) VALUES
 (1, 1, '2013-10-27 00:00:00', 'GG', 'Test de commentaire', ''),
 (2, 2, '2013-03-04 00:00:00', 'JMG', 'Décès suite tumeurs', 'adoptions/view/1');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rappels`
+--
+
+CREATE TABLE IF NOT EXISTS `rappels` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `chat_id` int(11) NOT NULL,
+  `echeance` date NOT NULL,
+  `affectation` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
+  `texte` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `source` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `rappels`
+--
+
+INSERT INTO `rappels` (`id`, `chat_id`, `echeance`, `affectation`, `texte`, `source`) VALUES
+(1, 1, '2013-10-31', 'GG', 'Rappel de vaccin contre le Tétanos', 'soins/view/1');
 
 -- --------------------------------------------------------
 
