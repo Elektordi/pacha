@@ -8,16 +8,6 @@ App::uses('AppController', 'Controller');
  */
 class SoinsController extends AppController {
 
-    
-    public $types = array(
-        'm' => 'Médicament',
-        'v' => 'Vaccination',
-        's' => 'Stérilisation',
-        'i' => 'Identification',
-        't' => 'Test',
-        'x' => 'Autre'
-    );
-    
 /**
  * Components
  *

@@ -21,7 +21,7 @@
 															<th><?php echo $this->Paginator->sort('nature'); ?></th>
 															<th><?php echo $this->Paginator->sort('veterinaire'); ?></th>
 															<th><?php echo $this->Paginator->sort('montant'); ?></th>
-															<th class="actions"><?php echo __('Actions'); ?></th>
+															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
 					</thead>
 					<tbody>

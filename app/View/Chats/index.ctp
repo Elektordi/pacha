@@ -24,7 +24,7 @@
 															<th><?php echo $this->Paginator->sort('etat'); ?></th>
 															<th><?php echo $this->Paginator->sort('deces'); ?></th>
 															<th><?php echo $this->Paginator->sort('accueil_id'); ?></th>
-															<th class="actions"><?php echo __('Actions'); ?></th>
+															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
 					</thead>
 					<tbody>

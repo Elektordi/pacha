@@ -21,7 +21,7 @@
 	
 	<div id="page-content">
 		
-		<div class="<?php echo $pluralVar; ?> view">
+		<div class="<?php echo $pluralVar; ?> view content">
 
                     <div class="btn-toolbar pull-right">
                         <div class="btn-group">
@@ -66,11 +66,14 @@
 			
 		</div><!-- /.view -->
 
+                <div style="margin-top: 20px">&nbsp;</div>
+                
 		<?php
+                /* // Commenté par GG, pas utile pour l'instant
 		if (!empty($associations['hasOne'])) :
 			foreach ($associations['hasOne'] as $alias => $details): ?>
 				<div class="related">
-					<h3><?php echo "<?php echo __('Related " . Inflector::humanize($details['controller']) . "'); ?>"; ?></h3>
+					<h3><?php echo "<?php echo __('" . Inflector::humanize($details['controller']) . " lié:'); ?>"; ?></h3>
 					<?php echo "<?php if (!empty(\${$singularVar}['{$alias}'])): ?>\n"; ?>
 						<table class="table table-striped table-bordered">
 							<?php
@@ -90,6 +93,7 @@
 			<?php
 			endforeach;
 		endif;
+                 */
 
 		if (empty($associations['hasMany'])) {
 			$associations['hasMany'] = array();
@@ -102,11 +106,15 @@
 		foreach ($relations as $alias => $details):
 			$otherSingularVar = Inflector::variable($alias);
 			$otherPluralHumanName = Inflector::humanize($details['controller']);
+                        $fk = $details['foreignKey'];
 			?>
 			
-			<div class="related">
+			<div class="related" style="margin-top: 40px">
 
-				<h3><?php echo "<?php echo __('Related " . $otherPluralHumanName . "'); ?>"; ?></h3>
+                                <div class="btn-group btn-group-xs pull-right">
+                                    <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus\"></span> '.__('Créer " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
+                                </div>
+				<h3><?php echo "<?php echo __('" . $otherPluralHumanName . " liés:'); ?>"; ?></h3>
 				
 				<?php echo "<?php if (!empty(\${$singularVar}['{$alias}'])): ?>\n"; ?>
 					
@@ -114,12 +122,13 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-									<?php
+									<?php 
 										foreach ($details['fields'] as $field) {
+                                                                                        if($field==$fk) continue;
 											echo "\t\t<th><?php echo __('" . Inflector::humanize($field) . "'); ?></th>\n";
 										}
 									?>
-									<th class="actions"><?php echo "<?php echo __('Actions'); ?>"; ?></th>
+									<th class="actions col-md-2"><?php echo "<?php echo __('Actions'); ?>"; ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -129,13 +138,14 @@
 										foreach (\${$singularVar}['{$alias}'] as \${$otherSingularVar}): ?>\n";
 										echo "\t\t<tr>\n";
 											foreach ($details['fields'] as $field) {
-												echo "\t\t\t<td><?php echo \${$otherSingularVar}['{$field}']; ?></td>\n";
+                                                                                            if($field==$fk) continue;
+                                                                                            echo "\t\t\t<td><?php echo \${$otherSingularVar}['{$field}']; ?></td>\n";
 											}
 
 											echo "\t\t\t<td class=\"actions\">\n";
-											echo "\t\t\t\t<?php echo \$this->Html->link(__('View'), array('controller' => '{$details['controller']}', 'action' => 'view', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
-											echo "\t\t\t\t<?php echo \$this->Html->link(__('Edit'), array('controller' => '{$details['controller']}', 'action' => 'edit', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs')); ?>\n";
-											echo "\t\t\t\t<?php echo \$this->Form->postLink(__('Delete'), array('controller' => '{$details['controller']}', 'action' => 'delete', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', \${$otherSingularVar}['{$details['primaryKey']}'])); ?>\n";
+                                                                                        echo "\t\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-file\"></span> '.__('Fiche'), array('controller' => '{$details['controller']}', 'action' => 'view', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
+                                                                                        echo "\t\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-edit\"></span> '.__('Modifier'), array('controller' => '{$details['controller']}', 'action' => 'edit', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
+											/*echo "\t\t\t\t<?php echo \$this->Form->postLink(__('Delete'), array('controller' => '{$details['controller']}', 'action' => 'delete', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', \${$otherSingularVar}['{$details['primaryKey']}'])); ?>\n";*/
 											echo "\t\t\t</td>\n";
 										echo "\t\t</tr>\n";
 
@@ -146,10 +156,6 @@
 					</div><!-- /.table-responsive -->
 					
 				<?php echo "<?php endif; ?>\n\n"; ?>
-				
-				<div class="actions">
-					<?php echo "<?php echo \$this->Html->link('<i class=\"icon-plus icon-white\"></i> '.__('New " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false)); ?>"; ?>
-				</div><!-- /.actions -->
 				
 			</div><!-- /.related -->
 

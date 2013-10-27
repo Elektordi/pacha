@@ -35,7 +35,7 @@
 							<?php  foreach ($fields as $field): ?>
 								<th><?php echo "<?php echo \$this->Paginator->sort('{$field}'); ?>"; ?></th>
 							<?php endforeach; ?>
-								<th class="actions"><?php echo "<?php echo __('Actions'); ?>"; ?></th>
+								<th class="actions col-md-2"><?php echo "<?php echo __('Actions'); ?>"; ?></th>
 						</tr>
 					</thead>
 					<tbody>

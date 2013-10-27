@@ -3,7 +3,7 @@
 	
 	<div id="page-content">
 		
-		<div class="adoptions view">
+		<div class="adoptions view content">
 
                     <div class="btn-toolbar pull-right">
                         <div class="btn-group">
@@ -62,6 +62,8 @@
 			
 		</div><!-- /.view -->
 
+                <div style="margin-top: 20px">&nbsp;</div>
+                
 			
 	</div><!-- /#page-content .span9 -->
 

@@ -21,7 +21,7 @@
 															<th><?php echo $this->Paginator->sort('email'); ?></th>
 															<th><?php echo $this->Paginator->sort('date_debut'); ?></th>
 															<th><?php echo $this->Paginator->sort('date_fin'); ?></th>
-															<th class="actions"><?php echo __('Actions'); ?></th>
+															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
 					</thead>
 					<tbody>
