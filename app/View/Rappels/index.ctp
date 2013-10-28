@@ -29,7 +29,7 @@
 	<tr>
 		<td><?php echo h($rappel['Rappel']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($rappel['Chat']['id'], array('controller' => 'chats', 'action' => 'view', $rappel['Chat']['id'])); ?>
+			<?php echo $this->Html->link($rappel['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $rappel['Chat']['id'])); ?>
 		</td>
 		<td><?php echo h($rappel['Rappel']['echeance']); ?>&nbsp;</td>
 		<td><?php echo h($rappel['Rappel']['affectation']); ?>&nbsp;</td>

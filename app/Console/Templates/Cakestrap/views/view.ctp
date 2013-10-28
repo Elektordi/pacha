@@ -32,7 +32,7 @@
                             <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-list\"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
                         </div>
                     </div>
-                    <h2><?php echo "<?php  echo __('Fiche {$singularHumanName}'); ?>"; ?>: XXX</h2>
+                    <h2><?php echo "<?php  echo __('Fiche {$singularHumanName}').': '.\${$singularVar}['{$modelClass}']['{$displayField}']; ?>"; ?></h2>
 			
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">

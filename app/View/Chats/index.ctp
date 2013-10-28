@@ -42,7 +42,7 @@
 		<td><?php echo h($chat['Chat']['etat']); ?>&nbsp;</td>
 		<td><?php echo h($chat['Chat']['deces']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($chat['Accueil']['id'], array('controller' => 'accueils', 'action' => 'view', $chat['Accueil']['id'])); ?>
+			<?php echo $this->Html->link($chat['Accueil']['nom'], array('controller' => 'accueils', 'action' => 'view', $chat['Accueil']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>

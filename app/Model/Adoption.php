@@ -81,4 +81,7 @@ class Adoption extends AppModel {
 			'order' => ''
 		)
 	);
+        
+        
+        public $displayField = 'nom';
 }

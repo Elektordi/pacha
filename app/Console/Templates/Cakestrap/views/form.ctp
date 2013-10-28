@@ -37,10 +37,14 @@
                                         </div>
                                     </div>
                     
-                                    <h2><?php echo "<?php  echo __('Modifier {$singularHumanName}'); ?>"; ?>: XXX</h2>
+                                    <?php if (strpos($action, 'add') === false) { ?>
+                                    <h2><?php echo "<?php  echo __('Modifier {$singularHumanName}').': '.\${$singularVar}['{$modelClass}']['{$displayField}']; ?>"; ?></h2>
+                                    <?php } else { ?>
+                                    <h2><?php echo "<?php  echo __('Ajouter {$singularHumanName}'); ?>"; ?></h2>
+                                    <?php } ?>
 			<?php
 				foreach ($fields as $field) {
-					if (strpos($action, 'add') !== false && $field == $primaryKey) {
+					if ($field == $primaryKey) {
 						continue;
 					} elseif (!in_array($field, array('created', 'modified', 'updated'))) {
 						echo "<div class=\"form-group\">\n";

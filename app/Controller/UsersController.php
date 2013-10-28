@@ -87,6 +87,7 @@ class UsersController extends AppController {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
 			unset($this->request->data['User']['password']);
+                        $this->set('user', $this->request->data);
 		}
 	}
 

@@ -15,13 +15,8 @@
                                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                        </div>
                                     </div>
                     
-                                    <h2><?php  echo __('Modifier Accueil'); ?>: XXX</h2>
-			<div class="form-group">
-	<?php echo $this->Form->label('id', 'id');?>
-		<?php echo $this->Form->input('id', array('class' => 'form-control')); ?>
-</div><!-- .form-group -->
-
-<div class="form-group">
+                                                                        <h2><?php  echo __('Modifier Accueil').': '.$accueil['Accueil']['nom']; ?></h2>
+                                    			<div class="form-group">
 	<?php echo $this->Form->label('nom', 'nom');?>
 		<?php echo $this->Form->input('nom', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->

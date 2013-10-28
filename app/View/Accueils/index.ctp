@@ -19,7 +19,7 @@
 															<th><?php echo $this->Paginator->sort('telephone1'); ?></th>
 															<th><?php echo $this->Paginator->sort('telephone2'); ?></th>
 															<th><?php echo $this->Paginator->sort('limite'); ?></th>
-															<th class="actions"><?php echo __('Actions'); ?></th>
+															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
 					</thead>
 					<tbody>

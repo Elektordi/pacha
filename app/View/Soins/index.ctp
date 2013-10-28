@@ -30,7 +30,7 @@
 	<tr>
 		<td><?php echo h($soin['Soin']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($soin['Chat']['id'], array('controller' => 'chats', 'action' => 'view', $soin['Chat']['id'])); ?>
+			<?php echo $this->Html->link($soin['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $soin['Chat']['id'])); ?>
 		</td>
 		<td><?php echo h($soin['Soin']['type']); ?>&nbsp;</td>
 		<td><?php echo h($soin['Soin']['date_debut']); ?>&nbsp;</td>

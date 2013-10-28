@@ -30,7 +30,7 @@
 	<tr>
 		<td><?php echo h($adoption['Adoption']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($adoption['Chat']['id'], array('controller' => 'chats', 'action' => 'view', $adoption['Chat']['id'])); ?>
+			<?php echo $this->Html->link($adoption['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $adoption['Chat']['id'])); ?>
 		</td>
 		<td><?php echo h($adoption['Adoption']['nom']); ?>&nbsp;</td>
 		<td><?php echo h($adoption['Adoption']['adresse']); ?>&nbsp;</td>

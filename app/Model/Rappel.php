@@ -91,4 +91,6 @@ class Rappel extends AppModel {
 			'order' => ''
 		)
 	);
+        
+        public $displayField = 'texte';
 }

@@ -67,5 +67,8 @@ class Accueil extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+        
+        
+        public $displayField = 'nom';
 
 }

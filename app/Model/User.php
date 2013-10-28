@@ -55,7 +55,7 @@ class User extends AppModel {
 	);
 	
 	
-	public function beforeSave($options = array()) {
+    public function beforeSave($options = array()) {
         if(empty($this->data[$this->alias]['password'])) {
             unset($this->data[$this->alias]['password']);
         }
@@ -64,4 +64,6 @@ class User extends AppModel {
         }
         return true;
     }
+    
+    public $displayField = 'initiales';
 }

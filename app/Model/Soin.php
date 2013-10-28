@@ -71,4 +71,6 @@ class Soin extends AppModel {
 			'order' => ''
 		)
 	);
+        
+        public $displayField = 'date_debut'; // Je voyait vraiement pas quoi mettre d'autre...
 }

@@ -11,7 +11,7 @@
                         <div class="btn-group">
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
                     </div>
-                    <h2><?php  echo __('Fiche Chat'); ?>: XXX</h2>
+                    <h2><?php  echo __('Fiche Chat').': '.$chat['Chat']['unique']; ?></h2>
 			
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
@@ -68,7 +68,7 @@
 		</td>
 </tr><tr>		<td><strong><?php echo __('Accueil'); ?></strong></td>
 		<td>
-			<?php echo $this->Html->link($chat['Accueil']['id'], array('controller' => 'accueils', 'action' => 'view', $chat['Accueil']['id']), array('class' => '')); ?>
+			<?php echo $this->Html->link($chat['Accueil']['nom'], array('controller' => 'accueils', 'action' => 'view', $chat['Accueil']['id']), array('class' => '')); ?>
 			&nbsp;
 		</td>
 </tr>					</tbody>
@@ -84,7 +84,7 @@
 
                                 <div class="btn-group btn-group-xs pull-right">
                                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Adoption'), array('controller' => 'adoptions', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
-				<h3><?php echo __('Related Adoptions'); ?></h3>
+				<h3><?php echo __('Adoptions liés:'); ?></h3>
 				
 				<?php if (!empty($chat['Adoption'])): ?>
 					
@@ -134,7 +134,7 @@
 
                                 <div class="btn-group btn-group-xs pull-right">
                                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Commentaire'), array('controller' => 'commentaires', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
-				<h3><?php echo __('Related Commentaires'); ?></h3>
+				<h3><?php echo __('Commentaires liés:'); ?></h3>
 				
 				<?php if (!empty($chat['Commentaire'])): ?>
 					
@@ -179,8 +179,56 @@
 			<div class="related" style="margin-top: 40px">
 
                                 <div class="btn-group btn-group-xs pull-right">
+                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Rappel'), array('controller' => 'rappels', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
+				<h3><?php echo __('Rappels liés:'); ?></h3>
+				
+				<?php if (!empty($chat['Rappel'])): ?>
+					
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered">
+							<thead>
+								<tr>
+											<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Echeance'); ?></th>
+		<th><?php echo __('Affectation'); ?></th>
+		<th><?php echo __('Texte'); ?></th>
+		<th><?php echo __('Source'); ?></th>
+		<th><?php echo __('Ok'); ?></th>
+									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+								</tr>
+							</thead>
+							<tbody>
+									<?php
+										$i = 0;
+										foreach ($chat['Rappel'] as $rappel): ?>
+		<tr>
+			<td><?php echo $rappel['id']; ?></td>
+			<td><?php echo $rappel['echeance']; ?></td>
+			<td><?php echo $rappel['affectation']; ?></td>
+			<td><?php echo $rappel['texte']; ?></td>
+			<td><?php echo $rappel['source']; ?></td>
+			<td><?php echo $rappel['ok']; ?></td>
+			<td class="actions">
+			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'rappels', 'action' => 'view', $rappel['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'rappels', 'action' => 'edit', $rappel['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+							</tbody>
+						</table><!-- /.table table-striped table-bordered -->
+					</div><!-- /.table-responsive -->
+					
+				<?php endif; ?>
+
+				
+			</div><!-- /.related -->
+
+					
+			<div class="related" style="margin-top: 40px">
+
+                                <div class="btn-group btn-group-xs pull-right">
                                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Soin'), array('controller' => 'soins', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
-				<h3><?php echo __('Related Soins'); ?></h3>
+				<h3><?php echo __('Soins liés:'); ?></h3>
 				
 				<?php if (!empty($chat['Soin'])): ?>
 					

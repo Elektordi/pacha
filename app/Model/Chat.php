@@ -6,6 +6,7 @@ App::uses('AppModel', 'Model');
  * @property Accueil $Accueil
  * @property Adoption $Adoption
  * @property Commentaire $Commentaire
+ * @property Rappel $Rappel
  * @property Soin $Soin
  */
 class Chat extends AppModel {
@@ -16,16 +17,6 @@ class Chat extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'nom' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'sexe' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -97,6 +88,19 @@ class Chat extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
+		'Rappel' => array(
+			'className' => 'Rappel',
+			'foreignKey' => 'chat_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Soin' => array(
 			'className' => 'Soin',
 			'foreignKey' => 'chat_id',
@@ -111,5 +115,11 @@ class Chat extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+        
+        public $displayField = 'unique';
+        public $virtualFields = array(
+            'unique' => 'IFNULL(Chat.nom,IFNULL(Chat.identification,CONCAT("Chat #",Chat.id)))'
+        );
+
 
 }

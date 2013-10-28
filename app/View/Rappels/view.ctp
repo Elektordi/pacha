@@ -11,7 +11,7 @@
                         <div class="btn-group">
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
                     </div>
-                    <h2><?php  echo __('Fiche Rappel'); ?>: XXX</h2>
+                    <h2><?php  echo __('Fiche Rappel').': '.$rappel['Rappel']['texte']; ?></h2>
 			
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
@@ -23,7 +23,7 @@
 		</td>
 </tr><tr>		<td><strong><?php echo __('Chat'); ?></strong></td>
 		<td>
-			<?php echo $this->Html->link($rappel['Chat']['id'], array('controller' => 'chats', 'action' => 'view', $rappel['Chat']['id']), array('class' => '')); ?>
+			<?php echo $this->Html->link($rappel['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $rappel['Chat']['id']), array('class' => '')); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Echeance'); ?></strong></td>

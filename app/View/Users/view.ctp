@@ -1,27 +1,17 @@
 
 <div id="page-container" class="row">
-
-	<div id="sidebar" class="col-sm-3">
-		
-		<div class="actions">
-			
-			<ul class="list-group">			
-						<li class="list-group-item"><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id']), array('class' => '')); ?> </li>
-		<li class="list-group-item"><?php echo $this->Form->postLink(__('Delete User'), array('action' => 'delete', $user['User']['id']), array('class' => ''), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
-		<li class="list-group-item"><?php echo $this->Html->link(__('List Users'), array('action' => 'index'), array('class' => '')); ?> </li>
-		<li class="list-group-item"><?php echo $this->Html->link(__('New User'), array('action' => 'add'), array('class' => '')); ?> </li>
-				
-			</ul><!-- /.list-group -->
-			
-		</div><!-- /.actions -->
-		
-	</div><!-- /#sidebar .span3 -->
 	
-	<div id="page-content" class="col-sm-9">
+	<div id="page-content">
 		
-		<div class="users view">
+		<div class="users view content">
 
-			<h2><?php  echo __('User'); ?></h2>
+                    <div class="btn-toolbar pull-right">
+                        <div class="btn-group">
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier User'), array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> '.__('Supprimer User'), array('action' => 'delete', $user['User']['id']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?>                        </div>
+                        <div class="btn-group">
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+                    </div>
+                    <h2><?php  echo __('Fiche User').': '.$user['User']['initiales']; ?></h2>
 			
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
@@ -36,6 +26,11 @@
 			<?php echo h($user['User']['username']); ?>
 			&nbsp;
 		</td>
+</tr><tr>		<td><strong><?php echo __('Password'); ?></strong></td>
+		<td>
+			<?php echo h($user['User']['password']); ?>
+			&nbsp;
+		</td>
 </tr><tr>		<td><strong><?php echo __('Initiales'); ?></strong></td>
 		<td>
 			<?php echo h($user['User']['initiales']); ?>
@@ -43,7 +38,7 @@
 		</td>
 </tr><tr>		<td><strong><?php echo __('Level'); ?></strong></td>
 		<td>
-			<?php echo h($levels[$user['User']['level']].' ('.$user['User']['level'].')'); ?>
+			<?php echo h($user['User']['level']); ?>
 			&nbsp;
 		</td>
 </tr>					</tbody>
@@ -52,6 +47,8 @@
 			
 		</div><!-- /.view -->
 
+                <div style="margin-top: 20px">&nbsp;</div>
+                
 			
 	</div><!-- /#page-content .span9 -->
 

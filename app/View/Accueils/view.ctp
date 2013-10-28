@@ -3,7 +3,7 @@
 	
 	<div id="page-content">
 		
-		<div class="accueils view">
+		<div class="accueils view content">
 
                     <div class="btn-toolbar pull-right">
                         <div class="btn-group">
@@ -11,7 +11,7 @@
                         <div class="btn-group">
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
                     </div>
-                    <h2><?php  echo __('Fiche Accueil'); ?>: XXX</h2>
+                    <h2><?php  echo __('Fiche Accueil').': '.$accueil['Accueil']['nom']; ?></h2>
 			
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
@@ -52,10 +52,14 @@
 			
 		</div><!-- /.view -->
 
+                <div style="margin-top: 20px">&nbsp;</div>
+                
 					
-			<div class="related">
+			<div class="related" style="margin-top: 40px">
 
-				<h3><?php echo __('Related Chats'); ?></h3>
+                                <div class="btn-group btn-group-xs pull-right">
+                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Chat'), array('controller' => 'chats', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
+				<h3><?php echo __('Chats liés:'); ?></h3>
 				
 				<?php if (!empty($accueil['Chat'])): ?>
 					
@@ -73,8 +77,7 @@
 		<th><?php echo __('Sexe'); ?></th>
 		<th><?php echo __('Etat'); ?></th>
 		<th><?php echo __('Deces'); ?></th>
-		<th><?php echo __('Accueil Id'); ?></th>
-									<th class="actions"><?php echo __('Actions'); ?></th>
+									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -92,11 +95,9 @@
 			<td><?php echo $chat['sexe']; ?></td>
 			<td><?php echo $chat['etat']; ?></td>
 			<td><?php echo $chat['deces']; ?></td>
-			<td><?php echo $chat['accueil_id']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'chats', 'action' => 'view', $chat['id']), array('class' => 'btn btn-default btn-xs')); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'chats', 'action' => 'edit', $chat['id']), array('class' => 'btn btn-default btn-xs')); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'chats', 'action' => 'delete', $chat['id']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', $chat['id'])); ?>
+			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'chats', 'action' => 'view', $chat['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'chats', 'action' => 'edit', $chat['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -106,9 +107,6 @@
 					
 				<?php endif; ?>
 
-				
-				<div class="actions">
-					<?php echo $this->Html->link('<i class="icon-plus icon-white"></i> '.__('New Chat'), array('controller' => 'chats', 'action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false)); ?>				</div><!-- /.actions -->
 				
 			</div><!-- /.related -->
 

@@ -17,6 +17,7 @@ class ChatsControllerTest extends ControllerTestCase {
 		'app.accueil',
 		'app.adoption',
 		'app.commentaire',
+		'app.rappel',
 		'app.soin',
 		'app.user'
 	);

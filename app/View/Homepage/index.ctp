@@ -27,7 +27,7 @@
 	<tr class="<?php if(in_array($event['importance'],array('warning','danger'))) echo h($event['importance']); ?>">
 		<td><?php echo h(date('d/m/Y',$event['date'])); ?>&nbsp;</td>
 		<td><span class="label label-<?php echo h($event['importance']); ?>"><?php echo h($event['echeance']); ?></span>&nbsp;</td>
-		<td><?php echo h($event['chat']['nom']); ?>&nbsp;</td>
+		<td><?php echo h($event['chat']['unique']); ?>&nbsp;</td>
 		<td><?php echo h($event['message']); ?>&nbsp;</td>
                 <td><?php echo h($event['affectation']); ?>&nbsp;<?php if($event['affectation']==$user) echo '<span class="glyphicon glyphicon-flag"></span>'; ?></td>
 		<td class="actions">
