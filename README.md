@@ -28,6 +28,14 @@ Conseils de sécurité:
 * Si vous disposez de votre propre vhost apache, il faut mieux faire pointer celui-ci vers app/webroot/
 * Pour une utilisation en production, mettez le niveau de débug à 0 (dans app/Config/core.php)
 
+Note sur les mots de passe stockés:
+
+Tous les mots de passe stockés en base sont en md5 avec salt ("md5 salé"). Si vous perdez votre mot de passe ou que vous changer les clés de sécurité, utilisez la commande suivante pour le réinitialiser:
+* Console/cake admin passwd admin admin
+
+Ou de façon plus générale:
+* Console/cake admin passwd <identifiant> <nouveau mot de passe>
+
 Bugs
 ====
 

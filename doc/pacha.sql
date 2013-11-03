@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `adoptions` (
 --
 
 INSERT INTO `adoptions` (`id`, `chat_id`, `nom`, `adresse`, `telephone`, `email`, `date_debut`, `date_fin`) VALUES
-(1, 1, 'DUPONT', '1 rue de Paris, 75001 PARIS', '01.23.45.67.89', 'dupont@example.com', '2013-02-01', '2013-03-03');
+(1, 2, 'DUPONT', '1 rue de Paris, 75001 PARIS', '01.23.45.67.89', 'dupont@example.com', '2013-02-01', '2013-03-03');
 
 -- --------------------------------------------------------
 
@@ -127,6 +127,7 @@ CREATE TABLE IF NOT EXISTS `rappels` (
   `affectation` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
   `texte` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `source` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `ok` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
@@ -134,8 +135,8 @@ CREATE TABLE IF NOT EXISTS `rappels` (
 -- Contenu de la table `rappels`
 --
 
-INSERT INTO `rappels` (`id`, `chat_id`, `echeance`, `affectation`, `texte`, `source`) VALUES
-(1, 1, '2013-10-31', 'GG', 'Rappel de vaccin contre le Tétanos', 'soins/view/1');
+INSERT INTO `rappels` (`id`, `chat_id`, `echeance`, `affectation`, `texte`, `source`, `ok`) VALUES
+(1, 1, '2013-10-31', 'GG', 'Rappel de vaccin contre le Tétanos', 'soins/view/1', 0);
 
 -- --------------------------------------------------------
 
@@ -183,4 +184,4 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `initiales`, `level`) VALUES
-(1, 'admin', MD5('admin'), 'ADMIN', 9);
+(1, 'admin', 'f730d138ce9e30f76b8b67b2b0d272699453d914', 'ADMIN', 9);

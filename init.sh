@@ -22,6 +22,4 @@ chmod -R a+w app/tmp
 echo app/tmp ready.
 echo
 
-echo Remember to copy Config/database.php.default to Config/database.php and set appropriate values.
-echo If you need emails, do the same with Config/email.php.default to Config/email.php.
-echo Then run \"app/Console/cake schema create\" !
+echo init.sh OK, you can now continue to follow install process in README.md...
