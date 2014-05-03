@@ -13,7 +13,12 @@ class ChatTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.chat'
+		'app.chat',
+		'app.accueil',
+		'app.adoption',
+		'app.commentaire',
+		'app.rappel',
+		'app.soin'
 	);
 
 /**

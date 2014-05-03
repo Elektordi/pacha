@@ -12,11 +12,12 @@ class RappelFixture extends CakeTestFixture {
  */
 	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-		'chat_id' => array('type' => 'integer', 'null' => false, 'default' => null),
-		'echeance' => array('type' => 'date', 'null' => false, 'default' => null),
-		'affectation' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 8, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
-		'texte' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 500, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
-		'source' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 32, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
+		'chat_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'comment' => 'Chat'),
+		'echeance' => array('type' => 'date', 'null' => false, 'default' => null, 'comment' => 'Échéance'),
+		'affectation' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 8, 'collate' => 'utf8_unicode_ci', 'comment' => 'Affecté à', 'charset' => 'utf8'),
+		'texte' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 500, 'collate' => 'utf8_unicode_ci', 'comment' => 'Détails', 'charset' => 'utf8'),
+		'source' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 32, 'collate' => 'utf8_unicode_ci', 'comment' => 'Concerne', 'charset' => 'utf8'),
+		'ok' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 4, 'comment' => 'Validé'),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1)
 		),
@@ -32,10 +33,11 @@ class RappelFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'chat_id' => 1,
-			'echeance' => '2013-10-27',
+			'echeance' => '2014-05-04',
 			'affectation' => 'Lorem ',
 			'texte' => 'Lorem ipsum dolor sit amet',
-			'source' => 'Lorem ipsum dolor sit amet'
+			'source' => 'Lorem ipsum dolor sit amet',
+			'ok' => 1
 		),
 	);
 

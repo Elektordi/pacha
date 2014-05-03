@@ -21,13 +21,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `accueils` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `adresse` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `telephone1` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `telephone2` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `limite` smallint(2) DEFAULT NULL,
+  `nom` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nom',
+  `adresse` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Adresse',
+  `telephone1` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Téléphone 1',
+  `telephone2` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Téléphone 2',
+  `limite` smallint(2) DEFAULT NULL COMMENT 'Chats max.',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Familles d''accueil' AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `accueils`
@@ -44,15 +44,15 @@ INSERT INTO `accueils` (`id`, `nom`, `adresse`, `telephone1`, `telephone2`, `lim
 
 CREATE TABLE IF NOT EXISTS `adoptions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `chat_id` int(11) NOT NULL,
-  `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `adresse` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `telephone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `date_debut` date NOT NULL,
-  `date_fin` date DEFAULT NULL,
+  `chat_id` int(11) NOT NULL COMMENT 'Chat',
+  `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nom de famille',
+  `adresse` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Adresse',
+  `telephone` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Téléphone',
+  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Adresse e-mail',
+  `date_debut` date NOT NULL COMMENT 'Date d''adoption',
+  `date_fin` date DEFAULT NULL COMMENT 'Fin d''adoption',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Adoptions' AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `adoptions`
@@ -69,18 +69,18 @@ INSERT INTO `adoptions` (`id`, `chat_id`, `nom`, `adresse`, `telephone`, `email`
 
 CREATE TABLE IF NOT EXISTS `chats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `nom2` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `naissance` date DEFAULT NULL,
-  `identification` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `race` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `robe` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sexe` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
-  `etat` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `deces` date DEFAULT NULL,
-  `accueil_id` int(11) DEFAULT NULL,
+  `nom` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Nom',
+  `nom2` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Ancien nom',
+  `naissance` date DEFAULT NULL COMMENT 'Naissance',
+  `identification` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Identification',
+  `race` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Race',
+  `robe` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Robe',
+  `sexe` varchar(1) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Sexe',
+  `etat` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Statut',
+  `deces` date DEFAULT NULL COMMENT 'Décédé',
+  `accueil_id` int(11) DEFAULT NULL COMMENT 'Famille d''accueil',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Chats' AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `chats`
@@ -98,13 +98,13 @@ INSERT INTO `chats` (`id`, `nom`, `nom2`, `naissance`, `identification`, `race`,
 
 CREATE TABLE IF NOT EXISTS `commentaires` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `chat_id` int(11) NOT NULL,
-  `date` datetime NOT NULL,
-  `auteur` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
-  `texte` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `source` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `chat_id` int(11) NOT NULL COMMENT 'Chat',
+  `date` datetime NOT NULL COMMENT 'Date',
+  `auteur` varchar(8) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Auteur',
+  `texte` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Commentaire',
+  `source` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Concerne',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Commentaires' AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `commentaires`
@@ -120,16 +120,17 @@ INSERT INTO `commentaires` (`id`, `chat_id`, `date`, `auteur`, `texte`, `source`
 -- Structure de la table `rappels`
 --
 
+
 CREATE TABLE IF NOT EXISTS `rappels` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `chat_id` int(11) NOT NULL,
-  `echeance` date NOT NULL,
-  `affectation` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
-  `texte` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `source` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `ok` tinyint(4) NOT NULL,
+  `chat_id` int(11) NOT NULL COMMENT 'Chat',
+  `echeance` date NOT NULL COMMENT 'Échéance',
+  `affectation` varchar(8) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Affecté à',
+  `texte` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Détails',
+  `source` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Concerne',
+  `ok` tinyint(4) NOT NULL COMMENT 'Validé',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Rappels' AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `rappels`
@@ -146,15 +147,15 @@ INSERT INTO `rappels` (`id`, `chat_id`, `echeance`, `affectation`, `texte`, `sou
 
 CREATE TABLE IF NOT EXISTS `soins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `chat_id` int(11) NOT NULL,
-  `type` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
-  `date_debut` date NOT NULL,
-  `date_fin` date DEFAULT NULL,
-  `nature` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `veterinaire` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `montant` decimal(2,0) DEFAULT NULL,
+  `chat_id` int(11) NOT NULL COMMENT 'Chat',
+  `type` varchar(1) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Type de soin',
+  `date_debut` date NOT NULL COMMENT 'Date des soins',
+  `date_fin` date DEFAULT NULL COMMENT 'Jusqu''au (si longue durée)',
+  `nature` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nature des soins',
+  `veterinaire` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Vétérinaire',
+  `montant` decimal(2,0) DEFAULT NULL COMMENT 'Montant',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Soins' AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `soins`
@@ -172,12 +173,12 @@ INSERT INTO `soins` (`id`, `chat_id`, `type`, `date_debut`, `date_fin`, `nature`
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `initiales` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
-  `level` tinyint(3) NOT NULL,
+  `username` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Identifiant',
+  `password` varchar(40) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Mot de passe',
+  `initiales` varchar(8) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Initiales',
+  `level` tinyint(3) NOT NULL COMMENT 'Niveau d''accès',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Utilisateurs' AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `users`

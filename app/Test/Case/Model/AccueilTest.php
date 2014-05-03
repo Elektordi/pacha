@@ -14,7 +14,11 @@ class AccueilTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.accueil',
-		'app.chat'
+		'app.chat',
+		'app.adoption',
+		'app.commentaire',
+		'app.rappel',
+		'app.soin'
 	);
 
 /**

@@ -17,7 +17,8 @@ class SoinTest extends CakeTestCase {
 		'app.chat',
 		'app.accueil',
 		'app.adoption',
-		'app.commentaire'
+		'app.commentaire',
+		'app.rappel'
 	);
 
 /**

@@ -12,13 +12,13 @@ class SoinFixture extends CakeTestFixture {
  */
 	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-		'chat_id' => array('type' => 'integer', 'null' => false, 'default' => null),
-		'type' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 1, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
-		'date_debut' => array('type' => 'date', 'null' => false, 'default' => null),
-		'date_fin' => array('type' => 'date', 'null' => true, 'default' => null),
-		'nature' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 100, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
-		'veterinaire' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 100, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
-		'montant' => array('type' => 'float', 'null' => true, 'default' => null, 'length' => 2),
+		'chat_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'comment' => 'Chat'),
+		'type' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 1, 'collate' => 'utf8_unicode_ci', 'comment' => 'Type de soin', 'charset' => 'utf8'),
+		'date_debut' => array('type' => 'date', 'null' => false, 'default' => null, 'comment' => 'Date des soins'),
+		'date_fin' => array('type' => 'date', 'null' => true, 'default' => null, 'comment' => 'Jusqu\'au (si longue durée)'),
+		'nature' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 100, 'collate' => 'utf8_unicode_ci', 'comment' => 'Nature des soins', 'charset' => 'utf8'),
+		'veterinaire' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 100, 'collate' => 'utf8_unicode_ci', 'comment' => 'Vétérinaire', 'charset' => 'utf8'),
+		'montant' => array('type' => 'float', 'null' => true, 'default' => null, 'length' => 2, 'comment' => 'Montant'),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1)
 		),
@@ -35,8 +35,8 @@ class SoinFixture extends CakeTestFixture {
 			'id' => 1,
 			'chat_id' => 1,
 			'type' => 'Lorem ipsum dolor sit ame',
-			'date_debut' => '2013-10-27',
-			'date_fin' => '2013-10-27',
+			'date_debut' => '2014-05-04',
+			'date_fin' => '2014-05-04',
 			'nature' => 'Lorem ipsum dolor sit amet',
 			'veterinaire' => 'Lorem ipsum dolor sit amet',
 			'montant' => 1

@@ -12,14 +12,14 @@ class UserFixture extends CakeTestFixture {
  */
 	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-		'login' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 32, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'password' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 32, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'initiales' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 8, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'level' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 3),
+		'username' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 32, 'collate' => 'utf8_unicode_ci', 'comment' => 'Identifiant', 'charset' => 'utf8'),
+		'password' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 40, 'collate' => 'utf8_unicode_ci', 'comment' => 'Mot de passe', 'charset' => 'utf8'),
+		'initiales' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 8, 'collate' => 'utf8_unicode_ci', 'comment' => 'Initiales', 'charset' => 'utf8'),
+		'level' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 3, 'comment' => 'Niveau d\'accès'),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1)
 		),
-		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'MyISAM')
+		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_unicode_ci', 'engine' => 'MyISAM')
 	);
 
 /**
@@ -30,7 +30,7 @@ class UserFixture extends CakeTestFixture {
 	public $records = array(
 		array(
 			'id' => 1,
-			'login' => 'Lorem ipsum dolor sit amet',
+			'username' => 'Lorem ipsum dolor sit amet',
 			'password' => 'Lorem ipsum dolor sit amet',
 			'initiales' => 'Lorem ',
 			'level' => 1
