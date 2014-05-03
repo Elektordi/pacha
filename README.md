@@ -48,7 +48,9 @@ Si vous trouvez des bugs, merci de les rapporter ici: https://github.com/Elektor
 * Bootstrap 2.3.2: http://getbootstrap.com/2.3.2/ - https://github.com/twbs/bootstrap
 * Cakestrap: https://github.com/Rhym/cakeStrap/
 * Dessins de chats: http://iconka.com/
-* Îcones des bouttons: http://glyphicons.com/
+* Icônes des bouttons: http://glyphicons.com/
+* Quelques autres icônes: http://www.famfamfam.com/lab/icons/silk/
+
 
 Liens
 =====
@@ -56,3 +58,9 @@ Liens
 * ECLVYS: http://www.chatlibre.org/
 * Guillaume Genty: https://github.com/Elektordi
 
+License
+=======
+
+*Logiciel sous license CeCILL-B: http://www.cecill.info/licences/Licence_CeCILL-B_V1-fr.html *
+
+Merci de participer au développement de ce logiciel open-source en proposant vos modifications sous forme de "Pull Requests" !

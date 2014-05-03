@@ -17,7 +17,7 @@ mkdir app/tmp/cache/views
 mkdir app/tmp/cache/models
 mkdir app/tmp/cache/persistent
 mkdir app/tmp/tests
-chmod -R a+w app/tmp
+chmod -R a+w,g+s app/tmp
 
 echo app/tmp ready.
 echo
