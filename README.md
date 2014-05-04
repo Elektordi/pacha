@@ -41,6 +41,12 @@ Bugs
 
 Si vous trouvez des bugs, merci de les rapporter ici: https://github.com/Elektordi/pacha/issues/new
 
+Liens
+=====
+
+* ECLVYS: http://www.chatlibre.org/
+* Guillaume Genty: https://github.com/Elektordi (email: guillaume arobase elektordi point net)
+
 Éléments utilisés
 =================
 
@@ -50,17 +56,11 @@ Si vous trouvez des bugs, merci de les rapporter ici: https://github.com/Elektor
 * Dessins de chats: http://iconka.com/
 * Icônes des bouttons: http://glyphicons.com/
 * Quelques autres icônes: http://www.famfamfam.com/lab/icons/silk/
-
-
-Liens
-=====
-
-* ECLVYS: http://www.chatlibre.org/
-* Guillaume Genty: https://github.com/Elektordi
+* Bootstrap datepicker: http://www.eyecon.ro/bootstrap-datepicker/
 
 License
 =======
 
-*Logiciel sous license CeCILL-B: http://www.cecill.info/licences/Licence_CeCILL-B_V1-fr.html *
+*Logiciel sous license CeCILL-B: http://www.cecill.info/licences/Licence_CeCILL-B_V1-fr.html*
 
 Merci de participer au développement de ce logiciel open-source en proposant vos modifications sous forme de "Pull Requests" !
