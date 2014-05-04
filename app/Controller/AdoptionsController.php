@@ -81,11 +81,11 @@ class AdoptionsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Adoption impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
-		} else {
-			$options = array('conditions' => array('Adoption.' . $this->Adoption->primaryKey => $id));
-			$this->request->data = $this->Adoption->find('first', $options);
-                        $this->set('adoption', $this->request->data);
 		}
+	    $options = array('conditions' => array('Adoption.' . $this->Adoption->primaryKey => $id));
+	    $this->request->data = $this->Adoption->find('first', $options);
+        $this->set('adoption', $this->request->data);
+
 		$chats = $this->Adoption->Chat->find('list');
 		$this->set(compact('chats'));
 	}

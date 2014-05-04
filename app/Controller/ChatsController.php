@@ -81,11 +81,11 @@ class ChatsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Chat impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
-		} else {
-			$options = array('conditions' => array('Chat.' . $this->Chat->primaryKey => $id));
-			$this->request->data = $this->Chat->find('first', $options);
-                        $this->set('chat', $this->request->data);
 		}
+	    $options = array('conditions' => array('Chat.' . $this->Chat->primaryKey => $id));
+	    $this->request->data = $this->Chat->find('first', $options);
+        $this->set('chat', $this->request->data);
+
 		$accueils = $this->addEmptyValue($this->Chat->Accueil->find('list'));
 		$this->set(compact('accueils'));
 	}

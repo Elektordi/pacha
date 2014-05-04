@@ -79,11 +79,10 @@ class AccueilsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Accueil impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
-		} else {
-			$options = array('conditions' => array('Accueil.' . $this->Accueil->primaryKey => $id));
-			$this->request->data = $this->Accueil->find('first', $options);
-                        $this->set('accueil', $this->request->data);
 		}
+		$options = array('conditions' => array('Accueil.' . $this->Accueil->primaryKey => $id));
+		$this->request->data = $this->Accueil->find('first', $options);
+        $this->set('accueil', $this->request->data);
 	}
 
 /**

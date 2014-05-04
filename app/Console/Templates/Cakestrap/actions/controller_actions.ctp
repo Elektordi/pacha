@@ -111,11 +111,11 @@
 				$this->Session->setFlash(__('<?php echo ucfirst($singularHumanName); ?> impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 <?php endif; ?>
 			}
-		} else {
-			$options = array('conditions' => array('<?php echo $currentModelName; ?>.' . $this-><?php echo $currentModelName; ?>->primaryKey => $id));
-			$this->request->data = $this-><?php echo $currentModelName; ?>->find('first', $options);
-                        $this->set('<?php echo $singularName; ?>', $this->request->data);
 		}
+		$options = array('conditions' => array('<?php echo $currentModelName; ?>.' . $this-><?php echo $currentModelName; ?>->primaryKey => $id));
+		$this->request->data = $this-><?php echo $currentModelName; ?>->find('first', $options);
+        $this->set('<?php echo $singularName; ?>', $this->request->data);
+
 <?php
 		foreach (array('belongsTo', 'hasAndBelongsToMany') as $assoc):
 			foreach ($modelObj->{$assoc} as $associationName => $relation):

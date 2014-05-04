@@ -81,11 +81,11 @@ class CommentairesController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Commentaire impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
-		} else {
-			$options = array('conditions' => array('Commentaire.' . $this->Commentaire->primaryKey => $id));
-			$this->request->data = $this->Commentaire->find('first', $options);
-                        $this->set('commentaire', $this->request->data);
 		}
+		$options = array('conditions' => array('Commentaire.' . $this->Commentaire->primaryKey => $id));
+		$this->request->data = $this->Commentaire->find('first', $options);
+        $this->set('commentaire', $this->request->data);
+		
 		$chats = $this->Commentaire->Chat->find('list');
 		$this->set(compact('chats'));
 	}

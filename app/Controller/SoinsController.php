@@ -89,11 +89,11 @@ class SoinsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Soin impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
-		} else {
-			$options = array('conditions' => array('Soin.' . $this->Soin->primaryKey => $id));
-			$this->request->data = $this->Soin->find('first', $options);
-                        $this->set('soin', $this->request->data);
 		}
+	    $options = array('conditions' => array('Soin.' . $this->Soin->primaryKey => $id));
+	    $this->request->data = $this->Soin->find('first', $options);
+        $this->set('soin', $this->request->data);
+        
 		$chats = $this->Soin->Chat->find('list');
 		$this->set(compact('chats'));
 	}

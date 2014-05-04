@@ -86,12 +86,13 @@ class UsersController extends AppController {
 			} else {
 				$this->Session->setFlash(__('User impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
-		} else {
-			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-			$this->request->data = $this->User->find('first', $options);
-			unset($this->request->data['User']['password']);
-                        $this->set('user', $this->request->data);
 		}
+
+		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+		$this->request->data = $this->User->find('first', $options);
+		unset($this->request->data['User']['password']);
+        $this->set('user', $this->request->data);
+
 	}
 
 /**

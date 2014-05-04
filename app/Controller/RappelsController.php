@@ -82,11 +82,12 @@ class RappelsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Rappel impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
-		} else {
-			$options = array('conditions' => array('Rappel.' . $this->Rappel->primaryKey => $id));
-			$this->request->data = $this->Rappel->find('first', $options);
-                        $this->set('rappel', $this->request->data);
 		}
+
+		$options = array('conditions' => array('Rappel.' . $this->Rappel->primaryKey => $id));
+		$this->request->data = $this->Rappel->find('first', $options);
+        $this->set('rappel', $this->request->data);
+
 		$chats = $this->Rappel->Chat->find('list');
 		$soins = $this->Rappel->Soin->find('list');
 		$this->set(compact('chats', 'soins'));
