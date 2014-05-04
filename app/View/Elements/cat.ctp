@@ -58,7 +58,7 @@ if($img == 'random') {
 	'hiss',
 	'hungry',
 	'laptop',
-	'moustache',
+//	'moustache',
 	'paper',
 	'poo',
 	'rascal',
