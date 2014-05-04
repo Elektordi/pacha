@@ -40,7 +40,7 @@
 		
         <form class="navbar-form navbar-left visible-md visible-lg" role="search" method="post" action="<?php echo $this->Html->url("/search"); ?>">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Rechercher..." name="query" size="15">
+            <input type="text" class="form-control" placeholder="Rechercher..." name="query" size="15" value="<?php if(!empty($query)) echo h($query); ?>">
             <span class="input-group-btn"><button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button></span>
           </div>
           

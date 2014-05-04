@@ -7,6 +7,8 @@ App::uses('AppModel', 'Model');
  */
 class Accueil extends AppModel {
 
+    public $SearchMe = 1;
+
 /**
  * Validation rules
  *

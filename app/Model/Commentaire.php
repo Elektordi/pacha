@@ -7,6 +7,8 @@ App::uses('AppModel', 'Model');
  */
 class Commentaire extends AppModel {
 
+    public $SearchMe = 1;
+
 /**
  * Validation rules
  *

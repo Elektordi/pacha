@@ -8,6 +8,8 @@ App::uses('AppModel', 'Model');
  */
 class Rappel extends AppModel {
 
+    public $SearchMe = 1;
+
 /**
  * Validation rules
  *

@@ -11,6 +11,8 @@ App::uses('AppModel', 'Model');
  */
 class Chat extends AppModel {
 
+    public $SearchMe = 1;
+
 /**
  * Validation rules
  *

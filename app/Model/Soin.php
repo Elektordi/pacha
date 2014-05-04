@@ -8,6 +8,8 @@ App::uses('AppModel', 'Model');
  */
 class Soin extends AppModel {
 
+    public $SearchMe = 1;
+
 /**
  * Validation rules
  *
