@@ -17,6 +17,9 @@ class MyFormHelper extends FormHelper {
 			case 'time': // TODO
 				$options['value'] = $selected;
 				return $this->dateTime($fieldName, null, $timeFormat, $options);
+				
+			case 'number':
+			    if($fieldName=='ok') return $this->checkbox($fieldName, $options);
 
 		}
 		return parent::_getInput($args);

@@ -21,11 +21,6 @@
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'username', 'type'=>'string', 'v'=>$user['User']['username'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Mot de passe'); ?></strong></td>
-		<td>
-			<?php echo $this->element('value',array('page'=>'view', 'name'=>'password', 'type'=>'string', 'v'=>$user['User']['password'])); ?>
-			&nbsp;
-		</td>
 </tr><tr>		<td><strong><?php echo __('Initiales'); ?></strong></td>
 		<td>
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'initiales', 'type'=>'string', 'v'=>$user['User']['initiales'])); ?>

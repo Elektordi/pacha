@@ -15,7 +15,6 @@
 						<tr>
 															<th><?php echo $this->Paginator->sort('id', '#'); ?></th>
 															<th><?php echo $this->Paginator->sort('username', 'Identifiant'); ?></th>
-															<th><?php echo $this->Paginator->sort('password', 'Mot de passe'); ?></th>
 															<th><?php echo $this->Paginator->sort('initiales', 'Initiales'); ?></th>
 															<th><?php echo $this->Paginator->sort('level', 'Niveau d\'accès'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
@@ -27,7 +26,6 @@
 	<tr>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'id', 'type'=>'integer', 'v'=>$user['User']['id'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'username', 'type'=>'string', 'v'=>$user['User']['username'])); ?>&nbsp;</td>
-		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'password', 'type'=>'string', 'v'=>$user['User']['password'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'initiales', 'type'=>'string', 'v'=>$user['User']['initiales'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'level', 'type'=>'integer', 'v'=>$user['User']['level'])); ?>&nbsp;</td>
 		<td class="actions">

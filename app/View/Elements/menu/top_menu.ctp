@@ -21,6 +21,9 @@
 				            echo '<li>'.$this->Html->Link($v, array('controller'=>'soins', 'action'=>'index', 'type'=>$k)).'</li>';
 				        }
 				    ?>
+				    <li class="divider"></li>
+				    <li><?php echo $this->Html->Link('Tous les soins', array('controller'=>'soins', 'action'=>'index')); ?></li>
+				    <li><?php echo $this->Html->Link('Tous les rappels', array('controller'=>'rappels', 'action'=>'index')); ?></li>
 				</ul>
 			</li>
 			<li class="dropdown">
