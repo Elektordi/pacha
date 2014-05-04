@@ -5,7 +5,7 @@
 		<div class="rappels form">
                     
                     		
-			<?php echo $this->Form->create('Rappel', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
+			<?php echo $this->MyForm->create('Rappel', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
 				<fieldset>
 
                                     <div class="btn-toolbar pull-right">
@@ -15,38 +15,38 @@
                     
                                                                         <h2><?php  echo __('Ajouter Rappel'); ?></h2>
                                     			<div class="form-group">
-	<?php echo $this->Form->label('chat_id', 'chat_id');?>
-		<?php echo $this->Form->input('chat_id', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('chat_id', 'Chat');?>
+		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('echeance', 'echeance');?>
-		<?php echo $this->Form->input('echeance', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('echeance', 'Échéance');?>
+		<?php echo $this->MyForm->input('echeance', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('affectation', 'affectation');?>
-		<?php echo $this->Form->input('affectation', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('affectation', 'Affecté à');?>
+		<?php echo $this->MyForm->input('affectation', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('texte', 'texte');?>
-		<?php echo $this->Form->input('texte', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('texte', 'Détails');?>
+		<?php echo $this->MyForm->input('texte', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('source', 'source');?>
-		<?php echo $this->Form->input('source', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('source', 'Concerne');?>
+		<?php echo $this->MyForm->input('source', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('ok', 'ok');?>
-		<?php echo $this->Form->input('ok', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('ok', 'Validé');?>
+		<?php echo $this->MyForm->input('ok', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 				</fieldset>
-			<?php echo $this->Form->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
-<?php echo $this->Form->end(); ?>
+			<?php echo $this->MyForm->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
+<?php echo $this->MyForm->end(); ?>
 			
 		</div><!-- /.form -->
 			

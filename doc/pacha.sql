@@ -68,7 +68,7 @@ INSERT INTO `adoptions` (`id`, `chat_id`, `nom`, `adresse`, `telephone`, `email`
 --
 
 CREATE TABLE IF NOT EXISTS `chats` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Numéro unique',
   `nom` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Nom',
   `nom2` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Ancien nom',
   `naissance` date DEFAULT NULL COMMENT 'Naissance',
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
 
 INSERT INTO `commentaires` (`id`, `chat_id`, `date`, `auteur`, `texte`, `source`) VALUES
 (1, 1, '2013-10-27 00:00:00', 'GG', 'Test de commentaire', ''),
-(2, 2, '2013-03-04 00:00:00', 'JMG', 'Décès suite tumeurs', 'adoptions/view/1');
+(2, 2, '2013-03-04 00:00:00', 'JMG', 'Décès suite tumeurs', 'adoptions/1');
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `rappels` (
 --
 
 INSERT INTO `rappels` (`id`, `chat_id`, `echeance`, `affectation`, `texte`, `source`, `ok`) VALUES
-(1, 1, '2013-10-31', 'GG', 'Rappel de vaccin contre le Tétanos', 'soins/view/1', 0);
+(1, 1, '2013-10-31', 'GG', 'Rappel de vaccin contre le Tétanos', 'soins/1', 0);
 
 -- --------------------------------------------------------
 

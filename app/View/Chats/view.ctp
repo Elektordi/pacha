@@ -16,57 +16,57 @@
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
 					<tbody>
-						<tr>		<td><strong><?php echo __('Id'); ?></strong></td>
+						<tr>		<td><strong><?php echo __('Numéro unique'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['id']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'id', 'type'=>'integer', 'v'=>$chat['Chat']['id'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Nom'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['nom']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'nom', 'type'=>'string', 'v'=>$chat['Chat']['nom'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Nom2'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Ancien nom'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['nom2']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'nom2', 'type'=>'string', 'v'=>$chat['Chat']['nom2'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Naissance'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['naissance']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'naissance', 'type'=>'date', 'v'=>$chat['Chat']['naissance'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Identification'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['identification']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'identification', 'type'=>'string', 'v'=>$chat['Chat']['identification'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Race'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['race']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'race', 'type'=>'string', 'v'=>$chat['Chat']['race'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Robe'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['robe']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'robe', 'type'=>'string', 'v'=>$chat['Chat']['robe'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Sexe'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['sexe']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'sexe', 'type'=>'string', 'v'=>$chat['Chat']['sexe'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Etat'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Statut'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['etat']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'etat', 'type'=>'string', 'v'=>$chat['Chat']['etat'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Deces'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Décédé'); ?></strong></td>
 		<td>
-			<?php echo h($chat['Chat']['deces']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'deces', 'type'=>'date', 'v'=>$chat['Chat']['deces'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Accueil'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Famille d\'accueil'); ?></strong></td>
 		<td>
 			<?php echo $this->Html->link($chat['Accueil']['nom'], array('controller' => 'accueils', 'action' => 'view', $chat['Accueil']['id']), array('class' => '')); ?>
 			&nbsp;
@@ -84,7 +84,7 @@
 
                                 <div class="btn-group btn-group-xs pull-right">
                                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Adoption'), array('controller' => 'adoptions', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
-				<h3><?php echo __('Adoptions liés:'); ?></h3>
+				<h3><?php echo __('Adoptions lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($chat['Adoption'])): ?>
 					
@@ -92,14 +92,7 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Nom'); ?></th>
-		<th><?php echo __('Adresse'); ?></th>
-		<th><?php echo __('Telephone'); ?></th>
-		<th><?php echo __('Email'); ?></th>
-		<th><?php echo __('Date Debut'); ?></th>
-		<th><?php echo __('Date Fin'); ?></th>
-									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+											<th><?php echo __('#'); ?></th>		<th><?php echo __('Nom de famille'); ?></th>		<th><?php echo __('Adresse'); ?></th>		<th><?php echo __('Téléphone'); ?></th>		<th><?php echo __('Adresse e-mail'); ?></th>		<th><?php echo __('Date d\'adoption'); ?></th>		<th><?php echo __('Fin d\'adoption'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -107,13 +100,13 @@
 										$i = 0;
 										foreach ($chat['Adoption'] as $adoption): ?>
 		<tr>
-			<td><?php echo $adoption['id']; ?></td>
-			<td><?php echo $adoption['nom']; ?></td>
-			<td><?php echo $adoption['adresse']; ?></td>
-			<td><?php echo $adoption['telephone']; ?></td>
-			<td><?php echo $adoption['email']; ?></td>
-			<td><?php echo $adoption['date_debut']; ?></td>
-			<td><?php echo $adoption['date_fin']; ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'id', 'type'=>'integer', 'v'=>$adoption['id'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'nom', 'type'=>'string', 'v'=>$adoption['nom'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'adresse', 'type'=>'string', 'v'=>$adoption['adresse'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'telephone', 'type'=>'string', 'v'=>$adoption['telephone'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'email', 'type'=>'string', 'v'=>$adoption['email'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'date_debut', 'type'=>'date', 'v'=>$adoption['date_debut'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'date_fin', 'type'=>'date', 'v'=>$adoption['date_fin'])); ?></td>
 			<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'adoptions', 'action' => 'view', $adoption['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'adoptions', 'action' => 'edit', $adoption['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
@@ -124,7 +117,7 @@
 						</table><!-- /.table table-striped table-bordered -->
 					</div><!-- /.table-responsive -->
 					
-				<?php endif; ?>
+				<?php else: echo '<i>'.__('Aucune donnée.').'</i>'; endif; ?>
 
 				
 			</div><!-- /.related -->
@@ -134,7 +127,7 @@
 
                                 <div class="btn-group btn-group-xs pull-right">
                                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Commentaire'), array('controller' => 'commentaires', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
-				<h3><?php echo __('Commentaires liés:'); ?></h3>
+				<h3><?php echo __('Commentaires lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($chat['Commentaire'])): ?>
 					
@@ -142,12 +135,7 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Date'); ?></th>
-		<th><?php echo __('Auteur'); ?></th>
-		<th><?php echo __('Texte'); ?></th>
-		<th><?php echo __('Source'); ?></th>
-									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+											<th><?php echo __('#'); ?></th>		<th><?php echo __('Date'); ?></th>		<th><?php echo __('Auteur'); ?></th>		<th><?php echo __('Commentaire'); ?></th>		<th><?php echo __('Concerne'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -155,11 +143,11 @@
 										$i = 0;
 										foreach ($chat['Commentaire'] as $commentaire): ?>
 		<tr>
-			<td><?php echo $commentaire['id']; ?></td>
-			<td><?php echo $commentaire['date']; ?></td>
-			<td><?php echo $commentaire['auteur']; ?></td>
-			<td><?php echo $commentaire['texte']; ?></td>
-			<td><?php echo $commentaire['source']; ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'id', 'type'=>'integer', 'v'=>$commentaire['id'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'date', 'type'=>'datetime', 'v'=>$commentaire['date'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'auteur', 'type'=>'string', 'v'=>$commentaire['auteur'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'texte', 'type'=>'string', 'v'=>$commentaire['texte'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'source', 'type'=>'string', 'v'=>$commentaire['source'])); ?></td>
 			<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'commentaires', 'action' => 'view', $commentaire['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'commentaires', 'action' => 'edit', $commentaire['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
@@ -170,7 +158,7 @@
 						</table><!-- /.table table-striped table-bordered -->
 					</div><!-- /.table-responsive -->
 					
-				<?php endif; ?>
+				<?php else: echo '<i>'.__('Aucune donnée.').'</i>'; endif; ?>
 
 				
 			</div><!-- /.related -->
@@ -180,7 +168,7 @@
 
                                 <div class="btn-group btn-group-xs pull-right">
                                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Rappel'), array('controller' => 'rappels', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
-				<h3><?php echo __('Rappels liés:'); ?></h3>
+				<h3><?php echo __('Rappels lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($chat['Rappel'])): ?>
 					
@@ -188,13 +176,7 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Echeance'); ?></th>
-		<th><?php echo __('Affectation'); ?></th>
-		<th><?php echo __('Texte'); ?></th>
-		<th><?php echo __('Source'); ?></th>
-		<th><?php echo __('Ok'); ?></th>
-									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+											<th><?php echo __('#'); ?></th>		<th><?php echo __('Échéance'); ?></th>		<th><?php echo __('Affecté à'); ?></th>		<th><?php echo __('Détails'); ?></th>		<th><?php echo __('Concerne'); ?></th>		<th><?php echo __('Validé'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -202,12 +184,12 @@
 										$i = 0;
 										foreach ($chat['Rappel'] as $rappel): ?>
 		<tr>
-			<td><?php echo $rappel['id']; ?></td>
-			<td><?php echo $rappel['echeance']; ?></td>
-			<td><?php echo $rappel['affectation']; ?></td>
-			<td><?php echo $rappel['texte']; ?></td>
-			<td><?php echo $rappel['source']; ?></td>
-			<td><?php echo $rappel['ok']; ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'id', 'type'=>'integer', 'v'=>$rappel['id'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'echeance', 'type'=>'date', 'v'=>$rappel['echeance'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'affectation', 'type'=>'string', 'v'=>$rappel['affectation'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'texte', 'type'=>'string', 'v'=>$rappel['texte'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'source', 'type'=>'string', 'v'=>$rappel['source'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'ok', 'type'=>'integer', 'v'=>$rappel['ok'])); ?></td>
 			<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'rappels', 'action' => 'view', $rappel['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'rappels', 'action' => 'edit', $rappel['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
@@ -218,7 +200,7 @@
 						</table><!-- /.table table-striped table-bordered -->
 					</div><!-- /.table-responsive -->
 					
-				<?php endif; ?>
+				<?php else: echo '<i>'.__('Aucune donnée.').'</i>'; endif; ?>
 
 				
 			</div><!-- /.related -->
@@ -228,7 +210,7 @@
 
                                 <div class="btn-group btn-group-xs pull-right">
                                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Soin'), array('controller' => 'soins', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
-				<h3><?php echo __('Soins liés:'); ?></h3>
+				<h3><?php echo __('Soins lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($chat['Soin'])): ?>
 					
@@ -236,14 +218,7 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Type'); ?></th>
-		<th><?php echo __('Date Debut'); ?></th>
-		<th><?php echo __('Date Fin'); ?></th>
-		<th><?php echo __('Nature'); ?></th>
-		<th><?php echo __('Veterinaire'); ?></th>
-		<th><?php echo __('Montant'); ?></th>
-									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+											<th><?php echo __('#'); ?></th>		<th><?php echo __('Type de soin'); ?></th>		<th><?php echo __('Date des soins'); ?></th>		<th><?php echo __('Jusqu\'au (si longue durée)'); ?></th>		<th><?php echo __('Nature des soins'); ?></th>		<th><?php echo __('Vétérinaire'); ?></th>		<th><?php echo __('Montant'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -251,13 +226,13 @@
 										$i = 0;
 										foreach ($chat['Soin'] as $soin): ?>
 		<tr>
-			<td><?php echo $soin['id']; ?></td>
-			<td><?php echo $soin['type']; ?></td>
-			<td><?php echo $soin['date_debut']; ?></td>
-			<td><?php echo $soin['date_fin']; ?></td>
-			<td><?php echo $soin['nature']; ?></td>
-			<td><?php echo $soin['veterinaire']; ?></td>
-			<td><?php echo $soin['montant']; ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'id', 'type'=>'integer', 'v'=>$soin['id'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'type', 'type'=>'string', 'v'=>$soin['type'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'date_debut', 'type'=>'date', 'v'=>$soin['date_debut'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'date_fin', 'type'=>'date', 'v'=>$soin['date_fin'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'nature', 'type'=>'string', 'v'=>$soin['nature'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'veterinaire', 'type'=>'string', 'v'=>$soin['veterinaire'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'montant', 'type'=>'float', 'v'=>$soin['montant'])); ?></td>
 			<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'soins', 'action' => 'view', $soin['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'soins', 'action' => 'edit', $soin['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
@@ -268,7 +243,7 @@
 						</table><!-- /.table table-striped table-bordered -->
 					</div><!-- /.table-responsive -->
 					
-				<?php endif; ?>
+				<?php else: echo '<i>'.__('Aucune donnée.').'</i>'; endif; ?>
 
 				
 			</div><!-- /.related -->

@@ -16,34 +16,29 @@
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
 					<tbody>
-						<tr>		<td><strong><?php echo __('Id'); ?></strong></td>
+						<tr>		<td><strong><?php echo __('Nom'); ?></strong></td>
 		<td>
-			<?php echo h($accueil['Accueil']['id']); ?>
-			&nbsp;
-		</td>
-</tr><tr>		<td><strong><?php echo __('Nom'); ?></strong></td>
-		<td>
-			<?php echo h($accueil['Accueil']['nom']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'nom', 'type'=>'string', 'v'=>$accueil['Accueil']['nom'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Adresse'); ?></strong></td>
 		<td>
-			<?php echo h($accueil['Accueil']['adresse']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'adresse', 'type'=>'string', 'v'=>$accueil['Accueil']['adresse'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Telephone1'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Téléphone 1'); ?></strong></td>
 		<td>
-			<?php echo h($accueil['Accueil']['telephone1']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'telephone1', 'type'=>'string', 'v'=>$accueil['Accueil']['telephone1'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Telephone2'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Téléphone 2'); ?></strong></td>
 		<td>
-			<?php echo h($accueil['Accueil']['telephone2']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'telephone2', 'type'=>'string', 'v'=>$accueil['Accueil']['telephone2'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Limite'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Chats max.'); ?></strong></td>
 		<td>
-			<?php echo h($accueil['Accueil']['limite']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'limite', 'type'=>'integer', 'v'=>$accueil['Accueil']['limite'])); ?>
 			&nbsp;
 		</td>
 </tr>					</tbody>
@@ -59,7 +54,7 @@
 
                                 <div class="btn-group btn-group-xs pull-right">
                                     <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Chat'), array('controller' => 'chats', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
-				<h3><?php echo __('Chats liés:'); ?></h3>
+				<h3><?php echo __('Chats lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($accueil['Chat'])): ?>
 					
@@ -67,17 +62,7 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Nom'); ?></th>
-		<th><?php echo __('Nom2'); ?></th>
-		<th><?php echo __('Naissance'); ?></th>
-		<th><?php echo __('Identification'); ?></th>
-		<th><?php echo __('Race'); ?></th>
-		<th><?php echo __('Robe'); ?></th>
-		<th><?php echo __('Sexe'); ?></th>
-		<th><?php echo __('Etat'); ?></th>
-		<th><?php echo __('Deces'); ?></th>
-									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+											<th><?php echo __('#'); ?></th>		<th><?php echo __('Nom'); ?></th>		<th><?php echo __('Ancien nom'); ?></th>		<th><?php echo __('Naissance'); ?></th>		<th><?php echo __('Identification'); ?></th>		<th><?php echo __('Race'); ?></th>		<th><?php echo __('Robe'); ?></th>		<th><?php echo __('Sexe'); ?></th>		<th><?php echo __('Statut'); ?></th>		<th><?php echo __('Décédé'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -85,16 +70,16 @@
 										$i = 0;
 										foreach ($accueil['Chat'] as $chat): ?>
 		<tr>
-			<td><?php echo $chat['id']; ?></td>
-			<td><?php echo $chat['nom']; ?></td>
-			<td><?php echo $chat['nom2']; ?></td>
-			<td><?php echo $chat['naissance']; ?></td>
-			<td><?php echo $chat['identification']; ?></td>
-			<td><?php echo $chat['race']; ?></td>
-			<td><?php echo $chat['robe']; ?></td>
-			<td><?php echo $chat['sexe']; ?></td>
-			<td><?php echo $chat['etat']; ?></td>
-			<td><?php echo $chat['deces']; ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'id', 'type'=>'integer', 'v'=>$chat['id'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'nom', 'type'=>'string', 'v'=>$chat['nom'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'nom2', 'type'=>'string', 'v'=>$chat['nom2'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'naissance', 'type'=>'date', 'v'=>$chat['naissance'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'identification', 'type'=>'string', 'v'=>$chat['identification'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'race', 'type'=>'string', 'v'=>$chat['race'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'robe', 'type'=>'string', 'v'=>$chat['robe'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'sexe', 'type'=>'string', 'v'=>$chat['sexe'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'etat', 'type'=>'string', 'v'=>$chat['etat'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'deces', 'type'=>'date', 'v'=>$chat['deces'])); ?></td>
 			<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'chats', 'action' => 'view', $chat['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'chats', 'action' => 'edit', $chat['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
@@ -105,7 +90,7 @@
 						</table><!-- /.table table-striped table-bordered -->
 					</div><!-- /.table-responsive -->
 					
-				<?php endif; ?>
+				<?php else: echo '<i>'.__('Aucune donnée.').'</i>'; endif; ?>
 
 				
 			</div><!-- /.related -->

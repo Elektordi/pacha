@@ -6,18 +6,18 @@
 		<div class="users index">
 		
                         <div class="btn-group pull-right">
-                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Nouveau User'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer User'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
 			<h2><?php echo __('Users'); ?></h2>
 			
 			<div class="table-responsive">
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-															<th><?php echo $this->Paginator->sort('id'); ?></th>
-															<th><?php echo $this->Paginator->sort('username'); ?></th>
-															<th><?php echo $this->Paginator->sort('password'); ?></th>
-															<th><?php echo $this->Paginator->sort('initiales'); ?></th>
-															<th><?php echo $this->Paginator->sort('level'); ?></th>
+															<th><?php echo $this->Paginator->sort('id', '#'); ?></th>
+															<th><?php echo $this->Paginator->sort('username', 'Identifiant'); ?></th>
+															<th><?php echo $this->Paginator->sort('password', 'Mot de passe'); ?></th>
+															<th><?php echo $this->Paginator->sort('initiales', 'Initiales'); ?></th>
+															<th><?php echo $this->Paginator->sort('level', 'Niveau d\'accès'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
 					</thead>
@@ -25,11 +25,11 @@
 						<?php
 						foreach ($users as $user): ?>
 	<tr>
-		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['initiales']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['level']); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'id', 'type'=>'integer', 'v'=>$user['User']['id'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'username', 'type'=>'string', 'v'=>$user['User']['username'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'password', 'type'=>'string', 'v'=>$user['User']['password'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'initiales', 'type'=>'string', 'v'=>$user['User']['initiales'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'level', 'type'=>'integer', 'v'=>$user['User']['level'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>

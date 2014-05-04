@@ -39,6 +39,22 @@ class AppController extends Controller {
         7 => 'Accès complet',
         9 => 'Super-administrateur'
     );
+    
+    public $sexes = array(
+        '?' => 'Inconnu',
+        'M' => 'Mâle',
+        'F' => 'Femelle'
+    );
+    
+    public $etats = array(
+        'NOUVEAU' => 'Nouveau, en attente informations...',
+        'CHATON' => 'Chaton (En famille d\'accueil)',
+        'ACCUEIL' => 'Pas prêt (En famille d\'accueil)',
+        'ADOPTION' => 'Prêt pour l\'adoption (En famille d\'accueil)',
+        'ADOPTE' => 'Adopté !',
+        'DOMICILE' => 'Chat placé à domicile',
+        'DECEDE' => 'Chat décédé'
+    );
 
     public $components = array(
         'Session',
@@ -82,15 +98,23 @@ class AppController extends Controller {
         //$this->set('authuser', $this->Auth->user);
     }
     
+	
+    public function beforeRender() {
+        $this->set('sexes', $this->sexes);
+        $this->set('etats', $this->etats);
+        parent::beforeRender();
+    }
+
+    
     public function loginSuccessFlash($action = "Connexion") {
         $h = date('H');
         if($h>=0 && $h<4) {
             $prefix = "Bonsoir";
             $suffix = "Encore debout ?";
-        } elseif ($h>=4 && $h<7) {
+        } elseif ($h>=4 && $h<8) {
             $prefix = "Bonjour";
             $suffix = "Déjà debout ?";
-        } elseif ($h>=7 && $h<12) {
+        } elseif ($h>=8 && $h<12) {
             $prefix = "Bonjour";
             $suffix = "Passez une bonne journée...";
         } elseif ($h>=12 && $h<20) {
@@ -109,6 +133,11 @@ class AppController extends Controller {
             return true;
         }
         return true; // TODO
+    }
+    
+    public function addEmptyValue($array, $label='-')
+    {
+        return array_merge(array(0=>$label), $array);
     }
 
 }

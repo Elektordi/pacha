@@ -5,7 +5,7 @@
 		<div class="adoptions form">
                     
                     		
-			<?php echo $this->Form->create('Adoption', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
+			<?php echo $this->MyForm->create('Adoption', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
 				<fieldset>
 
                                     <div class="btn-toolbar pull-right">
@@ -17,43 +17,43 @@
                     
                                                                         <h2><?php  echo __('Modifier Adoption').': '.$adoption['Adoption']['nom']; ?></h2>
                                     			<div class="form-group">
-	<?php echo $this->Form->label('chat_id', 'chat_id');?>
-		<?php echo $this->Form->input('chat_id', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('chat_id', 'Chat');?>
+		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('nom', 'nom');?>
-		<?php echo $this->Form->input('nom', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('nom', 'Nom de famille');?>
+		<?php echo $this->MyForm->input('nom', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('adresse', 'adresse');?>
-		<?php echo $this->Form->input('adresse', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('adresse', 'Adresse');?>
+		<?php echo $this->MyForm->input('adresse', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('telephone', 'telephone');?>
-		<?php echo $this->Form->input('telephone', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('telephone', 'Téléphone');?>
+		<?php echo $this->MyForm->input('telephone', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('email', 'email');?>
-		<?php echo $this->Form->input('email', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('email', 'Adresse e-mail');?>
+		<?php echo $this->MyForm->input('email', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('date_debut', 'date_debut');?>
-		<?php echo $this->Form->input('date_debut', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('date_debut', 'Date d\'adoption');?>
+		<?php echo $this->MyForm->input('date_debut', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('date_fin', 'date_fin');?>
-		<?php echo $this->Form->input('date_fin', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('date_fin', 'Fin d\'adoption');?>
+		<?php echo $this->MyForm->input('date_fin', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 				</fieldset>
-			<?php echo $this->Form->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
-<?php echo $this->Form->end(); ?>
+			<?php echo $this->MyForm->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
+<?php echo $this->MyForm->end(); ?>
 			
 		</div><!-- /.form -->
 			

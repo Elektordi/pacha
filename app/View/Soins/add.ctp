@@ -5,7 +5,7 @@
 		<div class="soins form">
                     
                     		
-			<?php echo $this->Form->create('Soin', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
+			<?php echo $this->MyForm->create('Soin', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
 				<fieldset>
 
                                     <div class="btn-toolbar pull-right">
@@ -15,43 +15,43 @@
                     
                                                                         <h2><?php  echo __('Ajouter Soin'); ?></h2>
                                     			<div class="form-group">
-	<?php echo $this->Form->label('chat_id', 'chat_id');?>
-		<?php echo $this->Form->input('chat_id', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('chat_id', 'Chat');?>
+		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('type', 'type');?>
-		<?php echo $this->Form->input('type', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('type', 'Type de soin');?>
+		<?php echo $this->MyForm->input('type', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('date_debut', 'date_debut');?>
-		<?php echo $this->Form->input('date_debut', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('date_debut', 'Date des soins');?>
+		<?php echo $this->MyForm->input('date_debut', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('date_fin', 'date_fin');?>
-		<?php echo $this->Form->input('date_fin', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('date_fin', 'Jusqu\'au (si longue durée)');?>
+		<?php echo $this->MyForm->input('date_fin', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('nature', 'nature');?>
-		<?php echo $this->Form->input('nature', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('nature', 'Nature des soins');?>
+		<?php echo $this->MyForm->input('nature', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('veterinaire', 'veterinaire');?>
-		<?php echo $this->Form->input('veterinaire', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('veterinaire', 'Vétérinaire');?>
+		<?php echo $this->MyForm->input('veterinaire', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('montant', 'montant');?>
-		<?php echo $this->Form->input('montant', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('montant', 'Montant');?>
+		<?php echo $this->MyForm->input('montant', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 				</fieldset>
-			<?php echo $this->Form->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
-<?php echo $this->Form->end(); ?>
+			<?php echo $this->MyForm->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
+<?php echo $this->MyForm->end(); ?>
 			
 		</div><!-- /.form -->
 			

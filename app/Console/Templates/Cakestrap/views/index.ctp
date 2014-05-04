@@ -24,7 +24,7 @@
 		<div class="<?php echo $pluralVar; ?> index">
 		
                         <div class="btn-group pull-right">
-                                <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus\"></span> '.__('Nouveau " . $singularHumanName . "'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
+                                <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus\"></span> '.__('Créer " . $singularHumanName . "'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
                         </div>
 			<h2><?php echo "<?php echo __('{$pluralHumanName}'); ?>"; ?></h2>
 			
@@ -32,8 +32,10 @@
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<?php  foreach ($fields as $field): ?>
-								<th><?php echo "<?php echo \$this->Paginator->sort('{$field}'); ?>"; ?></th>
+							<?php  foreach ($fields as $field):
+							        $display = (empty($schema[$field]['comment'])?Inflector::humanize($field):addslashes($schema[$field]['comment']));
+							        if(isset($schema[$field]['key']) && $schema[$field]['key']=='primary') $display="#"; ?>
+								<th><?php echo "<?php echo \$this->Paginator->sort('{$field}', '".$display."'); ?>"; ?></th>
 							<?php endforeach; ?>
 								<th class="actions col-md-2"><?php echo "<?php echo __('Actions'); ?>"; ?></th>
 						</tr>
@@ -55,7 +57,7 @@
 									}
 								}
 								if ($isKey !== true) {
-									echo "\t\t<td><?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
+									echo "\t\t<td><?php echo \$this->element('value',array('page'=>'index', 'name'=>'{$field}', 'type'=>'{$schema[$field]['type']}', 'v'=>\${$singularVar}['{$modelClass}']['{$field}'])); ?>&nbsp;</td>\n";
 								}
 							}
 

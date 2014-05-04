@@ -16,39 +16,34 @@
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
 					<tbody>
-						<tr>		<td><strong><?php echo __('Id'); ?></strong></td>
-		<td>
-			<?php echo h($rappel['Rappel']['id']); ?>
-			&nbsp;
-		</td>
-</tr><tr>		<td><strong><?php echo __('Chat'); ?></strong></td>
+						<tr>		<td><strong><?php echo __('Chat'); ?></strong></td>
 		<td>
 			<?php echo $this->Html->link($rappel['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $rappel['Chat']['id']), array('class' => '')); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Echeance'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Échéance'); ?></strong></td>
 		<td>
-			<?php echo h($rappel['Rappel']['echeance']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'echeance', 'type'=>'date', 'v'=>$rappel['Rappel']['echeance'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Affectation'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Affecté à'); ?></strong></td>
 		<td>
-			<?php echo h($rappel['Rappel']['affectation']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'affectation', 'type'=>'string', 'v'=>$rappel['Rappel']['affectation'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Texte'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Détails'); ?></strong></td>
 		<td>
-			<?php echo h($rappel['Rappel']['texte']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'texte', 'type'=>'string', 'v'=>$rappel['Rappel']['texte'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Source'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Concerne'); ?></strong></td>
 		<td>
-			<?php echo h($rappel['Rappel']['source']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'source', 'type'=>'string', 'v'=>$rappel['Rappel']['source'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Ok'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Validé'); ?></strong></td>
 		<td>
-			<?php echo h($rappel['Rappel']['ok']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'ok', 'type'=>'integer', 'v'=>$rappel['Rappel']['ok'])); ?>
 			&nbsp;
 		</td>
 </tr>					</tbody>

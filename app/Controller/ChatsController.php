@@ -14,7 +14,7 @@ class ChatsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
-
+	
 /**
  * index method
  *
@@ -55,7 +55,7 @@ class ChatsController extends AppController {
 				$this->Session->setFlash(__('Chat impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
 		}
-		$accueils = $this->Chat->Accueil->find('list');
+		$accueils = $this->addEmptyValue($this->Chat->Accueil->find('list'));
 		$this->set(compact('accueils'));
 	}
 
@@ -83,7 +83,7 @@ class ChatsController extends AppController {
 			$this->request->data = $this->Chat->find('first', $options);
                         $this->set('chat', $this->request->data);
 		}
-		$accueils = $this->Chat->Accueil->find('list');
+		$accueils = $this->addEmptyValue($this->Chat->Accueil->find('list'));
 		$this->set(compact('accueils'));
 	}
 

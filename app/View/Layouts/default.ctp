@@ -32,6 +32,7 @@ $cakeDescription = __d('cake_dev', 'PACHA');
 			echo $this->fetch('meta');
 
 			echo $this->Html->css('bootstrap.min');
+			echo $this->Html->css('datepicker');
 			// Uncomment this to enable the bootstrap gradient theme (Flat is way better though).
 			//echo $this->Html->css('bootstrap-theme.min');
 			echo $this->Html->css('core');
@@ -40,6 +41,7 @@ $cakeDescription = __d('cake_dev', 'PACHA');
 			
 			echo $this->Html->script('libs/jquery-1.10.2.min');
 			echo $this->Html->script('libs/bootstrap.min');
+			echo $this->Html->script('libs/bootstrap-datepicker');
 			
 			echo $this->fetch('script');
 		?>

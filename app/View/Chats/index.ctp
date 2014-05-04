@@ -6,24 +6,23 @@
 		<div class="chats index">
 		
                         <div class="btn-group pull-right">
-                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Nouveau Chat'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Chat'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
 			<h2><?php echo __('Chats'); ?></h2>
 			
 			<div class="table-responsive">
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-															<th><?php echo $this->Paginator->sort('id'); ?></th>
-															<th><?php echo $this->Paginator->sort('nom'); ?></th>
-															<th><?php echo $this->Paginator->sort('nom2'); ?></th>
-															<th><?php echo $this->Paginator->sort('naissance'); ?></th>
-															<th><?php echo $this->Paginator->sort('identification'); ?></th>
-															<th><?php echo $this->Paginator->sort('race'); ?></th>
-															<th><?php echo $this->Paginator->sort('robe'); ?></th>
-															<th><?php echo $this->Paginator->sort('sexe'); ?></th>
-															<th><?php echo $this->Paginator->sort('etat'); ?></th>
-															<th><?php echo $this->Paginator->sort('deces'); ?></th>
-															<th><?php echo $this->Paginator->sort('accueil_id'); ?></th>
+															<th><?php echo $this->Paginator->sort('id', '#'); ?></th>
+															<th><?php echo $this->Paginator->sort('nom', 'Nom'); ?></th>
+															<th><?php echo $this->Paginator->sort('nom2', 'Ancien nom'); ?></th>
+															<th><?php echo $this->Paginator->sort('naissance', 'Naissance'); ?></th>
+															<th><?php echo $this->Paginator->sort('identification', 'Identification'); ?></th>
+															<th><?php echo $this->Paginator->sort('race', 'Race'); ?></th>
+															<th><?php echo $this->Paginator->sort('robe', 'Robe'); ?></th>
+															<th><?php echo $this->Paginator->sort('sexe', 'Sexe'); ?></th>
+															<th><?php echo $this->Paginator->sort('etat', 'Statut'); ?></th>
+															<th><?php echo $this->Paginator->sort('accueil_id', 'Famille d\'accueil'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
 					</thead>
@@ -31,16 +30,15 @@
 						<?php
 						foreach ($chats as $chat): ?>
 	<tr>
-		<td><?php echo h($chat['Chat']['id']); ?>&nbsp;</td>
-		<td><?php echo h($chat['Chat']['nom']); ?>&nbsp;</td>
-		<td><?php echo h($chat['Chat']['nom2']); ?>&nbsp;</td>
-		<td><?php echo h($chat['Chat']['naissance']); ?>&nbsp;</td>
-		<td><?php echo h($chat['Chat']['identification']); ?>&nbsp;</td>
-		<td><?php echo h($chat['Chat']['race']); ?>&nbsp;</td>
-		<td><?php echo h($chat['Chat']['robe']); ?>&nbsp;</td>
-		<td><?php echo h($chat['Chat']['sexe']); ?>&nbsp;</td>
-		<td><?php echo h($chat['Chat']['etat']); ?>&nbsp;</td>
-		<td><?php echo h($chat['Chat']['deces']); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'id', 'type'=>'integer', 'v'=>$chat['Chat']['id'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'nom', 'type'=>'string', 'v'=>$chat['Chat']['nom'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'nom2', 'type'=>'string', 'v'=>$chat['Chat']['nom2'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'naissance', 'type'=>'date', 'v'=>$chat['Chat']['naissance'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'identification', 'type'=>'string', 'v'=>$chat['Chat']['identification'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'race', 'type'=>'string', 'v'=>$chat['Chat']['race'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'robe', 'type'=>'string', 'v'=>$chat['Chat']['robe'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'sexe', 'type'=>'string', 'v'=>$chat['Chat']['sexe'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'etat', 'type'=>'string', 'v'=>$chat['Chat']['etat'])); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($chat['Accueil']['nom'], array('controller' => 'accueils', 'action' => 'view', $chat['Accueil']['id'])); ?>
 		</td>

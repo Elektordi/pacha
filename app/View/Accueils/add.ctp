@@ -5,7 +5,7 @@
 		<div class="accueils form">
                     
                     		
-			<?php echo $this->Form->create('Accueil', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
+			<?php echo $this->MyForm->create('Accueil', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>
 				<fieldset>
 
                                     <div class="btn-toolbar pull-right">
@@ -15,33 +15,33 @@
                     
                                                                         <h2><?php  echo __('Ajouter Accueil'); ?></h2>
                                     			<div class="form-group">
-	<?php echo $this->Form->label('nom', 'nom');?>
-		<?php echo $this->Form->input('nom', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('nom', 'Nom');?>
+		<?php echo $this->MyForm->input('nom', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('adresse', 'adresse');?>
-		<?php echo $this->Form->input('adresse', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('adresse', 'Adresse');?>
+		<?php echo $this->MyForm->input('adresse', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('telephone1', 'telephone1');?>
-		<?php echo $this->Form->input('telephone1', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('telephone1', 'Téléphone 1');?>
+		<?php echo $this->MyForm->input('telephone1', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('telephone2', 'telephone2');?>
-		<?php echo $this->Form->input('telephone2', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('telephone2', 'Téléphone 2');?>
+		<?php echo $this->MyForm->input('telephone2', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->Form->label('limite', 'limite');?>
-		<?php echo $this->Form->input('limite', array('class' => 'form-control')); ?>
+	<?php echo $this->MyForm->label('limite', 'Chats max.');?>
+		<?php echo $this->MyForm->input('limite', array('class' => 'form-control')); ?>
 </div><!-- .form-group -->
 
 				</fieldset>
-			<?php echo $this->Form->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
-<?php echo $this->Form->end(); ?>
+			<?php echo $this->MyForm->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
+<?php echo $this->MyForm->end(); ?>
 			
 		</div><!-- /.form -->
 			

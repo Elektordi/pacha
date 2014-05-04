@@ -16,44 +16,39 @@
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
 					<tbody>
-						<tr>		<td><strong><?php echo __('Id'); ?></strong></td>
-		<td>
-			<?php echo h($soin['Soin']['id']); ?>
-			&nbsp;
-		</td>
-</tr><tr>		<td><strong><?php echo __('Chat'); ?></strong></td>
+						<tr>		<td><strong><?php echo __('Chat'); ?></strong></td>
 		<td>
 			<?php echo $this->Html->link($soin['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $soin['Chat']['id']), array('class' => '')); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Type'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Type de soin'); ?></strong></td>
 		<td>
-			<?php echo h($soin['Soin']['type']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'type', 'type'=>'string', 'v'=>$soin['Soin']['type'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Date Debut'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Date des soins'); ?></strong></td>
 		<td>
-			<?php echo h($soin['Soin']['date_debut']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'date_debut', 'type'=>'date', 'v'=>$soin['Soin']['date_debut'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Date Fin'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Jusqu\'au (si longue durée)'); ?></strong></td>
 		<td>
-			<?php echo h($soin['Soin']['date_fin']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'date_fin', 'type'=>'date', 'v'=>$soin['Soin']['date_fin'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Nature'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Nature des soins'); ?></strong></td>
 		<td>
-			<?php echo h($soin['Soin']['nature']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'nature', 'type'=>'string', 'v'=>$soin['Soin']['nature'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Veterinaire'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Vétérinaire'); ?></strong></td>
 		<td>
-			<?php echo h($soin['Soin']['veterinaire']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'veterinaire', 'type'=>'string', 'v'=>$soin['Soin']['veterinaire'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Montant'); ?></strong></td>
 		<td>
-			<?php echo h($soin['Soin']['montant']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'montant', 'type'=>'float', 'v'=>$soin['Soin']['montant'])); ?>
 			&nbsp;
 		</td>
 </tr>					</tbody>

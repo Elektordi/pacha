@@ -23,7 +23,7 @@
 		<div class="<?php echo $pluralVar; ?> form">
                     
                     		
-			<?php echo "<?php echo \$this->Form->create('{$modelClass}', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>\n"; ?>
+			<?php echo "<?php echo \$this->MyForm->create('{$modelClass}', array('inputDefaults' => array('label' => false), 'role' => 'form')); ?>\n"; ?>
 				<fieldset>
 
                                     <div class="btn-toolbar pull-right">
@@ -48,22 +48,22 @@
 						continue;
 					} elseif (!in_array($field, array('created', 'modified', 'updated'))) {
 						echo "<div class=\"form-group\">\n";
-						echo "\t<?php echo \$this->Form->label('{$field}', '{$field}');?>\n";
-						echo "\t\t<?php echo \$this->Form->input('{$field}', array('class' => 'form-control')); ?>\n";
+						echo "\t<?php echo \$this->MyForm->label('{$field}', '".(empty($schema[$field]['comment'])?Inflector::humanize($field):addslashes($schema[$field]['comment']))."');?>\n";
+						echo "\t\t<?php echo \$this->MyForm->input('{$field}', array('class' => 'form-control')); ?>\n";
 						echo "</div><!-- .form-group -->\n";
 						echo "\n";
 					}
 				}
 				if (!empty($associations['hasAndBelongsToMany'])) {
 					foreach ($associations['hasAndBelongsToMany'] as $assocName => $assocData) {
-						echo "\t\t<?php echo \$this->Form->input('{$assocName}');?>\n";
+						echo "\t\t<?php echo \$this->MyForm->input('{$assocName}');?>\n";
 					}
 				}
 			?>
 				</fieldset>
 			<?php
-				echo "<?php echo \$this->Form->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>\n";
-				echo "<?php echo \$this->Form->end(); ?>\n";
+				echo "<?php echo \$this->MyForm->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>\n";
+				echo "<?php echo \$this->MyForm->end(); ?>\n";
 			?>
 			
 		</div><!-- /.form -->

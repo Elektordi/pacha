@@ -16,44 +16,39 @@
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
 					<tbody>
-						<tr>		<td><strong><?php echo __('Id'); ?></strong></td>
-		<td>
-			<?php echo h($adoption['Adoption']['id']); ?>
-			&nbsp;
-		</td>
-</tr><tr>		<td><strong><?php echo __('Chat'); ?></strong></td>
+						<tr>		<td><strong><?php echo __('Chat'); ?></strong></td>
 		<td>
 			<?php echo $this->Html->link($adoption['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $adoption['Chat']['id']), array('class' => '')); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Nom'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Nom de famille'); ?></strong></td>
 		<td>
-			<?php echo h($adoption['Adoption']['nom']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'nom', 'type'=>'string', 'v'=>$adoption['Adoption']['nom'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Adresse'); ?></strong></td>
 		<td>
-			<?php echo h($adoption['Adoption']['adresse']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'adresse', 'type'=>'string', 'v'=>$adoption['Adoption']['adresse'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Telephone'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Téléphone'); ?></strong></td>
 		<td>
-			<?php echo h($adoption['Adoption']['telephone']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'telephone', 'type'=>'string', 'v'=>$adoption['Adoption']['telephone'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Email'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Adresse e-mail'); ?></strong></td>
 		<td>
-			<?php echo h($adoption['Adoption']['email']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'email', 'type'=>'string', 'v'=>$adoption['Adoption']['email'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Date Debut'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Date d\'adoption'); ?></strong></td>
 		<td>
-			<?php echo h($adoption['Adoption']['date_debut']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'date_debut', 'type'=>'date', 'v'=>$adoption['Adoption']['date_debut'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Date Fin'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Fin d\'adoption'); ?></strong></td>
 		<td>
-			<?php echo h($adoption['Adoption']['date_fin']); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'date_fin', 'type'=>'date', 'v'=>$adoption['Adoption']['date_fin'])); ?>
 			&nbsp;
 		</td>
 </tr>					</tbody>

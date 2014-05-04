@@ -39,13 +39,14 @@
 					<tbody>
 						<?php
 						foreach ($fields as $field) {
+    						if(isset($schema[$field]['key']) && $schema[$field]['key']=='primary' && empty($schema[$field]['comment'])) continue;
 							$isKey = false;
 							if (!empty($associations['belongsTo'])) {
 								foreach ($associations['belongsTo'] as $alias => $details) {
 									if ($field === $details['foreignKey']) {
 										$isKey = true;
 										echo "<tr>";
-										echo "\t\t<td><strong><?php echo __('" . Inflector::humanize(Inflector::underscore($alias)) . "'); ?></strong></td>\n";
+										echo "\t\t<td><strong><?php echo __('" . (empty($schema[$field]['comment'])?Inflector::humanize(Inflector::underscore($alias)):addslashes($schema[$field]['comment'])) . "'); ?></strong></td>\n";
 										echo "\t\t<td>\n\t\t\t<?php echo \$this->Html->link(\${$singularVar}['{$alias}']['{$details['displayField']}'], array('controller' => '{$details['controller']}', 'action' => 'view', \${$singularVar}['{$alias}']['{$details['primaryKey']}']), array('class' => '')); ?>\n\t\t\t&nbsp;\n\t\t</td>\n";
 										echo "</tr>";
 										break;
@@ -54,8 +55,8 @@
 							}
 							if ($isKey !== true) {
 								echo "<tr>";
-								echo "\t\t<td><strong><?php echo __('" . Inflector::humanize($field) . "'); ?></strong></td>\n";
-								echo "\t\t<td>\n\t\t\t<?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>\n\t\t\t&nbsp;\n\t\t</td>\n";
+								echo "\t\t<td><strong><?php echo __('" . (empty($schema[$field]['comment'])?Inflector::humanize($field):addslashes($schema[$field]['comment'])) . "'); ?></strong></td>\n";
+								echo "\t\t<td>\n\t\t\t<?php echo \$this->element('value',array('page'=>'view', 'name'=>'{$field}', 'type'=>'{$schema[$field]['type']}', 'v'=>\${$singularVar}['{$modelClass}']['{$field}'])); ?>\n\t\t\t&nbsp;\n\t\t</td>\n";
 								echo "</tr>";
 							}
 						}
@@ -114,7 +115,7 @@
                                 <div class="btn-group btn-group-xs pull-right">
                                     <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus\"></span> '.__('Créer " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
                                 </div>
-				<h3><?php echo "<?php echo __('" . $otherPluralHumanName . " liés:'); ?>"; ?></h3>
+				<h3><?php echo "<?php echo __('" . $otherPluralHumanName . " lié(e)s:'); ?>"; ?></h3>
 				
 				<?php echo "<?php if (!empty(\${$singularVar}['{$alias}'])): ?>\n"; ?>
 					
@@ -122,10 +123,12 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-									<?php 
-										foreach ($details['fields'] as $field) {
+									<?php
+										foreach ($details['schema'] as $field => $field_schema) {
                                                                                         if($field==$fk) continue;
-											echo "\t\t<th><?php echo __('" . Inflector::humanize($field) . "'); ?></th>\n";
+                                            $display = (empty($field_schema['comment'])?Inflector::humanize($field):addslashes($field_schema['comment']));
+                                            if(isset($field_schema['key']) && $field_schema['key']=='primary') $display="#";
+											echo "\t\t<th><?php echo __('" . $display . "'); ?></th>";
 										}
 									?>
 									<th class="actions col-md-2"><?php echo "<?php echo __('Actions'); ?>"; ?></th>
@@ -137,9 +140,9 @@
 										\$i = 0;
 										foreach (\${$singularVar}['{$alias}'] as \${$otherSingularVar}): ?>\n";
 										echo "\t\t<tr>\n";
-											foreach ($details['fields'] as $field) {
+											foreach ($details['schema'] as $field => $field_schema) {
                                                                                             if($field==$fk) continue;
-                                                                                            echo "\t\t\t<td><?php echo \${$otherSingularVar}['{$field}']; ?></td>\n";
+                                                                                            echo "\t\t\t<td><?php echo \$this->element('value',array('page'=>'relation', 'name'=>'{$field}', 'type'=>'{$field_schema['type']}', 'v'=>\${$otherSingularVar}['{$field}'])); ?></td>\n";
 											}
 
 											echo "\t\t\t<td class=\"actions\">\n";
@@ -155,7 +158,7 @@
 						</table><!-- /.table table-striped table-bordered -->
 					</div><!-- /.table-responsive -->
 					
-				<?php echo "<?php endif; ?>\n\n"; ?>
+				<?php echo "<?php else: echo '<i>'.__('Aucune donnée.').'</i>'; endif; ?>\n\n"; ?>
 				
 			</div><!-- /.related -->
 

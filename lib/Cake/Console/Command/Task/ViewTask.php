@@ -466,6 +466,7 @@ class ViewTask extends BakeTask {
 				$associations[$type][$assocKey]['foreignKey'] = $assocData['foreignKey'];
 				$associations[$type][$assocKey]['controller'] = Inflector::pluralize(Inflector::underscore($modelClass));
 				$associations[$type][$assocKey]['fields'] = array_keys($model->{$assocKey}->schema(true));
+				$associations[$type][$assocKey]['schema'] = $model->{$assocKey}->schema(true); // GG
 			}
 		}
 		return $associations;

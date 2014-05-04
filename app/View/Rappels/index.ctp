@@ -6,20 +6,20 @@
 		<div class="rappels index">
 		
                         <div class="btn-group pull-right">
-                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Nouveau Rappel'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Rappel'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
 			<h2><?php echo __('Rappels'); ?></h2>
 			
 			<div class="table-responsive">
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-															<th><?php echo $this->Paginator->sort('id'); ?></th>
-															<th><?php echo $this->Paginator->sort('chat_id'); ?></th>
-															<th><?php echo $this->Paginator->sort('echeance'); ?></th>
-															<th><?php echo $this->Paginator->sort('affectation'); ?></th>
-															<th><?php echo $this->Paginator->sort('texte'); ?></th>
-															<th><?php echo $this->Paginator->sort('source'); ?></th>
-															<th><?php echo $this->Paginator->sort('ok'); ?></th>
+															<th><?php echo $this->Paginator->sort('id', '#'); ?></th>
+															<th><?php echo $this->Paginator->sort('chat_id', 'Chat'); ?></th>
+															<th><?php echo $this->Paginator->sort('echeance', 'Échéance'); ?></th>
+															<th><?php echo $this->Paginator->sort('affectation', 'Affecté à'); ?></th>
+															<th><?php echo $this->Paginator->sort('texte', 'Détails'); ?></th>
+															<th><?php echo $this->Paginator->sort('source', 'Concerne'); ?></th>
+															<th><?php echo $this->Paginator->sort('ok', 'Validé'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
 					</thead>
@@ -27,15 +27,15 @@
 						<?php
 						foreach ($rappels as $rappel): ?>
 	<tr>
-		<td><?php echo h($rappel['Rappel']['id']); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'id', 'type'=>'integer', 'v'=>$rappel['Rappel']['id'])); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($rappel['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $rappel['Chat']['id'])); ?>
 		</td>
-		<td><?php echo h($rappel['Rappel']['echeance']); ?>&nbsp;</td>
-		<td><?php echo h($rappel['Rappel']['affectation']); ?>&nbsp;</td>
-		<td><?php echo h($rappel['Rappel']['texte']); ?>&nbsp;</td>
-		<td><?php echo h($rappel['Rappel']['source']); ?>&nbsp;</td>
-		<td><?php echo h($rappel['Rappel']['ok']); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'echeance', 'type'=>'date', 'v'=>$rappel['Rappel']['echeance'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'affectation', 'type'=>'string', 'v'=>$rappel['Rappel']['affectation'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'texte', 'type'=>'string', 'v'=>$rappel['Rappel']['texte'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'source', 'type'=>'string', 'v'=>$rappel['Rappel']['source'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'ok', 'type'=>'integer', 'v'=>$rappel['Rappel']['ok'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $rappel['Rappel']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $rappel['Rappel']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
