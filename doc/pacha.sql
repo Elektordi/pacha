@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `adoptions` (
   `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nom de famille',
   `adresse` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Adresse',
   `telephone` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Téléphone',
-  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Adresse e-mail',
+  `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Adresse e-mail',
   `date_debut` date NOT NULL COMMENT 'Date d''adoption',
   `date_fin` date DEFAULT NULL COMMENT 'Fin d''adoption',
   PRIMARY KEY (`id`)

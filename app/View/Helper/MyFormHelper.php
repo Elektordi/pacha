@@ -20,6 +20,10 @@ class MyFormHelper extends FormHelper {
 				
 			case 'number':
 			    if($fieldName=='ok') return $this->checkbox($fieldName, $options);
+			    
+			case 'text':
+				if(isset($options['maxlength']) && $options['maxlength']>100)
+				    return $this->textarea($fieldName, $options + array('cols' => '30', 'rows' => '6'));
 
 		}
 		return parent::_getInput($args);
