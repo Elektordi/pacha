@@ -38,7 +38,7 @@
 		</td>
 </tr><tr>		<td><strong><?php echo __('Concerne'); ?></strong></td>
 		<td>
-			<?php echo $this->element('value',array('page'=>'view', 'name'=>'source', 'type'=>'string', 'v'=>$rappel['Rappel']['source'])); ?>
+			<?php echo $this->Html->link($rappel['Soin']['display'], array('controller' => 'soins', 'action' => 'view', $rappel['Soin']['id']), array('class' => '')); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Validé'); ?></strong></td>

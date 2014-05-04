@@ -18,7 +18,7 @@
 															<th><?php echo $this->Paginator->sort('echeance', 'Échéance'); ?></th>
 															<th><?php echo $this->Paginator->sort('affectation', 'Affecté à'); ?></th>
 															<th><?php echo $this->Paginator->sort('texte', 'Détails'); ?></th>
-															<th><?php echo $this->Paginator->sort('source', 'Concerne'); ?></th>
+															<th><?php echo $this->Paginator->sort('soin_id', 'Concerne'); ?></th>
 															<th><?php echo $this->Paginator->sort('ok', 'Validé'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
@@ -34,7 +34,9 @@
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'echeance', 'type'=>'date', 'v'=>$rappel['Rappel']['echeance'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'affectation', 'type'=>'string', 'v'=>$rappel['Rappel']['affectation'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'texte', 'type'=>'string', 'v'=>$rappel['Rappel']['texte'])); ?>&nbsp;</td>
-		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'source', 'type'=>'string', 'v'=>$rappel['Rappel']['source'])); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($rappel['Soin']['display'], array('controller' => 'soins', 'action' => 'view', $rappel['Soin']['id'])); ?>
+		</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'ok', 'type'=>'integer', 'v'=>$rappel['Rappel']['ok'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $rappel['Rappel']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>

@@ -4,6 +4,7 @@ App::uses('AppModel', 'Model');
  * Soin Model
  *
  * @property Chat $Chat
+ * @property Rappel $Rappel
  */
 class Soin extends AppModel {
 
@@ -71,9 +72,31 @@ class Soin extends AppModel {
 			'order' => ''
 		)
 	);
-        
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'Rappel' => array(
+			'className' => 'Rappel',
+			'foreignKey' => 'soin_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+	
     public $displayField = 'display';
     public $virtualFields = array(
         'display' => 'CONCAT((SELECT c.nom FROM chats c WHERE c.id = Soin.chat_id)," ",Soin.date_debut)'
     );
+    
 }

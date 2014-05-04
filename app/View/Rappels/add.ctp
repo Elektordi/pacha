@@ -35,8 +35,8 @@
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->MyForm->label('source', 'Concerne');?>
-		<?php echo $this->MyForm->input('source', array('class' => 'form-control', 'value' => (empty($default_source)?null:$default_source))); ?>
+	<?php echo $this->MyForm->label('soin_id', 'Concerne');?>
+		<?php echo $this->MyForm->input('soin_id', array('class' => 'form-control', 'value' => (empty($default_soin_id)?null:$default_soin_id))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">

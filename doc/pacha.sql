@@ -103,7 +103,6 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `date` datetime NOT NULL COMMENT 'Date',
   `auteur` varchar(8) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Auteur',
   `texte` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Commentaire',
-  `source` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Concerne',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Commentaires' AUTO_INCREMENT=3 ;
 
@@ -111,9 +110,9 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
 -- Contenu de la table `commentaires`
 --
 
-INSERT INTO `commentaires` (`id`, `chat_id`, `date`, `auteur`, `texte`, `source`) VALUES
-(1, 1, '2013-10-27 00:00:00', 'GG', 'Test de commentaire', ''),
-(2, 2, '2013-03-04 00:00:00', 'JMG', 'Décès suite tumeurs', 'adoptions/1');
+INSERT INTO `commentaires` (`id`, `chat_id`, `date`, `auteur`, `texte`) VALUES
+(1, 1, '2013-10-27 00:00:00', 'GG', 'Test de commentaire'),
+(2, 2, '2013-03-04 00:00:00', 'JMG', 'Décès suite tumeurs');
 
 -- --------------------------------------------------------
 
@@ -126,9 +125,9 @@ CREATE TABLE IF NOT EXISTS `rappels` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `chat_id` int(11) NOT NULL COMMENT 'Chat',
   `echeance` date NOT NULL COMMENT 'Échéance',
-  `affectation` varchar(8) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Affecté à',
+  `affectation` varchar(8) COLLATE utf8_unicode_ci COMMENT 'Affecté à',
   `texte` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Détails',
-  `source` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Concerne',
+  `soin_id` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Concerne',
   `ok` tinyint(4) NOT NULL COMMENT 'Validé',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Rappels' AUTO_INCREMENT=2 ;
@@ -137,8 +136,8 @@ CREATE TABLE IF NOT EXISTS `rappels` (
 -- Contenu de la table `rappels`
 --
 
-INSERT INTO `rappels` (`id`, `chat_id`, `echeance`, `affectation`, `texte`, `source`, `ok`) VALUES
-(1, 1, '2013-10-31', 'GG', 'Rappel de vaccin contre le Tétanos', 'soins/1', 0);
+INSERT INTO `rappels` (`id`, `chat_id`, `echeance`, `affectation`, `texte`, `soin_id`, `ok`) VALUES
+(1, 1, '2013-10-31', 'GG', 'Rappel de vaccin contre le Tétanos', '1', 0);
 
 -- --------------------------------------------------------
 

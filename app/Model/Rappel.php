@@ -4,6 +4,7 @@ App::uses('AppModel', 'Model');
  * Rappel Model
  *
  * @property Chat $Chat
+ * @property Soin $Soin
  */
 class Rappel extends AppModel {
 
@@ -33,16 +34,6 @@ class Rappel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'affectation' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'texte' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -53,9 +44,9 @@ class Rappel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'source' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+		'soin_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -86,6 +77,13 @@ class Rappel extends AppModel {
 		'Chat' => array(
 			'className' => 'Chat',
 			'foreignKey' => 'chat_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Soin' => array(
+			'className' => 'Soin',
+			'foreignKey' => 'soin_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

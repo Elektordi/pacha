@@ -56,7 +56,8 @@ class RappelsController extends AppController {
 			}
 		}
 		$chats = $this->Rappel->Chat->find('list');
-		$this->set(compact('chats'));
+		$soins = $this->Rappel->Soin->find('list');
+		$this->set(compact('chats', 'soins'));
 		foreach($this->passedArgs as $k => $v) {
 		    $this->set('default_'.$k, $v);
 		}
@@ -87,7 +88,8 @@ class RappelsController extends AppController {
                         $this->set('rappel', $this->request->data);
 		}
 		$chats = $this->Rappel->Chat->find('list');
-		$this->set(compact('chats'));
+		$soins = $this->Rappel->Soin->find('list');
+		$this->set(compact('chats', 'soins'));
 	}
 
 /**
@@ -112,4 +114,28 @@ class RappelsController extends AppController {
 		}
 		$this->Session->setFlash(__('Rappel impossible à supprimer.'), 'flash/error');
 		$this->redirect(array('action' => 'index'));
-	}}
+	}
+
+	public function click($do = null, $id = null) {
+	    if(!$do || !$id) throw new NotFoundException(__('Rappel invalide.'));
+        $this->Rappel->id = $id;
+		if (!$this->Rappel->exists()) {
+			throw new NotFoundException(__('Rappel invalide.'));
+		}
+		
+		$a = array();
+		if($do=='assign')
+		    $a['affectation']=$this->Session->read('Auth.User.initiales');
+		elseif($do=='done')
+		    $a['ok']=1;
+		    
+		if ($this->Rappel->save($a)) {
+			$this->Session->setFlash(__('Rappel sauvegardé.'), 'flash/success');
+		} else {
+			$this->Session->setFlash(__('Rappel impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
+		}
+
+	    $this->redirect(array('controller' => 'homepage'));
+	}
+	
+}

@@ -18,7 +18,6 @@
 															<th><?php echo $this->Paginator->sort('date', 'Date'); ?></th>
 															<th><?php echo $this->Paginator->sort('auteur', 'Auteur'); ?></th>
 															<th><?php echo $this->Paginator->sort('texte', 'Commentaire'); ?></th>
-															<th><?php echo $this->Paginator->sort('source', 'Concerne'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
 					</thead>
@@ -33,7 +32,6 @@
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'date', 'type'=>'datetime', 'v'=>$commentaire['Commentaire']['date'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'auteur', 'type'=>'string', 'v'=>$commentaire['Commentaire']['auteur'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'texte', 'type'=>'string', 'v'=>$commentaire['Commentaire']['texte'])); ?>&nbsp;</td>
-		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'source', 'type'=>'string', 'v'=>$commentaire['Commentaire']['source'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $commentaire['Commentaire']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $commentaire['Commentaire']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>

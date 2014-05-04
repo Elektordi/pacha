@@ -36,11 +36,6 @@
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'texte', 'type'=>'string', 'v'=>$commentaire['Commentaire']['texte'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Concerne'); ?></strong></td>
-		<td>
-			<?php echo $this->element('value',array('page'=>'view', 'name'=>'source', 'type'=>'string', 'v'=>$commentaire['Commentaire']['source'])); ?>
-			&nbsp;
-		</td>
 </tr>					</tbody>
 				</table><!-- /.table table-striped table-bordered -->
 			</div><!-- /.table-responsive -->

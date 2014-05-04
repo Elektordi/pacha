@@ -36,11 +36,6 @@
 		<?php echo $this->MyForm->input('texte', array('class' => 'form-control', 'value' => (empty($default_texte)?null:$default_texte))); ?>
 </div><!-- .form-group -->
 
-<div class="form-group">
-	<?php echo $this->MyForm->label('source', 'Concerne');?>
-		<?php echo $this->MyForm->input('source', array('class' => 'form-control', 'value' => (empty($default_source)?null:$default_source))); ?>
-</div><!-- .form-group -->
-
 				</fieldset>
 			<?php echo $this->MyForm->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
 <?php echo $this->MyForm->end(); ?>

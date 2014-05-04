@@ -135,7 +135,7 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('#'); ?></th>		<th><?php echo __('Date'); ?></th>		<th><?php echo __('Auteur'); ?></th>		<th><?php echo __('Commentaire'); ?></th>		<th><?php echo __('Concerne'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+											<th><?php echo __('#'); ?></th>		<th><?php echo __('Date'); ?></th>		<th><?php echo __('Auteur'); ?></th>		<th><?php echo __('Commentaire'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -147,7 +147,6 @@
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'date', 'type'=>'datetime', 'v'=>$commentaire['date'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'auteur', 'type'=>'string', 'v'=>$commentaire['auteur'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'texte', 'type'=>'string', 'v'=>$commentaire['texte'])); ?></td>
-			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'source', 'type'=>'string', 'v'=>$commentaire['source'])); ?></td>
 			<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'commentaires', 'action' => 'view', $commentaire['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'commentaires', 'action' => 'edit', $commentaire['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>

@@ -29,11 +29,15 @@
 		<td><span class="label label-<?php echo h($event['importance']); ?>"><?php echo h($event['echeance']); ?></span>&nbsp;</td>
 		<td><?php echo h($event['chat']['unique']); ?>&nbsp;</td>
 		<td><?php echo h($event['message']); ?>&nbsp;</td>
-                <td><?php echo h($event['affectation']); ?>&nbsp;<?php if($event['affectation']==$user) echo '<span class="glyphicon glyphicon-flag"></span>'; ?></td>
+        <td><?php echo (empty($event['affectation'])?'-':h($event['affectation'])); ?>&nbsp;<?php if($event['affectation']==$user) echo '<span class="glyphicon glyphicon-flag" style="color: red;"></span>'; ?></td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche chat'), array('controller' => 'Chats','action' => 'view', $event['chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-exclamation-sign"></span> '.__('Plus d\'infos'), array('controller' => 'Rappels','action' => 'view', $event['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
-                        <?php if($event['affectation']=="") echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span> '.__('M\'affecter'), array('controller' => 'Chats','action' => 'view', $event['chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-exclamation-sign"></span> '.__('Plus d\'infos'), array('controller' => 'rappels','action' => 'view', $event['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+                        <?php   if($event['affectation']=="") 
+                                    echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span> '.__('M\'affecter'), array('controller' => 'rappels','action' => 'click', 'assign', $event['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE));
+                                else
+                                    echo $this->Html->link('<span class="glyphicon glyphicon-thumbs-up" style="color: green;"></span> '.__('Fait'), array('controller' => 'rappels','action' => 'click', 'done', $event['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE));
+                        ?>
 		</td>
 	</tr>
 <?php                                           } ?>
@@ -42,7 +46,7 @@
 			</div><!-- /.table-responsive -->
                         <?php } else { ?>
                             <div class="jumbotron">
-                                <p><?php echo __('Aucun évènement ne requiert votre attention.'); ?></p>
+                                <p><?php echo __('<span class="glyphicon glyphicon-thumbs-up"></span> Bonne nouvelle: Aucun évènement ne requiert votre attention.'); ?></p>
                             </div>
                         <?php } ?>
 			
