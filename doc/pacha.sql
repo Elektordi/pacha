@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `chats` (
   `etat` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Statut',
   `deces` date DEFAULT NULL COMMENT 'Décédé',
   `accueil_id` int(11) DEFAULT NULL COMMENT 'Famille d''accueil',
+  `unique` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Chats' AUTO_INCREMENT=3 ;
 
@@ -86,9 +87,9 @@ CREATE TABLE IF NOT EXISTS `chats` (
 -- Contenu de la table `chats`
 --
 
-INSERT INTO `chats` (`id`, `nom`, `nom2`, `naissance`, `identification`, `race`, `robe`, `sexe`, `etat`, `deces`, `accueil_id`) VALUES
-(1, 'Moustic', NULL, '2000-01-01', 'DUF307', 'Européen', 'Noir et blanc', 'F', 'DOMICILE', NULL, 1),
-(2, 'Kiwi', NULL, '2013-01-01', 'EZD2??', 'Européen', 'Écaille de tortue', 'F', 'DECEDE', '2013-03-03', NULL);
+INSERT INTO `chats` (`id`, `nom`, `nom2`, `naissance`, `identification`, `race`, `robe`, `sexe`, `etat`, `deces`, `accueil_id`, `unique`) VALUES
+(1, 'Moustic', NULL, '2000-01-01', 'DUF307', 'Européen', 'Noir et blanc', 'F', 'DOMICILE', NULL, 1, 'Moustic (DUF307)'),
+(2, 'Kiwi', NULL, '2013-01-01', 'EZD2??', 'Européen', 'Écaille de tortue', 'F', 'DECEDE', '2013-03-03', NULL, 'Kiwi (EZD2??)');
 
 -- --------------------------------------------------------
 

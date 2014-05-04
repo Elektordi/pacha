@@ -115,11 +115,30 @@ class Chat extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+	
+    public function beforeSave($options = array()) {
+    
+        if(!empty($this->data[$this->alias]['nom']))
+            $u = $this->data[$this->alias]['nom'].' (';
+        else
+            $u = '';
         
-        public $displayField = 'unique';
-        public $virtualFields = array(
-            'unique' => 'IFNULL(Chat.nom,IFNULL(Chat.identification,CONCAT("Chat #",Chat.id)))'
-        );
+        if(!empty($this->data[$this->alias]['identification']))
+            $u.= $this->data[$this->alias]['identification'];
+        else
+            $u.= "#".$this->id;
+            
+        if(!empty($this->data[$this->alias]['nom'])) $u.= ')';
+        
+        $this->data[$this->alias]['unique'] = $u;
+        
+        return true;
+    }
+        
+    public $displayField = 'unique';
+    /*public $virtualFields = array(
+        'unique' => 'IFNULL(Chat.nom,IFNULL(Chat.identification,CONCAT("Chat #",CAST(Chat.id AS CHAR) COLLATE utf8_unicode_ci)))'
+    );*/
 
 
 }
