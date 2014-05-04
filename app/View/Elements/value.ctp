@@ -8,6 +8,8 @@ if($name=='sexe') {
     }
 } elseif($name=='etat') {    
     echo $etats[$v];
+} elseif($name=='type') {    
+    echo $types[$v];
 } elseif($name=='source') {    
     echo "<b>TODO</b> $v";
 } elseif($type=='date') {

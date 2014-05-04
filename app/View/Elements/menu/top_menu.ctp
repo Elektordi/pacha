@@ -16,12 +16,11 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Suivi médical <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-                                        <li><?php echo $this->Html->Link('Médicaments', '/soins?type=m'); ?></li>
-					<li><?php echo $this->Html->Link('Vaccination', '/soins?type=v'); ?></li>
-					<li><?php echo $this->Html->Link('Stérilisation', '/soins?type=s'); ?></li>
-					<li><?php echo $this->Html->Link('Identification', '/soins?type=i'); ?></li>
-                                        <li><?php echo $this->Html->Link('Test', '/soins?type=t'); ?></li>
-					<li><?php echo $this->Html->Link('Autre', '/soins?type=x'); ?></li>
+				    <?php
+				        foreach($types as $k => $v)  {
+				            echo '<li>'.$this->Html->Link($v, array('controller'=>'soins', 'action'=>'index', 'type'=>$k)).'</li>';
+				        }
+				    ?>
 				</ul>
 			</li>
 			<li class="dropdown">

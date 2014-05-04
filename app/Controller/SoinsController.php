@@ -22,7 +22,15 @@ class SoinsController extends AppController {
  */
 	public function index() {
 		$this->Soin->recursive = 0;
-		$this->set('soins', $this->paginate());
+	    if(!empty($this->passedArgs['type'])) {
+	        if(empty($this->types[$this->passedArgs['type']])) throw new NotFoundException("Invalid type ".$this->passedArgs['type']);
+    		$this->set('soins', $this->paginate(array('type' => $this->passedArgs['type'])));	    
+    		$this->set('type', $this->passedArgs['type']);
+	    } else {
+    		$this->set('soins', $this->paginate());
+    		$this->set('type', '');	    
+	    }
+
 	}
 
 /**
@@ -57,6 +65,9 @@ class SoinsController extends AppController {
 		}
 		$chats = $this->Soin->Chat->find('list');
 		$this->set(compact('chats'));
+		foreach($this->passedArgs as $k => $v) {
+		    $this->set('default_'.$k, $v);
+		}
 	}
 
 /**

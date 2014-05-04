@@ -6,8 +6,8 @@
 		<div class="soins index">
 		
                         <div class="btn-group pull-right">
-                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Soin'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
-			<h2><?php echo __('Soins'); ?></h2>
+                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Soin'), array('action' => 'add', 'type' => $type), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+			<h2><?php echo __('Soins'); if($type) echo ': '.$types[$type]; ?></h2>
 			
 			<div class="table-responsive">
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">

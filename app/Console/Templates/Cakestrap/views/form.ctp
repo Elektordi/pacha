@@ -49,7 +49,7 @@
 					} elseif (!in_array($field, array('created', 'modified', 'updated'))) {
 						echo "<div class=\"form-group\">\n";
 						echo "\t<?php echo \$this->MyForm->label('{$field}', '".(empty($schema[$field]['comment'])?Inflector::humanize($field):addslashes($schema[$field]['comment']))."');?>\n";
-						echo "\t\t<?php echo \$this->MyForm->input('{$field}', array('class' => 'form-control')); ?>\n";
+						echo "\t\t<?php echo \$this->MyForm->input('{$field}', array('class' => 'form-control', 'value' => (empty(\$default_$field)?null:\$default_$field))); ?>\n";
 						echo "</div><!-- .form-group -->\n";
 						echo "\n";
 					}

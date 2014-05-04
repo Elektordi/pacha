@@ -16,37 +16,37 @@
                                                                         <h2><?php  echo __('Ajouter Soin'); ?></h2>
                                     			<div class="form-group">
 	<?php echo $this->MyForm->label('chat_id', 'Chat');?>
-		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control', 'value' => (empty($default_chat_id)?null:$default_chat_id))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('type', 'Type de soin');?>
-		<?php echo $this->MyForm->input('type', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('type', array('class' => 'form-control', 'value' => (empty($default_type)?null:$default_type))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('date_debut', 'Date des soins');?>
-		<?php echo $this->MyForm->input('date_debut', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('date_debut', array('class' => 'form-control', 'value' => (empty($default_date_debut)?null:$default_date_debut))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('date_fin', 'Jusqu\'au (si longue durée)');?>
-		<?php echo $this->MyForm->input('date_fin', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('date_fin', array('class' => 'form-control', 'value' => (empty($default_date_fin)?null:$default_date_fin))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('nature', 'Nature des soins');?>
-		<?php echo $this->MyForm->input('nature', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('nature', array('class' => 'form-control', 'value' => (empty($default_nature)?null:$default_nature))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('veterinaire', 'Vétérinaire');?>
-		<?php echo $this->MyForm->input('veterinaire', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('veterinaire', array('class' => 'form-control', 'value' => (empty($default_veterinaire)?null:$default_veterinaire))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('montant', 'Montant');?>
-		<?php echo $this->MyForm->input('montant', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('montant', array('class' => 'form-control', 'value' => (empty($default_montant)?null:$default_montant))); ?>
 </div><!-- .form-group -->
 
 				</fieldset>

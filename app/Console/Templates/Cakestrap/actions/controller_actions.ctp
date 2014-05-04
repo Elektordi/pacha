@@ -80,6 +80,9 @@
 		echo "\t\t\$this->set(compact(".join(', ', $compact)."));\n";
 	endif;
 ?>
+		foreach($this->passedArgs as $k => $v) {
+		    $this->set('default_'.$k, $v);
+		}
 	}
 
 <?php $compact = array(); ?>

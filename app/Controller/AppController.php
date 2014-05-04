@@ -55,6 +55,15 @@ class AppController extends Controller {
         'DOMICILE' => 'Chat placé à domicile',
         'DECEDE' => 'Chat décédé'
     );
+    
+    public $types = array(
+        'm' => 'Médicaments',
+        'v' => 'Vaccination',
+        's' => 'Stérilisation',
+        'i' => 'Identification',
+        't' => 'Test',
+        'x' => 'Autre',
+    );
 
     public $components = array(
         'Session',
@@ -102,6 +111,7 @@ class AppController extends Controller {
     public function beforeRender() {
         $this->set('sexes', $this->sexes);
         $this->set('etats', $this->etats);
+        $this->set('types', $this->types);
         parent::beforeRender();
     }
 
