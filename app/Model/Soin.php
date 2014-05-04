@@ -72,5 +72,8 @@ class Soin extends AppModel {
 		)
 	);
         
-        public $displayField = 'date_debut'; // Je voyait vraiement pas quoi mettre d'autre...
+    public $displayField = 'display';
+    public $virtualFields = array(
+        'display' => 'CONCAT((SELECT c.nom FROM chats c WHERE c.id = Soin.chat_id)," ",Soin.date_debut)'
+    );
 }

@@ -11,7 +11,7 @@
                         <div class="btn-group">
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
                     </div>
-                    <h2><?php  echo __('Fiche Soin').': '.$soin['Soin']['date_debut']; ?></h2>
+                    <h2><?php  echo __('Fiche Soin').': '.$soin['Soin']['display']; ?></h2>
 			
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
