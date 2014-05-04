@@ -32,4 +32,27 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+
+	
+    function checkLinks($data, $params)
+    {
+        if (!is_array($params)) {
+            return false;
+            //$params = array($params);
+        }
+        
+        $k = reset(array_keys($data));
+        $v = reset($data);
+        
+        $col = $params[0];
+        $source = $params[1];
+        $relation = $this->belongsTo[$source];
+        
+        $class = $relation['className'];
+        $obj = $this->$class->findById($v, array('recursive' => 0));
+        $value = $obj[$class][$col];
+        
+        return ($this->data[$this->name][$col] == $value);
+    }
+
 }

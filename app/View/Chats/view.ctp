@@ -175,7 +175,7 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('#'); ?></th>		<th><?php echo __('Échéance'); ?></th>		<th><?php echo __('Affecté à'); ?></th>		<th><?php echo __('Détails'); ?></th>		<th><?php echo __('Concerne'); ?></th>		<th><?php echo __('Validé'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+											<th><?php echo __('#'); ?></th>		<th><?php echo __('Échéance'); ?></th>		<th><?php echo __('Affecté à'); ?></th>		<th><?php echo __('Détails'); ?></th>		<th><?php echo __('Soin'); ?></th>		<th><?php echo __('Validé'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -187,7 +187,7 @@
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'echeance', 'type'=>'date', 'v'=>$rappel['echeance'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'affectation', 'type'=>'string', 'v'=>$rappel['affectation'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'texte', 'type'=>'string', 'v'=>$rappel['texte'])); ?></td>
-			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'source', 'type'=>'string', 'v'=>$rappel['source'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'soin_id', 'type'=>'string', 'v'=>$rappel['soin_id'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'ok', 'type'=>'integer', 'v'=>$rappel['ok'])); ?></td>
 			<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'rappels', 'action' => 'view', $rappel['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>

@@ -44,16 +44,6 @@ class Rappel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'soin_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'ok' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -64,7 +54,14 @@ class Rappel extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+        'soin_id' => array(
+            'check' => array(
+                'rule' => array('checkLinks', array('chat_id', 'Soin')),
+                'message' => 'Erreur de liaison entre le Chat et le Soin.',
+            )
+        ),
 	);
+	
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
