@@ -16,27 +16,27 @@
                                                                         <h2><?php  echo __('Ajouter Commentaire'); ?></h2>
                                     			<div class="form-group">
 	<?php echo $this->MyForm->label('chat_id', 'Chat');?>
-		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control', 'value' => (empty($default_chat_id)?null:$default_chat_id))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('date', 'Date');?>
-		<?php echo $this->MyForm->input('date', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('date', array('class' => 'form-control', 'value' => (empty($default_date)?null:$default_date))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('auteur', 'Auteur');?>
-		<?php echo $this->MyForm->input('auteur', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('auteur', array('class' => 'form-control', 'value' => (empty($default_auteur)?null:$default_auteur))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('texte', 'Commentaire');?>
-		<?php echo $this->MyForm->input('texte', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('texte', array('class' => 'form-control', 'value' => (empty($default_texte)?null:$default_texte))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('source', 'Concerne');?>
-		<?php echo $this->MyForm->input('source', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('source', array('class' => 'form-control', 'value' => (empty($default_source)?null:$default_source))); ?>
 </div><!-- .form-group -->
 
 				</fieldset>

@@ -57,6 +57,9 @@ class CommentairesController extends AppController {
 		}
 		$chats = $this->Commentaire->Chat->find('list');
 		$this->set(compact('chats'));
+		foreach($this->passedArgs as $k => $v) {
+		    $this->set('default_'.$k, $v);
+		}
 	}
 
 /**

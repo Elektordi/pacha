@@ -18,32 +18,32 @@
                                                                         <h2><?php  echo __('Modifier Rappel').': '.$rappel['Rappel']['texte']; ?></h2>
                                     			<div class="form-group">
 	<?php echo $this->MyForm->label('chat_id', 'Chat');?>
-		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control', 'value' => (empty($default_chat_id)?null:$default_chat_id))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('echeance', 'Échéance');?>
-		<?php echo $this->MyForm->input('echeance', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('echeance', array('class' => 'form-control', 'value' => (empty($default_echeance)?null:$default_echeance))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('affectation', 'Affecté à');?>
-		<?php echo $this->MyForm->input('affectation', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('affectation', array('class' => 'form-control', 'value' => (empty($default_affectation)?null:$default_affectation))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('texte', 'Détails');?>
-		<?php echo $this->MyForm->input('texte', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('texte', array('class' => 'form-control', 'value' => (empty($default_texte)?null:$default_texte))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('source', 'Concerne');?>
-		<?php echo $this->MyForm->input('source', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('source', array('class' => 'form-control', 'value' => (empty($default_source)?null:$default_source))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('ok', 'Validé');?>
-		<?php echo $this->MyForm->input('ok', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('ok', array('class' => 'form-control', 'value' => (empty($default_ok)?null:$default_ok))); ?>
 </div><!-- .form-group -->
 
 				</fieldset>

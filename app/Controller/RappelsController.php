@@ -57,6 +57,9 @@ class RappelsController extends AppController {
 		}
 		$chats = $this->Rappel->Chat->find('list');
 		$this->set(compact('chats'));
+		foreach($this->passedArgs as $k => $v) {
+		    $this->set('default_'.$k, $v);
+		}
 	}
 
 /**

@@ -16,27 +16,27 @@
                                                                         <h2><?php  echo __('Ajouter Accueil'); ?></h2>
                                     			<div class="form-group">
 	<?php echo $this->MyForm->label('nom', 'Nom');?>
-		<?php echo $this->MyForm->input('nom', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('nom', array('class' => 'form-control', 'value' => (empty($default_nom)?null:$default_nom))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('adresse', 'Adresse');?>
-		<?php echo $this->MyForm->input('adresse', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('adresse', array('class' => 'form-control', 'value' => (empty($default_adresse)?null:$default_adresse))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('telephone1', 'Téléphone 1');?>
-		<?php echo $this->MyForm->input('telephone1', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('telephone1', array('class' => 'form-control', 'value' => (empty($default_telephone1)?null:$default_telephone1))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('telephone2', 'Téléphone 2');?>
-		<?php echo $this->MyForm->input('telephone2', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('telephone2', array('class' => 'form-control', 'value' => (empty($default_telephone2)?null:$default_telephone2))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('limite', 'Chats max.');?>
-		<?php echo $this->MyForm->input('limite', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('limite', array('class' => 'form-control', 'value' => (empty($default_limite)?null:$default_limite))); ?>
 </div><!-- .form-group -->
 
 				</fieldset>

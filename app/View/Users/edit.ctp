@@ -18,22 +18,22 @@
                                                                         <h2><?php  echo __('Modifier User').': '.$user['User']['initiales']; ?></h2>
                                     			<div class="form-group">
 	<?php echo $this->MyForm->label('username', 'Identifiant');?>
-		<?php echo $this->MyForm->input('username', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('username', array('class' => 'form-control', 'value' => (empty($default_username)?null:$default_username))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('password', 'Mot de passe');?>
-		<?php echo $this->MyForm->input('password', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('password', array('class' => 'form-control', 'value' => (empty($default_password)?null:$default_password))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('initiales', 'Initiales');?>
-		<?php echo $this->MyForm->input('initiales', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('initiales', array('class' => 'form-control', 'value' => (empty($default_initiales)?null:$default_initiales))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('level', 'Niveau d\'accès');?>
-		<?php echo $this->MyForm->input('level', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('level', array('class' => 'form-control', 'value' => (empty($default_level)?null:$default_level))); ?>
 </div><!-- .form-group -->
 
 				</fieldset>

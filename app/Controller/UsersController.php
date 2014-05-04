@@ -62,6 +62,9 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('User impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
 		}
+		foreach($this->passedArgs as $k => $v) {
+		    $this->set('default_'.$k, $v);
+		}
 	}
 
 /**

@@ -55,6 +55,9 @@ class AccueilsController extends AppController {
 				$this->Session->setFlash(__('Accueil impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
 		}
+		foreach($this->passedArgs as $k => $v) {
+		    $this->set('default_'.$k, $v);
+		}
 	}
 
 /**

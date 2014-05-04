@@ -83,7 +83,7 @@
 			<div class="related" style="margin-top: 40px">
 
                                 <div class="btn-group btn-group-xs pull-right">
-                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Adoption'), array('controller' => 'adoptions', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
+                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Adoption'), array('controller' => 'adoptions', 'action' => 'add', 'chat_id' => $chat['Chat']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
 				<h3><?php echo __('Adoptions lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($chat['Adoption'])): ?>
@@ -126,7 +126,7 @@
 			<div class="related" style="margin-top: 40px">
 
                                 <div class="btn-group btn-group-xs pull-right">
-                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Commentaire'), array('controller' => 'commentaires', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
+                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Commentaire'), array('controller' => 'commentaires', 'action' => 'add', 'chat_id' => $chat['Chat']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
 				<h3><?php echo __('Commentaires lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($chat['Commentaire'])): ?>
@@ -167,7 +167,7 @@
 			<div class="related" style="margin-top: 40px">
 
                                 <div class="btn-group btn-group-xs pull-right">
-                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Rappel'), array('controller' => 'rappels', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
+                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Rappel'), array('controller' => 'rappels', 'action' => 'add', 'chat_id' => $chat['Chat']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
 				<h3><?php echo __('Rappels lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($chat['Rappel'])): ?>
@@ -209,7 +209,7 @@
 			<div class="related" style="margin-top: 40px">
 
                                 <div class="btn-group btn-group-xs pull-right">
-                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Soin'), array('controller' => 'soins', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
+                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Soin'), array('controller' => 'soins', 'action' => 'add', 'chat_id' => $chat['Chat']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
 				<h3><?php echo __('Soins lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($chat['Soin'])): ?>

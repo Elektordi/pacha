@@ -57,6 +57,9 @@ class AdoptionsController extends AppController {
 		}
 		$chats = $this->Adoption->Chat->find('list');
 		$this->set(compact('chats'));
+		foreach($this->passedArgs as $k => $v) {
+		    $this->set('default_'.$k, $v);
+		}
 	}
 
 /**

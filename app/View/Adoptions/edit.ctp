@@ -18,37 +18,37 @@
                                                                         <h2><?php  echo __('Modifier Adoption').': '.$adoption['Adoption']['nom']; ?></h2>
                                     			<div class="form-group">
 	<?php echo $this->MyForm->label('chat_id', 'Chat');?>
-		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control', 'value' => (empty($default_chat_id)?null:$default_chat_id))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('nom', 'Nom de famille');?>
-		<?php echo $this->MyForm->input('nom', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('nom', array('class' => 'form-control', 'value' => (empty($default_nom)?null:$default_nom))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('adresse', 'Adresse');?>
-		<?php echo $this->MyForm->input('adresse', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('adresse', array('class' => 'form-control', 'value' => (empty($default_adresse)?null:$default_adresse))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('telephone', 'Téléphone');?>
-		<?php echo $this->MyForm->input('telephone', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('telephone', array('class' => 'form-control', 'value' => (empty($default_telephone)?null:$default_telephone))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('email', 'Adresse e-mail');?>
-		<?php echo $this->MyForm->input('email', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('email', array('class' => 'form-control', 'value' => (empty($default_email)?null:$default_email))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('date_debut', 'Date d\'adoption');?>
-		<?php echo $this->MyForm->input('date_debut', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('date_debut', array('class' => 'form-control', 'value' => (empty($default_date_debut)?null:$default_date_debut))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('date_fin', 'Fin d\'adoption');?>
-		<?php echo $this->MyForm->input('date_fin', array('class' => 'form-control')); ?>
+		<?php echo $this->MyForm->input('date_fin', array('class' => 'form-control', 'value' => (empty($default_date_fin)?null:$default_date_fin))); ?>
 </div><!-- .form-group -->
 
 				</fieldset>

@@ -53,7 +53,7 @@
 			<div class="related" style="margin-top: 40px">
 
                                 <div class="btn-group btn-group-xs pull-right">
-                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Chat'), array('controller' => 'chats', 'action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
+                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Chat'), array('controller' => 'chats', 'action' => 'add', 'accueil_id' => $accueil['Accueil']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
 				<h3><?php echo __('Chats lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($accueil['Chat'])): ?>

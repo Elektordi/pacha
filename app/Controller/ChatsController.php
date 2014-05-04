@@ -57,6 +57,9 @@ class ChatsController extends AppController {
 		}
 		$accueils = $this->addEmptyValue($this->Chat->Accueil->find('list'));
 		$this->set(compact('accueils'));
+		foreach($this->passedArgs as $k => $v) {
+		    $this->set('default_'.$k, $v);
+		}
 	}
 
 /**
