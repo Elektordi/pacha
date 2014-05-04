@@ -9,6 +9,7 @@ class MyFormHelper extends FormHelper {
 		switch ($type) {
 		
 			case 'date':
+			case 'datetime': // TODO
 				$options['value'] = $selected;
 				$options = $this->_initInputField($fieldName, $options);
 				return $this->Html->useTag('input', $options['name'], $options).$this->Html->scriptBlock("\$('#{$options['id']}').datepicker({ format: 'yyyy-mm-dd' });");
@@ -16,9 +17,7 @@ class MyFormHelper extends FormHelper {
 			case 'time': // TODO
 				$options['value'] = $selected;
 				return $this->dateTime($fieldName, null, $timeFormat, $options);
-			case 'datetime': // TODO
-				$options['value'] = $selected;
-				return $this->dateTime($fieldName, $dateFormat, $timeFormat, $options);
+
 		}
 		return parent::_getInput($args);
 	}
