@@ -10,7 +10,7 @@ echo $this->Html->image('catpurr_white.gif', $options);
 
 <p>Si vous trouvez des bugs, merci de les rapporter ici: <a href="https://github.com/Elektordi/pacha/issues/new">https://github.com/Elektordi/pacha/issues/new</a></p>
 
-<p>Vous pouvez participer au développement de ce logiciel, l'utiliser livrement ailleurs ou même vous en inspirer.
+<p>Vous pouvez participer au développement de ce logiciel, l'utiliser librement ailleurs ou même vous en inspirer.
 <br/>Pour cela, rendez-vous sur la page du projet PACHA sur Github: <a href="https://github.com/Elektordi/pacha">https://github.com/Elektordi/pacha</a></p>
 
 <p><i>Pour me contacter: Guillaume Genty (guillaume arobase elektordi point net)</i></p>

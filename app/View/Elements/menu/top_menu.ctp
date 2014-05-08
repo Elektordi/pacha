@@ -29,8 +29,8 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestion <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-                                        <li><?php echo $this->Html->Link('Évènements', '/rappels'); ?></li>
 					<li><?php echo $this->Html->Link('Familles d\'accueil', '/accueils'); ?></li>
+                    <li><?php echo $this->Html->Link('Commentaires', '/commentaires'); ?></li>
 					<li><?php echo $this->Html->Link('Comptes utilisateurs', '/users'); ?></li>
 					<li class="divider"></li>
 					<li><?php echo $this->Html->Link('A propos de...', '/pages/about'); ?></li>
