@@ -53,11 +53,14 @@ $cakeDescription = __d('cake_dev', 'PACHA');
 
 		<div id="main-container">
 		
-			<div id="header" class="container">
+			<div class="visible-print pull-right" style="margin-right: 20px;">
+			    <p><i>Extrait de <?php echo $cakeDescription ?> le <?php echo date("d/m/Y"); ?>.</i></p>
+			</div>
+		
+			<div id="header" class="container hidden-print">
 				<?php echo $this->element('menu/top_menu', array('session'=>$this->Session)); ?>
+				<br/><br/>
 			</div><!-- /#header .container -->
-			
-			<br/><br/>
 			
 			<div id="content" class="container">
 				<?php echo $this->Session->flash(); ?>
@@ -66,7 +69,7 @@ $cakeDescription = __d('cake_dev', 'PACHA');
 			
 			<br/>
 			
-			<div id="footer" class="container">
+			<div id="footer" class="container hidden-print">
 				<p class="text-right">
 					<?php echo $this->element('cat'); ?>
 				</p>
@@ -76,7 +79,8 @@ $cakeDescription = __d('cake_dev', 'PACHA');
 		
 		<div class="container">
 			<div class="well well-sm text-center">
-				<small><span title="Plateforme d'Accompagnement des CHAts">PACHA</span> version 0.3 - Développé par Guillaume Genty pour ECLVYS - Logiciel sous license <a href="http://www.cecill.info/licences/Licence_CeCILL-B_V1-fr.html" target="_blank">CeCILL-B</a> - <i><a href="https://github.com/Elektordi/pacha" target="_blank">Fork me on GitHub</a></i>
+				<small><span title="Plateforme d'Accompagnement des CHAts">PACHA</span> version 0.3 - Développé par Guillaume Genty pour ECLVYS
+				    <span class="hidden-print"> - Logiciel sous license <a href="http://www.cecill.info/licences/Licence_CeCILL-B_V1-fr.html" target="_blank">CeCILL-B</a> - <i><a href="https://github.com/Elektordi/pacha" target="_blank">Fork me on GitHub</a></i></span>
 					<?php echo $this->element('sql_dump'); ?>
 				</small>
 			</div><!-- /.well well-sm -->
