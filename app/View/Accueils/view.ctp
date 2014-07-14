@@ -41,12 +41,17 @@
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'email', 'type'=>'string', 'v'=>$accueil['Accueil']['email'])); ?>
 			&nbsp;
 		</td>
+</tr><tr>		<td><strong><?php echo __('Chats'); ?></strong></td>
+		<td>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'compte', 'type'=>'integer', 'v'=>$accueil['Accueil']['compte'])); ?>
+			&nbsp;
+		</td>
 </tr><tr>		<td><strong><?php echo __('Chats max.'); ?></strong></td>
 		<td>
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'limite', 'type'=>'integer', 'v'=>$accueil['Accueil']['limite'])); ?>
 			&nbsp;
 		</td>
-</tr>					</tbody>
+</tr>						</tbody>
 				</table><!-- /.table table-striped table-bordered -->
 			</div><!-- /.table-responsive -->
 			

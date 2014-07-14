@@ -71,6 +71,10 @@ class Accueil extends AppModel {
 	);
         
         
-        public $displayField = 'nom';
+    public $displayField = 'nom';
+        
+    public $virtualFields = array(
+        'compte' => '(SELECT COUNT(id) FROM chats WHERE deces IS NULL AND accueil_id=Accueil.id)'
+    );
 
 }
