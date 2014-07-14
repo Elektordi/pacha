@@ -20,11 +20,6 @@
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->MyForm->label('date', 'Date');?>
-		<?php echo $this->MyForm->input('date', array('class' => 'form-control', 'value' => (empty($default_date)?null:$default_date))); ?>
-</div><!-- .form-group -->
-
-<div class="form-group">
 	<?php echo $this->MyForm->label('texte', 'Commentaire');?>
 		<?php echo $this->MyForm->input('texte', array('class' => 'form-control', 'value' => (empty($default_texte)?null:$default_texte))); ?>
 </div><!-- .form-group -->

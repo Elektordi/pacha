@@ -380,3 +380,6 @@ Cache::config('_cake_model_', array(
 
 
 Configure::write('Cookie.SecurityKey', 'vKh5SYhHDzZ99cA1m19SDgwbNfgpLBUM8ZtVAf06pLiEp2gTwT31KEhrWbXnMZ5w');
+
+define('DATE_MYSQL', 'Y-m-d H:i:s');
+

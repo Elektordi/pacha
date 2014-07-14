@@ -49,6 +49,7 @@ class CommentairesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Commentaire->create();
 			$this->request->data['Commentaire']['auteur'] = $this->Session->read('Auth.User.initiales');
+			$this->request->data['Commentaire']['date'] = date(DATE_MYSQL);
 			if ($this->Commentaire->save($this->request->data)) {
 				$this->Session->setFlash(__('Commentaire enregistré.'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
@@ -77,6 +78,7 @@ class CommentairesController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 		    $this->request->data['Commentaire']['auteur'] = $this->Session->read('Auth.User.initiales');
+		    $this->request->data['Commentaire']['date'] = date(DATE_MYSQL);
 			if ($this->Commentaire->save($this->request->data)) {
 				$this->Session->setFlash(__('Commentaire sauvegardé.'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
