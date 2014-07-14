@@ -147,6 +147,7 @@ class AppController extends Controller {
     
     public function addEmptyValue($array, $label='-')
     {
+        // HACK : Normalement showEmpty de FormHelper est là pour ça, mais il est buggé.
         return array(''=>$label)+$array;
     }
 

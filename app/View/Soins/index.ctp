@@ -19,7 +19,7 @@
 															<th><?php echo $this->Paginator->sort('date_debut', 'Date des soins'); ?></th>
 															<th><?php echo $this->Paginator->sort('date_fin', 'Jusqu\'au (si longue durée)'); ?></th>
 															<th><?php echo $this->Paginator->sort('nature', 'Nature des soins'); ?></th>
-															<th><?php echo $this->Paginator->sort('veterinaire', 'Vétérinaire'); ?></th>
+															<th><?php echo $this->Paginator->sort('veterinaire_id', 'Vétérinaire'); ?></th>
 															<th><?php echo $this->Paginator->sort('montant', 'Montant'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
@@ -36,7 +36,9 @@
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'date_debut', 'type'=>'date', 'v'=>$soin['Soin']['date_debut'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'date_fin', 'type'=>'date', 'v'=>$soin['Soin']['date_fin'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'nature', 'type'=>'string', 'v'=>$soin['Soin']['nature'])); ?>&nbsp;</td>
-		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'veterinaire', 'type'=>'string', 'v'=>$soin['Soin']['veterinaire'])); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($soin['Veterinaire']['nom'], array('controller' => 'veterinaires', 'action' => 'view', $soin['Veterinaire']['id'])); ?>
+		</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'montant', 'type'=>'float', 'v'=>$soin['Soin']['montant'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $soin['Soin']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>

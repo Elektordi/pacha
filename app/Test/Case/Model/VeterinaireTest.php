@@ -1,11 +1,11 @@
 <?php
-App::uses('Soin', 'Model');
+App::uses('Veterinaire', 'Model');
 
 /**
- * Soin Test Case
+ * Veterinaire Test Case
  *
  */
-class SoinTest extends CakeTestCase {
+class VeterinaireTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -13,12 +13,6 @@ class SoinTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.soin',
-		'app.chat',
-		'app.accueil',
-		'app.adoption',
-		'app.commentaire',
-		'app.rappel',
 		'app.veterinaire'
 	);
 
@@ -29,7 +23,7 @@ class SoinTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->Soin = ClassRegistry::init('Soin');
+		$this->Veterinaire = ClassRegistry::init('Veterinaire');
 	}
 
 /**
@@ -38,7 +32,7 @@ class SoinTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->Soin);
+		unset($this->Veterinaire);
 
 		parent::tearDown();
 	}

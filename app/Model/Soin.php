@@ -4,6 +4,7 @@ App::uses('AppModel', 'Model');
  * Soin Model
  *
  * @property Chat $Chat
+ * @property Veterinaire $Veterinaire
  * @property Rappel $Rappel
  */
 class Soin extends AppModel {
@@ -69,6 +70,13 @@ class Soin extends AppModel {
 		'Chat' => array(
 			'className' => 'Chat',
 			'foreignKey' => 'chat_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Veterinaire' => array(
+			'className' => 'Veterinaire',
+			'foreignKey' => 'veterinaire_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

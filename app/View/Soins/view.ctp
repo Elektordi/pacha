@@ -43,7 +43,7 @@
 		</td>
 </tr><tr>		<td><strong><?php echo __('Vétérinaire'); ?></strong></td>
 		<td>
-			<?php echo $this->element('value',array('page'=>'view', 'name'=>'veterinaire', 'type'=>'string', 'v'=>$soin['Soin']['veterinaire'])); ?>
+			<?php echo $this->Html->link($soin['Veterinaire']['nom'], array('controller' => 'veterinaires', 'action' => 'view', $soin['Veterinaire']['id']), array('class' => '')); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Montant'); ?></strong></td>
@@ -72,7 +72,7 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('#'); ?></th>		<th><?php echo __('Échéance'); ?></th>		<th><?php echo __('Affecté à'); ?></th>		<th><?php echo __('Détails'); ?></th>		<th><?php echo __('Validé'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+											<th><?php echo __('#'); ?></th>		<th><?php echo __('Chat'); ?></th>		<th><?php echo __('Échéance'); ?></th>		<th><?php echo __('Affecté à'); ?></th>		<th><?php echo __('Détails'); ?></th>		<th><?php echo __('Validé'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -81,6 +81,7 @@
 										foreach ($soin['Rappel'] as $rappel): ?>
 		<tr>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'id', 'type'=>'integer', 'v'=>$rappel['id'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'chat_id', 'type'=>'integer', 'v'=>$rappel['chat_id'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'echeance', 'type'=>'date', 'v'=>$rappel['echeance'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'affectation', 'type'=>'string', 'v'=>$rappel['affectation'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'texte', 'type'=>'string', 'v'=>$rappel['texte'])); ?></td>

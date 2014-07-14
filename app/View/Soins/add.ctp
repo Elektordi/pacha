@@ -43,8 +43,8 @@ $('#SoinChatId').selectpicker({ liveSearch: true });
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->MyForm->label('veterinaire', 'Vétérinaire');?>
-		<?php echo $this->MyForm->input('veterinaire', array('class' => 'form-control', 'value' => (empty($default_veterinaire)?null:$default_veterinaire))); ?>
+	<?php echo $this->MyForm->label('veterinaire_id', 'Vétérinaire');?>
+		<?php echo $this->MyForm->input('veterinaire_id', array('class' => 'form-control', 'value' => (empty($default_veterinaire_id)?null:$default_veterinaire_id))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">

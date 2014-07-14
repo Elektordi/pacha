@@ -65,7 +65,8 @@ class SoinsController extends AppController {
 			}
 		}
 		$chats = $this->addEmptyValue($this->Soin->Chat->find('list'));
-		$this->set(compact('chats'));
+		$veterinaires = $this->addEmptyValue($this->Soin->Veterinaire->find('list'));
+		$this->set(compact('chats', 'veterinaires'));
 		foreach($this->passedArgs as $k => $v) {
 		    $this->set('default_'.$k, $v);
 		}
@@ -97,7 +98,8 @@ class SoinsController extends AppController {
         $this->set('soin', $this->request->data);
         
 		$chats = $this->addEmptyValue($this->Soin->Chat->find('list'));
-		$this->set(compact('chats'));
+		$veterinaires = $this->addEmptyValue($this->Soin->Veterinaire->find('list'));
+		$this->set(compact('chats', 'veterinaires'));
 	}
 
 /**

@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `soins` (
   `date_debut` date NOT NULL COMMENT 'Date des soins',
   `date_fin` date DEFAULT NULL COMMENT 'Jusqu''au (si longue durée)',
   `nature` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nature des soins',
-  `veterinaire` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Vétérinaire',
+  `veterinaire_id` int(11) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Vétérinaire',
   `montant` decimal(4,2) DEFAULT NULL COMMENT 'Montant',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Soins' AUTO_INCREMENT=2 ;
@@ -190,3 +190,27 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `initiales`, `level`) VALUES
 (1, 'admin', 'f730d138ce9e30f76b8b67b2b0d272699453d914', 'ADMIN', 9);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `veterinaires`
+--
+
+CREATE TABLE IF NOT EXISTS `veterinaires` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nom',
+  `adresse` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Adresse',
+  `telephone` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Téléphone',
+  `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Adresse e-mail',
+  `commentaires` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Commentaires',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Vétérinaires' AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `veterinaires`
+--
+
+INSERT INTO `veterinaires` (`id`, `nom`, `adresse`, `telephone`, `email`, `commentaires`) VALUES
+(1, 'Clinique Vétérinaire de Paris', 'Place des chats, 75042 PARIS', '01.23.45.67.89', 'example@example.net', 'Blablabla');
+
