@@ -35,8 +35,8 @@ class SoinFixture extends CakeTestFixture {
 			'id' => 1,
 			'chat_id' => 1,
 			'type' => 'Lorem ipsum dolor sit ame',
-			'date_debut' => '2014-05-04',
-			'date_fin' => '2014-05-04',
+			'date_debut' => '2014-07-14',
+			'date_fin' => '2014-07-14',
 			'nature' => 'Lorem ipsum dolor sit amet',
 			'veterinaire' => 'Lorem ipsum dolor sit amet',
 			'montant' => 1

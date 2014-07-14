@@ -21,7 +21,7 @@
 			<?php echo $this->Html->link($adoption['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $adoption['Chat']['id']), array('class' => '')); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Nom de famille'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Nom'); ?></strong></td>
 		<td>
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'nom', 'type'=>'string', 'v'=>$adoption['Adoption']['nom'])); ?>
 			&nbsp;
@@ -31,14 +31,24 @@
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'adresse', 'type'=>'string', 'v'=>$adoption['Adoption']['adresse'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Téléphone'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Téléphone fixe'); ?></strong></td>
 		<td>
-			<?php echo $this->element('value',array('page'=>'view', 'name'=>'telephone', 'type'=>'string', 'v'=>$adoption['Adoption']['telephone'])); ?>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'telephone1', 'type'=>'string', 'v'=>$adoption['Adoption']['telephone1'])); ?>
+			&nbsp;
+		</td>
+</tr><tr>		<td><strong><?php echo __('Téléphone portable'); ?></strong></td>
+		<td>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'telephone2', 'type'=>'string', 'v'=>$adoption['Adoption']['telephone2'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Adresse e-mail'); ?></strong></td>
 		<td>
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'email', 'type'=>'string', 'v'=>$adoption['Adoption']['email'])); ?>
+			&nbsp;
+		</td>
+</tr><tr>		<td><strong><?php echo __('Nouveau nom chat'); ?></strong></td>
+		<td>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'nom_chat', 'type'=>'string', 'v'=>$adoption['Adoption']['nom_chat'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Date d\'adoption'); ?></strong></td>

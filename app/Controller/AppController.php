@@ -57,7 +57,7 @@ class AppController extends Controller {
     );
     
     public $types = array(
-        'm' => 'Médicaments',
+        'm' => 'Traitement',
         'v' => 'Vaccination',
         's' => 'Stérilisation',
         'i' => 'Identification',

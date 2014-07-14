@@ -16,8 +16,9 @@
 															<th><?php echo $this->Paginator->sort('id', '#'); ?></th>
 															<th><?php echo $this->Paginator->sort('nom', 'Nom'); ?></th>
 															<th><?php echo $this->Paginator->sort('adresse', 'Adresse'); ?></th>
-															<th><?php echo $this->Paginator->sort('telephone1', 'Téléphone 1'); ?></th>
-															<th><?php echo $this->Paginator->sort('telephone2', 'Téléphone 2'); ?></th>
+															<th><?php echo $this->Paginator->sort('telephone1', 'Téléphone fixe'); ?></th>
+															<th><?php echo $this->Paginator->sort('telephone2', 'Téléphone portable'); ?></th>
+															<th><?php echo $this->Paginator->sort('email', 'Adresse e-mail'); ?></th>
 															<th><?php echo $this->Paginator->sort('limite', 'Chats max.'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 						</tr>
@@ -31,6 +32,7 @@
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'adresse', 'type'=>'string', 'v'=>$accueil['Accueil']['adresse'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'telephone1', 'type'=>'string', 'v'=>$accueil['Accueil']['telephone1'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'telephone2', 'type'=>'string', 'v'=>$accueil['Accueil']['telephone2'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'email', 'type'=>'string', 'v'=>$accueil['Accueil']['email'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'limite', 'type'=>'integer', 'v'=>$accueil['Accueil']['limite'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $accueil['Accueil']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>

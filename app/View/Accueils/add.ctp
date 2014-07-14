@@ -25,13 +25,18 @@
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->MyForm->label('telephone1', 'Téléphone 1');?>
+	<?php echo $this->MyForm->label('telephone1', 'Téléphone fixe');?>
 		<?php echo $this->MyForm->input('telephone1', array('class' => 'form-control', 'value' => (empty($default_telephone1)?null:$default_telephone1))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->MyForm->label('telephone2', 'Téléphone 2');?>
+	<?php echo $this->MyForm->label('telephone2', 'Téléphone portable');?>
 		<?php echo $this->MyForm->input('telephone2', array('class' => 'form-control', 'value' => (empty($default_telephone2)?null:$default_telephone2))); ?>
+</div><!-- .form-group -->
+
+<div class="form-group">
+	<?php echo $this->MyForm->label('email', 'Adresse e-mail');?>
+		<?php echo $this->MyForm->input('email', array('class' => 'form-control', 'value' => (empty($default_email)?null:$default_email))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">

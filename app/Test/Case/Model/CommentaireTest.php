@@ -13,7 +13,12 @@ class CommentaireTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.commentaire'
+		'app.commentaire',
+		'app.chat',
+		'app.accueil',
+		'app.adoption',
+		'app.rappel',
+		'app.soin'
 	);
 
 /**

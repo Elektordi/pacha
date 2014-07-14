@@ -22,11 +22,6 @@
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->MyForm->label('nom2', 'Ancien nom');?>
-		<?php echo $this->MyForm->input('nom2', array('class' => 'form-control', 'value' => (empty($default_nom2)?null:$default_nom2))); ?>
-</div><!-- .form-group -->
-
-<div class="form-group">
 	<?php echo $this->MyForm->label('naissance', 'Naissance');?>
 		<?php echo $this->MyForm->input('naissance', array('class' => 'form-control', 'value' => (empty($default_naissance)?null:$default_naissance))); ?>
 </div><!-- .form-group -->

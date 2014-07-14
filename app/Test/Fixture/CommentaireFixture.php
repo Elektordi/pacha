@@ -16,7 +16,6 @@ class CommentaireFixture extends CakeTestFixture {
 		'date' => array('type' => 'datetime', 'null' => false, 'default' => null, 'comment' => 'Date'),
 		'auteur' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 8, 'collate' => 'utf8_unicode_ci', 'comment' => 'Auteur', 'charset' => 'utf8'),
 		'texte' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 500, 'collate' => 'utf8_unicode_ci', 'comment' => 'Commentaire', 'charset' => 'utf8'),
-		'source' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 32, 'collate' => 'utf8_unicode_ci', 'comment' => 'Concerne', 'charset' => 'utf8'),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1)
 		),
@@ -32,10 +31,9 @@ class CommentaireFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'chat_id' => 1,
-			'date' => '2014-05-04 00:20:32',
+			'date' => '2014-07-14 20:23:44',
 			'auteur' => 'Lorem ',
-			'texte' => 'Lorem ipsum dolor sit amet',
-			'source' => 'Lorem ipsum dolor sit amet'
+			'texte' => 'Lorem ipsum dolor sit amet'
 		),
 	);
 

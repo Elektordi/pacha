@@ -26,11 +26,6 @@
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'nom', 'type'=>'string', 'v'=>$chat['Chat']['nom'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Ancien nom'); ?></strong></td>
-		<td>
-			<?php echo $this->element('value',array('page'=>'view', 'name'=>'nom2', 'type'=>'string', 'v'=>$chat['Chat']['nom2'])); ?>
-			&nbsp;
-		</td>
 </tr><tr>		<td><strong><?php echo __('Naissance'); ?></strong></td>
 		<td>
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'naissance', 'type'=>'date', 'v'=>$chat['Chat']['naissance'])); ?>

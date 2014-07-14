@@ -11,9 +11,8 @@ class ChatFixture extends CakeTestFixture {
  * @var array
  */
 	public $fields = array(
-		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
+		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary', 'comment' => 'Numéro unique'),
 		'nom' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 32, 'collate' => 'utf8_unicode_ci', 'comment' => 'Nom', 'charset' => 'utf8'),
-		'nom2' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 32, 'collate' => 'utf8_unicode_ci', 'comment' => 'Ancien nom', 'charset' => 'utf8'),
 		'naissance' => array('type' => 'date', 'null' => true, 'default' => null, 'comment' => 'Naissance'),
 		'identification' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 32, 'collate' => 'utf8_unicode_ci', 'comment' => 'Identification', 'charset' => 'utf8'),
 		'race' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 32, 'collate' => 'utf8_unicode_ci', 'comment' => 'Race', 'charset' => 'utf8'),
@@ -22,6 +21,7 @@ class ChatFixture extends CakeTestFixture {
 		'etat' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 10, 'collate' => 'utf8_unicode_ci', 'comment' => 'Statut', 'charset' => 'utf8'),
 		'deces' => array('type' => 'date', 'null' => true, 'default' => null, 'comment' => 'Décédé'),
 		'accueil_id' => array('type' => 'integer', 'null' => true, 'default' => null, 'comment' => 'Famille d\'accueil'),
+		'unique' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 32, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1)
 		),
@@ -37,15 +37,15 @@ class ChatFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'nom' => 'Lorem ipsum dolor sit amet',
-			'nom2' => 'Lorem ipsum dolor sit amet',
-			'naissance' => '2014-05-04',
+			'naissance' => '2014-07-14',
 			'identification' => 'Lorem ipsum dolor sit amet',
 			'race' => 'Lorem ipsum dolor sit amet',
 			'robe' => 'Lorem ipsum dolor sit amet',
 			'sexe' => 'Lorem ipsum dolor sit ame',
 			'etat' => 'Lorem ip',
-			'deces' => '2014-05-04',
-			'accueil_id' => 1
+			'deces' => '2014-07-14',
+			'accueil_id' => 1,
+			'unique' => 'Lorem ipsum dolor sit amet'
 		),
 	);
 

@@ -23,8 +23,9 @@ CREATE TABLE IF NOT EXISTS `accueils` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nom',
   `adresse` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Adresse',
-  `telephone1` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Téléphone 1',
-  `telephone2` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Téléphone 2',
+  `telephone1` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Téléphone fixe',
+  `telephone2` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Téléphone portable',
+  `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Adresse e-mail',
   `limite` smallint(2) DEFAULT NULL COMMENT 'Chats max.',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Familles d''accueil' AUTO_INCREMENT=2 ;
@@ -33,8 +34,8 @@ CREATE TABLE IF NOT EXISTS `accueils` (
 -- Contenu de la table `accueils`
 --
 
-INSERT INTO `accueils` (`id`, `nom`, `adresse`, `telephone1`, `telephone2`, `limite`) VALUES
-(1, 'GENTY', '1 rue de l''Yerres, 91330 YERRES', '01.23.45.67.89', '', 20);
+INSERT INTO `accueils` (`id`, `nom`, `adresse`, `telephone1`, `telephone2`, `email`, `limite`) VALUES
+(1, 'GENTY', '1 rue de l''Yerres, 91330 YERRES', '01.23.45.67.89', '06.00.00.00.00', 'example@example.net', 20);
 
 -- --------------------------------------------------------
 
@@ -45,10 +46,12 @@ INSERT INTO `accueils` (`id`, `nom`, `adresse`, `telephone1`, `telephone2`, `lim
 CREATE TABLE IF NOT EXISTS `adoptions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `chat_id` int(11) NOT NULL COMMENT 'Chat',
-  `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nom de famille',
+  `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nom',
   `adresse` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Adresse',
-  `telephone` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Téléphone',
+  `telephone1` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Téléphone fixe',
+  `telephone2` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Téléphone portable',
   `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Adresse e-mail',
+  `nom_chat` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nouveau nom chat',
   `date_debut` date NOT NULL COMMENT 'Date d''adoption',
   `date_fin` date DEFAULT NULL COMMENT 'Fin d''adoption',
   PRIMARY KEY (`id`)
@@ -58,8 +61,8 @@ CREATE TABLE IF NOT EXISTS `adoptions` (
 -- Contenu de la table `adoptions`
 --
 
-INSERT INTO `adoptions` (`id`, `chat_id`, `nom`, `adresse`, `telephone`, `email`, `date_debut`, `date_fin`) VALUES
-(1, 2, 'DUPONT', '1 rue de Paris, 75001 PARIS', '01.23.45.67.89', 'dupont@example.com', '2013-02-01', '2013-03-03');
+INSERT INTO `adoptions` (`id`, `chat_id`, `nom`, `adresse`, `telephone1`, `telephone2`, `email`, `nom_chat`, `date_debut`, `date_fin`) VALUES
+(1, 2, 'DUPONT', '1 rue de Paris, 75001 PARIS', '01.23.45.67.89', '06.00.00.00.00', 'dupont@example.com', 'Wiki', '2013-02-01', '2013-03-03');
 
 -- --------------------------------------------------------
 
@@ -70,7 +73,6 @@ INSERT INTO `adoptions` (`id`, `chat_id`, `nom`, `adresse`, `telephone`, `email`
 CREATE TABLE IF NOT EXISTS `chats` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Numéro unique',
   `nom` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Nom',
-  `nom2` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Ancien nom',
   `naissance` date DEFAULT NULL COMMENT 'Naissance',
   `identification` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Identification',
   `race` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Race',
@@ -87,9 +89,9 @@ CREATE TABLE IF NOT EXISTS `chats` (
 -- Contenu de la table `chats`
 --
 
-INSERT INTO `chats` (`id`, `nom`, `nom2`, `naissance`, `identification`, `race`, `robe`, `sexe`, `etat`, `deces`, `accueil_id`, `unique`) VALUES
-(1, 'Moustic', NULL, '2000-01-01', 'DUF307', 'Européen', 'Noir et blanc', 'F', 'DOMICILE', NULL, 1, 'Moustic (DUF307)'),
-(2, 'Kiwi', NULL, '2013-01-01', 'EZD2??', 'Européen', 'Écaille de tortue', 'F', 'DECEDE', '2013-03-03', NULL, 'Kiwi (EZD2??)');
+INSERT INTO `chats` (`id`, `nom`, `naissance`, `identification`, `race`, `robe`, `sexe`, `etat`, `deces`, `accueil_id`, `unique`) VALUES
+(1, 'Moustic', '2000-01-01', 'DUF307', 'Européen', 'Noir et blanc', 'F', 'DOMICILE', NULL, 1, 'Moustic (DUF307)'),
+(2, 'Kiwi', '2013-01-01', 'EZD2??', 'Européen', 'Écaille de tortue', 'F', 'DECEDE', '2013-03-03', NULL, 'Kiwi (EZD2??)');
 
 -- --------------------------------------------------------
 
@@ -127,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `rappels` (
   `echeance` date NOT NULL COMMENT 'Échéance',
   `affectation` varchar(8) COLLATE utf8_unicode_ci COMMENT 'Affecté à',
   `texte` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Détails',
-  `soin_id` varchar(32) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Concerne',
+  `soin_id` varchar(32) COLLATE utf8_unicode_ci NULL DEFAULT NULL COMMENT 'Concerne',
   `ok` tinyint(4) NOT NULL COMMENT 'Validé',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Rappels' AUTO_INCREMENT=2 ;
@@ -137,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `rappels` (
 --
 
 INSERT INTO `rappels` (`id`, `chat_id`, `echeance`, `affectation`, `texte`, `soin_id`, `ok`) VALUES
-(1, 1, '2013-10-31', 'GG', 'Rappel de vaccin contre le Tétanos', '1', 0);
+(1, 1, '2014-08-01', 'ADMIN', 'Rappel de vaccin contre le Tétanos', '1', 0);
 
 -- --------------------------------------------------------
 

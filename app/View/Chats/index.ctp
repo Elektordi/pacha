@@ -15,7 +15,6 @@
 						<tr>
 															<th><?php echo $this->Paginator->sort('id', '#'); ?></th>
 															<th><?php echo $this->Paginator->sort('nom', 'Nom'); ?></th>
-															<th><?php echo $this->Paginator->sort('nom2', 'Ancien nom'); ?></th>
 															<th><?php echo $this->Paginator->sort('naissance', 'Naissance'); ?></th>
 															<th><?php echo $this->Paginator->sort('identification', 'Identification'); ?></th>
 															<th><?php echo $this->Paginator->sort('race', 'Race'); ?></th>
@@ -32,7 +31,6 @@
 	<tr>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'id', 'type'=>'integer', 'v'=>$chat['Chat']['id'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'nom', 'type'=>'string', 'v'=>$chat['Chat']['nom'])); ?>&nbsp;</td>
-		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'nom2', 'type'=>'string', 'v'=>$chat['Chat']['nom2'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'naissance', 'type'=>'date', 'v'=>$chat['Chat']['naissance'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'identification', 'type'=>'string', 'v'=>$chat['Chat']['identification'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'race', 'type'=>'string', 'v'=>$chat['Chat']['race'])); ?>&nbsp;</td>

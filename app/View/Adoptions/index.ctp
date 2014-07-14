@@ -15,10 +15,12 @@
 						<tr>
 															<th><?php echo $this->Paginator->sort('id', '#'); ?></th>
 															<th><?php echo $this->Paginator->sort('chat_id', 'Chat'); ?></th>
-															<th><?php echo $this->Paginator->sort('nom', 'Nom de famille'); ?></th>
+															<th><?php echo $this->Paginator->sort('nom', 'Nom'); ?></th>
 															<th><?php echo $this->Paginator->sort('adresse', 'Adresse'); ?></th>
-															<th><?php echo $this->Paginator->sort('telephone', 'Téléphone'); ?></th>
+															<th><?php echo $this->Paginator->sort('telephone1', 'Téléphone fixe'); ?></th>
+															<th><?php echo $this->Paginator->sort('telephone2', 'Téléphone portable'); ?></th>
 															<th><?php echo $this->Paginator->sort('email', 'Adresse e-mail'); ?></th>
+															<th><?php echo $this->Paginator->sort('nom_chat', 'Nouveau nom chat'); ?></th>
 															<th><?php echo $this->Paginator->sort('date_debut', 'Date d\'adoption'); ?></th>
 															<th><?php echo $this->Paginator->sort('date_fin', 'Fin d\'adoption'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
@@ -34,8 +36,10 @@
 		</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'nom', 'type'=>'string', 'v'=>$adoption['Adoption']['nom'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'adresse', 'type'=>'string', 'v'=>$adoption['Adoption']['adresse'])); ?>&nbsp;</td>
-		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'telephone', 'type'=>'string', 'v'=>$adoption['Adoption']['telephone'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'telephone1', 'type'=>'string', 'v'=>$adoption['Adoption']['telephone1'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'telephone2', 'type'=>'string', 'v'=>$adoption['Adoption']['telephone2'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'email', 'type'=>'string', 'v'=>$adoption['Adoption']['email'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'nom_chat', 'type'=>'string', 'v'=>$adoption['Adoption']['nom_chat'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'date_debut', 'type'=>'date', 'v'=>$adoption['Adoption']['date_debut'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'date_fin', 'type'=>'date', 'v'=>$adoption['Adoption']['date_fin'])); ?>&nbsp;</td>
 		<td class="actions">

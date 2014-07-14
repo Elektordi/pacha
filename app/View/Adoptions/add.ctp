@@ -23,7 +23,7 @@ $('#AdoptionChatId').selectpicker({ liveSearch: true });
 </script>
 
 <div class="form-group">
-	<?php echo $this->MyForm->label('nom', 'Nom de famille');?>
+	<?php echo $this->MyForm->label('nom', 'Nom');?>
 		<?php echo $this->MyForm->input('nom', array('class' => 'form-control', 'value' => (empty($default_nom)?null:$default_nom))); ?>
 </div><!-- .form-group -->
 
@@ -33,13 +33,23 @@ $('#AdoptionChatId').selectpicker({ liveSearch: true });
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->MyForm->label('telephone', 'Téléphone');?>
-		<?php echo $this->MyForm->input('telephone', array('class' => 'form-control', 'value' => (empty($default_telephone)?null:$default_telephone))); ?>
+	<?php echo $this->MyForm->label('telephone1', 'Téléphone fixe');?>
+		<?php echo $this->MyForm->input('telephone1', array('class' => 'form-control', 'value' => (empty($default_telephone1)?null:$default_telephone1))); ?>
+</div><!-- .form-group -->
+
+<div class="form-group">
+	<?php echo $this->MyForm->label('telephone2', 'Téléphone portable');?>
+		<?php echo $this->MyForm->input('telephone2', array('class' => 'form-control', 'value' => (empty($default_telephone2)?null:$default_telephone2))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('email', 'Adresse e-mail');?>
 		<?php echo $this->MyForm->input('email', array('class' => 'form-control', 'value' => (empty($default_email)?null:$default_email))); ?>
+</div><!-- .form-group -->
+
+<div class="form-group">
+	<?php echo $this->MyForm->label('nom_chat', 'Nouveau nom chat');?>
+		<?php echo $this->MyForm->input('nom_chat', array('class' => 'form-control', 'value' => (empty($default_nom_chat)?null:$default_nom_chat))); ?>
 </div><!-- .form-group -->
 
 <div class="form-group">

@@ -26,14 +26,19 @@
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'adresse', 'type'=>'string', 'v'=>$accueil['Accueil']['adresse'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Téléphone 1'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Téléphone fixe'); ?></strong></td>
 		<td>
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'telephone1', 'type'=>'string', 'v'=>$accueil['Accueil']['telephone1'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Téléphone 2'); ?></strong></td>
+</tr><tr>		<td><strong><?php echo __('Téléphone portable'); ?></strong></td>
 		<td>
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'telephone2', 'type'=>'string', 'v'=>$accueil['Accueil']['telephone2'])); ?>
+			&nbsp;
+		</td>
+</tr><tr>		<td><strong><?php echo __('Adresse e-mail'); ?></strong></td>
+		<td>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'email', 'type'=>'string', 'v'=>$accueil['Accueil']['email'])); ?>
 			&nbsp;
 		</td>
 </tr><tr>		<td><strong><?php echo __('Chats max.'); ?></strong></td>
@@ -62,7 +67,7 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('#'); ?></th>		<th><?php echo __('Nom'); ?></th>		<th><?php echo __('Ancien nom'); ?></th>		<th><?php echo __('Naissance'); ?></th>		<th><?php echo __('Identification'); ?></th>		<th><?php echo __('Race'); ?></th>		<th><?php echo __('Robe'); ?></th>		<th><?php echo __('Sexe'); ?></th>		<th><?php echo __('Statut'); ?></th>		<th><?php echo __('Décédé'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+											<th><?php echo __('#'); ?></th>		<th><?php echo __('Nom'); ?></th>		<th><?php echo __('Naissance'); ?></th>		<th><?php echo __('Identification'); ?></th>		<th><?php echo __('Race'); ?></th>		<th><?php echo __('Robe'); ?></th>		<th><?php echo __('Sexe'); ?></th>		<th><?php echo __('Statut'); ?></th>		<th><?php echo __('Décédé'); ?></th>		<th><?php echo __('Unique'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -72,7 +77,6 @@
 		<tr>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'id', 'type'=>'integer', 'v'=>$chat['id'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'nom', 'type'=>'string', 'v'=>$chat['nom'])); ?></td>
-			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'nom2', 'type'=>'string', 'v'=>$chat['nom2'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'naissance', 'type'=>'date', 'v'=>$chat['naissance'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'identification', 'type'=>'string', 'v'=>$chat['identification'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'race', 'type'=>'string', 'v'=>$chat['race'])); ?></td>
@@ -80,6 +84,7 @@
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'sexe', 'type'=>'string', 'v'=>$chat['sexe'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'etat', 'type'=>'string', 'v'=>$chat['etat'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'deces', 'type'=>'date', 'v'=>$chat['deces'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'unique', 'type'=>'string', 'v'=>$chat['unique'])); ?></td>
 			<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'chats', 'action' => 'view', $chat['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'chats', 'action' => 'edit', $chat['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
