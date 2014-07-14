@@ -55,7 +55,7 @@ class RappelsController extends AppController {
 				$this->Session->setFlash(__('Rappel impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
 		}
-		$chats = $this->Rappel->Chat->find('list');
+		$chats = $this->addEmptyValue($this->Rappel->Chat->find('list'));
 		$soins = $this->Rappel->Soin->find('list');
 		$this->set(compact('chats', 'soins'));
 		foreach($this->passedArgs as $k => $v) {
@@ -88,7 +88,7 @@ class RappelsController extends AppController {
 		$this->request->data = $this->Rappel->find('first', $options);
         $this->set('rappel', $this->request->data);
 
-		$chats = $this->Rappel->Chat->find('list');
+		$chats = $this->addEmptyValue($this->Rappel->Chat->find('list'));
 		$soins = $this->Rappel->Soin->find('list');
 		$this->set(compact('chats', 'soins'));
 	}

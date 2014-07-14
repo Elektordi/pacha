@@ -147,7 +147,7 @@ class AppController extends Controller {
     
     public function addEmptyValue($array, $label='-')
     {
-        return array_merge(array(''=>$label), $array);
+        return array(''=>$label)+$array;
     }
 
 }

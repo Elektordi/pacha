@@ -55,7 +55,7 @@ class AdoptionsController extends AppController {
 				$this->Session->setFlash(__('Adoption impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
 		}
-		$chats = $this->Adoption->Chat->find('list');
+		$chats = $this->addEmptyValue($this->Adoption->Chat->find('list'));
 		$this->set(compact('chats'));
 		foreach($this->passedArgs as $k => $v) {
 		    $this->set('default_'.$k, $v);
@@ -86,7 +86,7 @@ class AdoptionsController extends AppController {
 	    $this->request->data = $this->Adoption->find('first', $options);
         $this->set('adoption', $this->request->data);
 
-		$chats = $this->Adoption->Chat->find('list');
+		$chats = $this->addEmptyValue($this->Adoption->Chat->find('list'));
 		$this->set(compact('chats'));
 	}
 

@@ -57,7 +57,7 @@ class CommentairesController extends AppController {
 				$this->Session->setFlash(__('Commentaire impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
 		}
-		$chats = $this->Commentaire->Chat->find('list');
+		$chats = $this->addEmptyValue($this->Commentaire->Chat->find('list'));
 		$this->set(compact('chats'));
 		foreach($this->passedArgs as $k => $v) {
 		    $this->set('default_'.$k, $v);
@@ -90,7 +90,7 @@ class CommentairesController extends AppController {
 		$this->request->data = $this->Commentaire->find('first', $options);
         $this->set('commentaire', $this->request->data);
 		
-		$chats = $this->Commentaire->Chat->find('list');
+		$chats = $this->addEmptyValue($this->Commentaire->Chat->find('list'));
 		$this->set(compact('chats'));
 	}
 

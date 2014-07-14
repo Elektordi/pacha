@@ -64,7 +64,7 @@ class SoinsController extends AppController {
 				$this->Session->setFlash(__('Soin impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
 		}
-		$chats = $this->Soin->Chat->find('list');
+		$chats = $this->addEmptyValue($this->Soin->Chat->find('list'));
 		$this->set(compact('chats'));
 		foreach($this->passedArgs as $k => $v) {
 		    $this->set('default_'.$k, $v);
@@ -96,7 +96,7 @@ class SoinsController extends AppController {
 	    $this->request->data = $this->Soin->find('first', $options);
         $this->set('soin', $this->request->data);
         
-		$chats = $this->Soin->Chat->find('list');
+		$chats = $this->addEmptyValue($this->Soin->Chat->find('list'));
 		$this->set(compact('chats'));
 	}
 
