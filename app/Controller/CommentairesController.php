@@ -48,6 +48,7 @@ class CommentairesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Commentaire->create();
+			$this->request->data['Commentaire']['auteur'] = $this->Session->read('Auth.User.initiales');
 			if ($this->Commentaire->save($this->request->data)) {
 				$this->Session->setFlash(__('Commentaire enregistré.'), 'flash/success');
 				$this->redirect(array('action' => 'index'));
@@ -75,6 +76,7 @@ class CommentairesController extends AppController {
 			throw new NotFoundException(__('Commentaire invalide.'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+		    $this->request->data['Commentaire']['auteur'] = $this->Session->read('Auth.User.initiales');
 			if ($this->Commentaire->save($this->request->data)) {
 				$this->Session->setFlash(__('Commentaire sauvegardé.'), 'flash/success');
 				$this->redirect(array('action' => 'index'));

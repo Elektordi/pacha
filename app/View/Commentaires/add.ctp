@@ -25,11 +25,6 @@
 </div><!-- .form-group -->
 
 <div class="form-group">
-	<?php echo $this->MyForm->label('auteur', 'Auteur');?>
-		<?php echo $this->MyForm->input('auteur', array('class' => 'form-control', 'value' => (empty($default_auteur)?null:$default_auteur))); ?>
-</div><!-- .form-group -->
-
-<div class="form-group">
 	<?php echo $this->MyForm->label('texte', 'Commentaire');?>
 		<?php echo $this->MyForm->input('texte', array('class' => 'form-control', 'value' => (empty($default_texte)?null:$default_texte))); ?>
 </div><!-- .form-group -->
