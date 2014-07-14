@@ -56,6 +56,7 @@ class SoinsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Soin->create();
+			$this->request->data['Soin']['montant'] = str_replace(',', '.', $this->request->data['Soin']['montant']);
 			if ($this->Soin->save($this->request->data)) {
 				$this->Session->setFlash(__('Soin enregistré.'), 'flash/success');
 				$this->redirect(array('action' => 'view', $this->Soin->id));
@@ -83,6 +84,7 @@ class SoinsController extends AppController {
 			throw new NotFoundException(__('Soin invalide.'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			$this->request->data['Soin']['montant'] = str_replace(',', '.', $this->request->data['Soin']['montant']);
 			if ($this->Soin->save($this->request->data)) {
 				$this->Session->setFlash(__('Soin sauvegardé.'), 'flash/success');
 				$this->redirect(array('action' => 'view', $this->Soin->id));

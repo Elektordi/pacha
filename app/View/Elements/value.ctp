@@ -11,6 +11,8 @@ if($name=='sexe') {
     }
 } elseif($name=='ok') {
     echo ($v?'OUI':'NON');
+} elseif($name=='montant') {
+    echo $v." €";
 } elseif($type=='date') {
     if($v) echo date('d/m/Y',strtotime($v));
 } else {

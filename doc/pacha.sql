@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `soins` (
   `date_fin` date DEFAULT NULL COMMENT 'Jusqu''au (si longue durée)',
   `nature` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nature des soins',
   `veterinaire` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Vétérinaire',
-  `montant` decimal(2,0) DEFAULT NULL COMMENT 'Montant',
+  `montant` decimal(4,2) DEFAULT NULL COMMENT 'Montant',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Soins' AUTO_INCREMENT=2 ;
 
