@@ -17,7 +17,7 @@
                                                     <th><?php echo __('Chat'); ?></th>
                                                     <th><?php echo __('Évènement'); ?></th>
                                                     <th><?php echo __('Affecté à'); ?></th>
-                                                    <th class="actions col-md-3"><?php echo __('Actions'); ?></th>
+                                                    <th class="hidden-print col-md-3"><?php echo __('Actions'); ?></th>
 						</tr>
 					</thead>
 					<tbody>

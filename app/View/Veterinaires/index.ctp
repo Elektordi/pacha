@@ -17,6 +17,7 @@
 															<th><?php echo $this->Paginator->sort('nom', 'Nom'); ?></th>
 															<th><?php echo $this->Paginator->sort('adresse', 'Adresse'); ?></th>
 															<th><?php echo $this->Paginator->sort('telephone', 'Téléphone'); ?></th>
+															<th><?php echo $this->Paginator->sort('fax', 'Fax'); ?></th>
 															<th><?php echo $this->Paginator->sort('email', 'Adresse e-mail'); ?></th>
 															<th><?php echo $this->Paginator->sort('commentaires', 'Commentaires'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
@@ -30,6 +31,7 @@
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'nom', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['nom'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'adresse', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['adresse'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'telephone', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['telephone'])); ?>&nbsp;</td>
+		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'fax', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['fax'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'email', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['email'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'commentaires', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['commentaires'])); ?>&nbsp;</td>
 		<td class="actions">

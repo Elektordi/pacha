@@ -31,6 +31,11 @@
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'telephone', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['telephone'])); ?>
 			&nbsp;
 		</td>
+</tr><tr>		<td><strong><?php echo __('Fax'); ?></strong></td>
+		<td>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'fax', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['fax'])); ?>
+			&nbsp;
+		</td>
 </tr><tr>		<td><strong><?php echo __('Adresse e-mail'); ?></strong></td>
 		<td>
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'email', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['email'])); ?>

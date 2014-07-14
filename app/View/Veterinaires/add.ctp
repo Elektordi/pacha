@@ -30,6 +30,11 @@
 </div><!-- .form-group -->
 
 <div class="form-group">
+	<?php echo $this->MyForm->label('fax', 'Fax');?>
+		<?php echo $this->MyForm->input('fax', array('class' => 'form-control', 'value' => (empty($default_fax)?null:$default_fax))); ?>
+</div><!-- .form-group -->
+
+<div class="form-group">
 	<?php echo $this->MyForm->label('email', 'Adresse e-mail');?>
 		<?php echo $this->MyForm->input('email', array('class' => 'form-control', 'value' => (empty($default_email)?null:$default_email))); ?>
 </div><!-- .form-group -->

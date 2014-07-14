@@ -202,8 +202,9 @@ CREATE TABLE IF NOT EXISTS `veterinaires` (
   `nom` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nom',
   `adresse` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Adresse',
   `telephone` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Téléphone',
+  `fax` varchar(15) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Fax',
   `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Adresse e-mail',
-  `commentaires` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Commentaires',
+  `commentaires` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Commentaires',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Vétérinaires' AUTO_INCREMENT=2 ;
 
@@ -211,6 +212,6 @@ CREATE TABLE IF NOT EXISTS `veterinaires` (
 -- Contenu de la table `veterinaires`
 --
 
-INSERT INTO `veterinaires` (`id`, `nom`, `adresse`, `telephone`, `email`, `commentaires`) VALUES
-(1, 'Clinique Vétérinaire de Paris', 'Place des chats, 75042 PARIS', '01.23.45.67.89', 'example@example.net', 'Blablabla');
+INSERT INTO `veterinaires` (`id`, `nom`, `adresse`, `telephone`, `fax`, `email`, `commentaires`) VALUES
+(1, 'Clinique Vétérinaire de Paris', 'Place des chats, 75042 PARIS', '01.23.45.67.89', '01.23.45.67.90', 'example@example.net', 'Blablabla');
 

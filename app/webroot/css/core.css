@@ -3,6 +3,10 @@
 #url-rewriting-warning {display: none;}
 .xdebug-var-dump {margin-top: 50px;}
 
+.actions {
+    width: 150px;
+}
+
 @media print {
 
     #header {
