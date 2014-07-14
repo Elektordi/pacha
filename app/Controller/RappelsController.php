@@ -50,7 +50,7 @@ class RappelsController extends AppController {
 			$this->Rappel->create();
 			if ($this->Rappel->save($this->request->data)) {
 				$this->Session->setFlash(__('Rappel enregistré.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Rappel->id));
 			} else {
 				$this->Session->setFlash(__('Rappel impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
@@ -78,7 +78,7 @@ class RappelsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Rappel->save($this->request->data)) {
 				$this->Session->setFlash(__('Rappel sauvegardé.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Rappel->id));
 			} else {
 				$this->Session->setFlash(__('Rappel impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}

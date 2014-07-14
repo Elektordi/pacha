@@ -58,7 +58,7 @@ class SoinsController extends AppController {
 			$this->Soin->create();
 			if ($this->Soin->save($this->request->data)) {
 				$this->Session->setFlash(__('Soin enregistré.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Soin->id));
 			} else {
 				$this->Session->setFlash(__('Soin impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
@@ -85,7 +85,7 @@ class SoinsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Soin->save($this->request->data)) {
 				$this->Session->setFlash(__('Soin sauvegardé.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Soin->id));
 			} else {
 				$this->Session->setFlash(__('Soin impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}

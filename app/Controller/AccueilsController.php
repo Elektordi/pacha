@@ -50,7 +50,7 @@ class AccueilsController extends AppController {
 			$this->Accueil->create();
 			if ($this->Accueil->save($this->request->data)) {
 				$this->Session->setFlash(__('Accueil enregistré.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Accueil->id));
 			} else {
 				$this->Session->setFlash(__('Accueil impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
@@ -75,7 +75,7 @@ class AccueilsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Accueil->save($this->request->data)) {
 				$this->Session->setFlash(__('Accueil sauvegardé.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Accueil->id));
 			} else {
 				$this->Session->setFlash(__('Accueil impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}

@@ -57,7 +57,7 @@ class UsersController extends AppController {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('User enregistré.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->User->id));
 			} else {
 				$this->Session->setFlash(__('User impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
@@ -82,7 +82,7 @@ class UsersController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('User sauvegardé.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->User->id));
 			} else {
 				$this->Session->setFlash(__('User impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}

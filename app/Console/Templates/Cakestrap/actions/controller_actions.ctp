@@ -55,7 +55,7 @@
 			if ($this-><?php echo $currentModelName; ?>->save($this->request->data)) {
 <?php if ($wannaUseSession): ?>
 				$this->Session->setFlash(__('<?php echo ucfirst($singularHumanName); ?> enregistré.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this-><?php echo $currentModelName; ?>->id));
 <?php else: ?>
 				$this->flash(__('<?php echo ucfirst(ucfirst($currentModelName)); ?> enregistré.'), array('action' => 'index'));
 <?php endif; ?>
@@ -102,7 +102,7 @@
 			if ($this-><?php echo $currentModelName; ?>->save($this->request->data)) {
 <?php if ($wannaUseSession): ?>
 				$this->Session->setFlash(__('<?php echo ucfirst($singularHumanName); ?> sauvegardé.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this-><?php echo $currentModelName; ?>->id));
 <?php else: ?>
 				$this->flash(__('<?php echo ucfirst($singularHumanName); ?> sauvegardé.'), array('action' => 'index'));
 <?php endif; ?>

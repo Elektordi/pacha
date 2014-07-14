@@ -52,7 +52,7 @@ class CommentairesController extends AppController {
 			$this->request->data['Commentaire']['date'] = date(DATE_MYSQL);
 			if ($this->Commentaire->save($this->request->data)) {
 				$this->Session->setFlash(__('Commentaire enregistré.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Commentaire->id));
 			} else {
 				$this->Session->setFlash(__('Commentaire impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
@@ -81,7 +81,7 @@ class CommentairesController extends AppController {
 		    $this->request->data['Commentaire']['date'] = date(DATE_MYSQL);
 			if ($this->Commentaire->save($this->request->data)) {
 				$this->Session->setFlash(__('Commentaire sauvegardé.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Commentaire->id));
 			} else {
 				$this->Session->setFlash(__('Commentaire impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}

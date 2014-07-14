@@ -50,7 +50,7 @@ class ChatsController extends AppController {
 			$this->Chat->create();
 			if ($this->Chat->save($this->request->data)) {
 				$this->Session->setFlash(__('Chat enregistré.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Chat->id));
 			} else {
 				$this->Session->setFlash(__('Chat impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
@@ -77,7 +77,7 @@ class ChatsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Chat->save($this->request->data)) {
 				$this->Session->setFlash(__('Chat sauvegardé.'), 'flash/success');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Chat->id));
 			} else {
 				$this->Session->setFlash(__('Chat impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
 			}
