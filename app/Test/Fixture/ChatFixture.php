@@ -21,6 +21,8 @@ class ChatFixture extends CakeTestFixture {
 		'etat' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 10, 'collate' => 'utf8_unicode_ci', 'comment' => 'Statut', 'charset' => 'utf8'),
 		'deces' => array('type' => 'date', 'null' => true, 'default' => null, 'comment' => 'Décédé'),
 		'accueil_id' => array('type' => 'integer', 'null' => true, 'default' => null, 'comment' => 'Famille d\'accueil'),
+		'provenance' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 200, 'collate' => 'utf8_unicode_ci', 'comment' => 'Provenance du chat', 'charset' => 'utf8'),
+		'detenteur' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 200, 'collate' => 'utf8_unicode_ci', 'comment' => 'Détenteur', 'charset' => 'utf8'),
 		'unique' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 32, 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1)
@@ -45,6 +47,8 @@ class ChatFixture extends CakeTestFixture {
 			'etat' => 'Lorem ip',
 			'deces' => '2014-07-14',
 			'accueil_id' => 1,
+			'provenance' => 'Lorem ipsum dolor sit amet',
+			'detenteur' => 'Lorem ipsum dolor sit amet',
 			'unique' => 'Lorem ipsum dolor sit amet'
 		),
 	);

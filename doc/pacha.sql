@@ -81,6 +81,8 @@ CREATE TABLE IF NOT EXISTS `chats` (
   `etat` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Statut',
   `deces` date DEFAULT NULL COMMENT 'Décédé',
   `accueil_id` int(11) DEFAULT NULL COMMENT 'Famille d''accueil',
+  `provenance` VARCHAR( 200 ) NOT NULL COMMENT 'Provenance du chat',
+  `detenteur` VARCHAR( 200 ) NULL DEFAULT '' COMMENT 'Détenteur',
   `unique` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Chats' AUTO_INCREMENT=3 ;
@@ -89,9 +91,9 @@ CREATE TABLE IF NOT EXISTS `chats` (
 -- Contenu de la table `chats`
 --
 
-INSERT INTO `chats` (`id`, `nom`, `naissance`, `identification`, `race`, `robe`, `sexe`, `etat`, `deces`, `accueil_id`, `unique`) VALUES
-(1, 'Moustic', '2000-01-01', 'DUF307', 'Européen', 'Noir et blanc', 'F', 'DOMICILE', NULL, 1, 'Moustic (DUF307)'),
-(2, 'Kiwi', '2013-01-01', 'EZD2??', 'Européen', 'Écaille de tortue', 'F', 'DECEDE', '2013-03-03', NULL, 'Kiwi (EZD2??)');
+INSERT INTO `chats` (`id`, `nom`, `naissance`, `identification`, `race`, `robe`, `sexe`, `etat`, `deces`, `accueil_id`, `provenance`, `detenteur`, `unique`) VALUES
+(1, 'Moustic', '2000-01-01', 'DUF307', 'Européen', 'Noir et blanc', 'F', 'DOMICILE', NULL, 1, 'Famille GENTY', '', 'Moustic (DUF307)'),
+(2, 'Kiwi', '2013-01-01', 'EZD2??', 'Européen', 'Écaille de tortue', 'F', 'DECEDE', '2013-03-03', NULL, 'Trouvé au centre-ville de Yerres', '', 'Kiwi (EZD2??)');
 
 -- --------------------------------------------------------
 

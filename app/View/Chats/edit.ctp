@@ -61,6 +61,16 @@
 		<?php echo $this->MyForm->input('accueil_id', array('class' => 'form-control', 'value' => (empty($default_accueil_id)?null:$default_accueil_id))); ?>
 </div><!-- .form-group -->
 
+<div class="form-group">
+	<?php echo $this->MyForm->label('provenance', 'Provenance du chat');?>
+		<?php echo $this->MyForm->input('provenance', array('class' => 'form-control', 'value' => (empty($default_provenance)?null:$default_provenance))); ?>
+</div><!-- .form-group -->
+
+<div class="form-group">
+	<?php echo $this->MyForm->label('detenteur', 'Détenteur');?>
+		<?php echo $this->MyForm->input('detenteur', array('class' => 'form-control', 'value' => (empty($default_detenteur)?null:$default_detenteur))); ?>
+</div><!-- .form-group -->
+
 				</fieldset>
 			<?php echo $this->MyForm->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
 <?php echo $this->MyForm->end(); ?>

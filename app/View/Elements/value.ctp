@@ -20,6 +20,6 @@ if($name=='sexe') {
         $v = $a[$v];
     }
 
-    echo h($v);
+    echo nl2br(h($v));
 }
 ?>
