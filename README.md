@@ -57,6 +57,7 @@ Liens
 * Icônes des bouttons: http://glyphicons.com/
 * Quelques autres icônes: http://www.famfamfam.com/lab/icons/silk/
 * Bootstrap datepicker: http://www.eyecon.ro/bootstrap-datepicker/
+* Bootstrap-select: http://silviomoreto.github.io/bootstrap-select/
 
 License
 =======
