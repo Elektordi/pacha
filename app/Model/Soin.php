@@ -109,4 +109,7 @@ class Soin extends AppModel {
         'display' => 'CONCAT((SELECT c.nom FROM chats c WHERE c.id = Soin.chat_id)," ",Soin.date_debut)'
     );
     
+    public $indexFields = array('chat_id', 'type', 'date_debut', 'date_fin', 'nature', 'veterinaire_id', 'montant');
+    public $viewFields = array('id', 'chat_id', 'type', 'date_debut', 'date_fin', 'nature', 'veterinaire_id', 'montant');
+    public $formFields = null; // Tous les champs
 }

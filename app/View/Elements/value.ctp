@@ -17,6 +17,7 @@ if($name=='sexe') {
     if($v) echo date('d/m/Y',strtotime($v));
 } else {
     $varname = $name.'s';
+    $varname = str_replace('_ids', 's', $varname); // HACK
     if(isset($$varname) && is_array($$varname)) {
         $a = $$varname;
         $v = $a[$v];

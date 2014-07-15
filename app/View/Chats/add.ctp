@@ -69,11 +69,6 @@
 		<?php echo $this->MyForm->input('detenteur', array('class' => 'form-control', 'value' => (empty($default_detenteur)?null:$default_detenteur))); ?>
 </div><!-- .form-group -->
 
-<div class="form-group">
-	<?php echo $this->MyForm->label('unique', 'Unique');?>
-		<?php echo $this->MyForm->input('unique', array('class' => 'form-control', 'value' => (empty($default_unique)?null:$default_unique))); ?>
-</div><!-- .form-group -->
-
 				</fieldset>
 			<?php echo $this->MyForm->submit(__('Enregistrer'), array('class' => 'btn btn-large btn-primary')); ?>
 <?php echo $this->MyForm->end(); ?>

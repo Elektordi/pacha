@@ -73,4 +73,8 @@ class Commentaire extends AppModel {
 			'order' => ''
 		)
 	);
+	
+    public $indexFields = array('chat_id', 'date', 'auteur', 'texte');
+    public $viewFields = array('id', 'chat_id', 'date', 'auteur', 'texte');
+    public $formFields = array('chat_id', 'texte');
 }

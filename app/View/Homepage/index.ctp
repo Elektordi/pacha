@@ -33,11 +33,11 @@
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche chat'), array('controller' => 'Chats','action' => 'view', $event['chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-exclamation-sign"></span> '.__('Plus d\'infos'), array('controller' => 'rappels','action' => 'view', $event['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
-                        <?php   if($event['affectation']=="") 
+                        <?php if($user_level>=5) {  if($event['affectation']=="") 
                                     echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span> '.__('M\'affecter'), array('controller' => 'rappels','action' => 'click', 'assign', $event['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE));
                                 else
                                     echo $this->Html->link('<span class="glyphicon glyphicon-thumbs-up" style="color: green;"></span> '.__('Fait'), array('controller' => 'rappels','action' => 'click', 'done', $event['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE));
-                        ?>
+                        } ?>
 		</td>
 	</tr>
 <?php                                           } ?>

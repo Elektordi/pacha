@@ -5,8 +5,9 @@
 
 		<div class="adoptions index">
 		
-                        <div class="btn-group pull-right">
+		                <?php if($user_level>=5) { ?>                        <div class="btn-group pull-right">
                                 <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Adoption'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+                        <?php } ?>                        
 			<h2><?php echo __('Adoptions'); ?></h2>
 			
 			<div class="table-responsive">
@@ -20,7 +21,6 @@
 															<th><?php echo $this->Paginator->sort('telephone1', 'Téléphone fixe'); ?></th>
 															<th><?php echo $this->Paginator->sort('telephone2', 'Téléphone portable'); ?></th>
 															<th><?php echo $this->Paginator->sort('email', 'Adresse e-mail'); ?></th>
-															<th><?php echo $this->Paginator->sort('nom_chat', 'Nouveau nom chat'); ?></th>
 															<th><?php echo $this->Paginator->sort('date_debut', 'Date d\'adoption'); ?></th>
 															<th><?php echo $this->Paginator->sort('date_fin', 'Fin d\'adoption'); ?></th>
 															<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
@@ -39,12 +39,11 @@
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'telephone1', 'type'=>'string', 'v'=>$adoption['Adoption']['telephone1'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'telephone2', 'type'=>'string', 'v'=>$adoption['Adoption']['telephone2'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'email', 'type'=>'string', 'v'=>$adoption['Adoption']['email'])); ?>&nbsp;</td>
-		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'nom_chat', 'type'=>'string', 'v'=>$adoption['Adoption']['nom_chat'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'date_debut', 'type'=>'date', 'v'=>$adoption['Adoption']['date_debut'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'date_fin', 'type'=>'date', 'v'=>$adoption['Adoption']['date_fin'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $adoption['Adoption']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $adoption['Adoption']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			<?php if($user_level>=5) echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $adoption['Adoption']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

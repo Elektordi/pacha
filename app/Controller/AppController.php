@@ -70,6 +70,8 @@ class AppController extends Controller {
         'Auth' => array(
             'loginRedirect' => '/',
             'logoutRedirect' => '/',
+            'unauthorizedRedirect' => '/',
+            'authError' => 'Accès refusé.',
             'authorize' => array('Controller')
         ),
         'Cookie' => array(
@@ -82,7 +84,7 @@ class AppController extends Controller {
 
     public function beforeFilter() {
 
-	$this->Cookie->key = Configure::read('Cookie.SecurityKey');
+	    $this->Cookie->key = Configure::read('Cookie.SecurityKey');
 
         if (!$this->Auth->loggedIn() && $this->Cookie->read('remember_me_cookie')) {
             $cookie = $this->Cookie->read('remember_me_cookie');
@@ -104,6 +106,7 @@ class AppController extends Controller {
         }
     
         $this->Auth->allow('users', 'login');
+        $this->Auth->allow('users', 'logout');
         //$this->set('authuser', $this->Auth->user);
     }
     
@@ -139,10 +142,31 @@ class AppController extends Controller {
     }
     
     public function isAuthorized($user) {
-        if (isset($user['level']) && $user['level'] == 9) {
+        if(empty($user) || empty($user['level'])) return false;
+        $level = $user['level'];
+        $this->set('user_level', $level);
+        
+        if ($level == 9) return true; // Admin
+        $controller = $this->request->params['controller'];
+        $action = $this->request->params['action'];
+        
+        if($controller=="users") return false; // Blacklisté pour les non admins
+
+        if($level==1) { // Lecture seule
+            if($action=="index" || $action=="view") return true;
+            return false;
+        }
+        
+        if($level==5) { // Simple
+            if($action=="delete") return false;
             return true;
         }
-        return true; // TODO
+        
+        if($level==7) { // Complet
+            return true;
+        }
+
+        return false;
     }
     
     public function addEmptyValue($array, $label='-')

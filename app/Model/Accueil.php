@@ -76,5 +76,9 @@ class Accueil extends AppModel {
     public $virtualFields = array(
         'compte' => '(SELECT COUNT(id) FROM chats WHERE deces IS NULL AND accueil_id=Accueil.id)'
     );
+    
+    public $indexFields = array('nom', 'adresse', 'telephone1', 'telephone2', 'email', 'compte', 'limite');
+    public $viewFields = array('id', 'nom', 'adresse', 'telephone1', 'telephone2', 'email', 'compte', 'limite');
+    public $formFields = null; // Tous les champs
 
 }

@@ -5,8 +5,9 @@
 
 		<div class="chats index">
 		
-                        <div class="btn-group pull-right">
+		                <?php if($user_level>=5) { ?>                        <div class="btn-group pull-right">
                                 <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Chat'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+                        <?php } ?>                        
 			<h2><?php echo __('Chats'); ?></h2>
 			
 			<div class="table-responsive">
@@ -42,7 +43,7 @@
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			<?php if($user_level>=5) echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $chat['Chat']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

@@ -6,9 +6,9 @@
 		<div class="accueils view content">
 
                     <div class="btn-toolbar pull-right">
-                        <div class="btn-group">
-                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier Accueil'), array('action' => 'edit', $accueil['Accueil']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> '.__('Supprimer Accueil'), array('action' => 'delete', $accueil['Accueil']['id']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', $accueil['Accueil']['id'])); ?>                        </div>
-                        <div class="btn-group">
+                    <?php if($user_level>=5) { ?>                        <div class="btn-group">
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier Accueil'), array('action' => 'edit', $accueil['Accueil']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                            <?php if($user_level>=7) echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> '.__('Supprimer Accueil'), array('action' => 'delete', $accueil['Accueil']['id']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', $accueil['Accueil']['id'])); ?>                        </div>
+                    <?php } ?>                        <div class="btn-group">
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
                     </div>
                     <h2><?php  echo __('Fiche Accueil').': '.$accueil['Accueil']['nom']; ?></h2>
@@ -41,17 +41,17 @@
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'email', 'type'=>'string', 'v'=>$accueil['Accueil']['email'])); ?>
 			&nbsp;
 		</td>
-</tr><tr>		<td><strong><?php echo __('Chats'); ?></strong></td>
-		<td>
-			<?php echo $this->element('value',array('page'=>'view', 'name'=>'compte', 'type'=>'integer', 'v'=>$accueil['Accueil']['compte'])); ?>
-			&nbsp;
-		</td>
 </tr><tr>		<td><strong><?php echo __('Chats max.'); ?></strong></td>
 		<td>
 			<?php echo $this->element('value',array('page'=>'view', 'name'=>'limite', 'type'=>'integer', 'v'=>$accueil['Accueil']['limite'])); ?>
 			&nbsp;
 		</td>
-</tr>						</tbody>
+</tr><tr>		<td><strong><?php echo __('Compte'); ?></strong></td>
+		<td>
+			<?php echo $this->element('value',array('page'=>'view', 'name'=>'compte', 'type'=>'virtual', 'v'=>$accueil['Accueil']['compte'])); ?>
+			&nbsp;
+		</td>
+</tr>					</tbody>
 				</table><!-- /.table table-striped table-bordered -->
 			</div><!-- /.table-responsive -->
 			
@@ -63,7 +63,7 @@
 			<div class="related" style="margin-top: 40px">
 
                                 <div class="btn-group btn-group-xs pull-right">
-                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Chat'), array('controller' => 'chats', 'action' => 'add', 'accueil_id' => $accueil['Accueil']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
+                                    <?php if($user_level>=5) echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Chat'), array('controller' => 'chats', 'action' => 'add', 'accueil_id' => $accueil['Accueil']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
 				<h3><?php echo __('Chats lié(e)s:'); ?></h3>
 				
 				<?php if (!empty($accueil['Chat'])): ?>
@@ -72,7 +72,7 @@
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-											<th><?php echo __('#'); ?></th>		<th><?php echo __('Nom'); ?></th>		<th><?php echo __('Naissance'); ?></th>		<th><?php echo __('Identification'); ?></th>		<th><?php echo __('Race'); ?></th>		<th><?php echo __('Robe'); ?></th>		<th><?php echo __('Sexe'); ?></th>		<th><?php echo __('Statut'); ?></th>		<th><?php echo __('Décédé'); ?></th>		<th><?php echo __('Unique'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+											<th><?php echo __('#'); ?></th>		<th><?php echo __('Nom'); ?></th>		<th><?php echo __('Naissance'); ?></th>		<th><?php echo __('Identification'); ?></th>		<th><?php echo __('Race'); ?></th>		<th><?php echo __('Robe'); ?></th>		<th><?php echo __('Sexe'); ?></th>		<th><?php echo __('Statut'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -88,11 +88,9 @@
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'robe', 'type'=>'string', 'v'=>$chat['robe'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'sexe', 'type'=>'string', 'v'=>$chat['sexe'])); ?></td>
 			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'etat', 'type'=>'string', 'v'=>$chat['etat'])); ?></td>
-			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'deces', 'type'=>'date', 'v'=>$chat['deces'])); ?></td>
-			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'unique', 'type'=>'string', 'v'=>$chat['unique'])); ?></td>
 			<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'chats', 'action' => 'view', $chat['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'chats', 'action' => 'edit', $chat['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			<?php if($user_level>=5) echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'chats', 'action' => 'edit', $chat['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

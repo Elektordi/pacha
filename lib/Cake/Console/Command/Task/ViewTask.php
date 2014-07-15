@@ -278,10 +278,13 @@ class ViewTask extends BakeTask {
 		if ($modelObj) {
 			$primaryKey = $modelObj->primaryKey;
 			$displayField = $modelObj->displayField;
+			$indexFields = $modelObj->indexFields; // GG
+			$viewFields = $modelObj->viewFields; // GG
+			$formFields = $modelObj->formFields; // GG
 			$singularVar = Inflector::variable($modelClass);
 			$singularHumanName = $this->_singularHumanName($this->controllerName);
 			$schema = $modelObj->schema(true);
-			$fields = array_keys($schema);
+			$fields = array_merge(array_keys($schema), array_keys($modelObj->virtualFields)); // GG
 			$associations = $this->_associations($modelObj);
 		} else {
 			$primaryKey = $displayField = null;
@@ -293,7 +296,7 @@ class ViewTask extends BakeTask {
 		$pluralHumanName = $this->_pluralHumanName($this->controllerName);
 
 		return compact('modelClass', 'schema', 'primaryKey', 'displayField', 'singularVar', 'pluralVar',
-				'singularHumanName', 'pluralHumanName', 'fields', 'associations');
+				'singularHumanName', 'pluralHumanName', 'fields', 'associations', /* GG */ 'indexFields', 'viewFields', 'formFields' /* /GG */);
 	}
 
 /**
@@ -467,6 +470,8 @@ class ViewTask extends BakeTask {
 				$associations[$type][$assocKey]['controller'] = Inflector::pluralize(Inflector::underscore($modelClass));
 				$associations[$type][$assocKey]['fields'] = array_keys($model->{$assocKey}->schema(true));
 				$associations[$type][$assocKey]['schema'] = $model->{$assocKey}->schema(true); // GG
+				$associations[$type][$assocKey]['indexFields'] = $model->{$assocKey}->assocFields; // GG
+				if($associations[$type][$assocKey]['indexFields'] == null) $associations[$type][$assocKey]['indexFields'] = $model->{$assocKey}->indexFields; // GG
 			}
 		}
 		return $associations;

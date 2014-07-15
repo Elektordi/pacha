@@ -44,6 +44,8 @@
                                     <?php } ?>
 			<?php
 				foreach ($fields as $field) {
+				    if(is_array($formFields) && !in_array($field,$formFields)) continue;
+				    if(empty($schema[$field])) continue;
 					if ($field == $primaryKey) {
 						continue;
 					} elseif (!in_array($field, array('created', 'modified', 'updated'))) {

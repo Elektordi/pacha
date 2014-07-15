@@ -89,5 +89,10 @@ class Rappel extends AppModel {
 		)
 	);
         
-        public $displayField = 'texte';
+    public $displayField = 'texte';
+        
+    public $indexFields = array('chat_id', 'echeance', 'affectation', 'texte', 'soin_id', 'ok');
+    public $viewFields = array('id', 'chat_id', 'echeance', 'affectation', 'texte', 'soin_id', 'ok');
+    public $formFields = null; // Tous les champs
+    public $assocFields = array('chat_id', 'echeance', 'affectation', 'texte', 'ok');
 }

@@ -54,5 +54,10 @@ class AppModel extends Model {
         
         return ($this->data[$this->name][$col] == $value);
     }
+    
+    public $indexFields = null;
+    public $viewFields = null;
+    public $formFields = null;
+    public $assocFields = null;
 
 }

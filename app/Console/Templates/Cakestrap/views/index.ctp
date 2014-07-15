@@ -23,9 +23,12 @@
 
 		<div class="<?php echo $pluralVar; ?> index">
 		
+		                <?php echo "<?php if(\$user_level>=5) { ?>"; ?>
                         <div class="btn-group pull-right">
                                 <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus\"></span> '.__('Créer " . $singularHumanName . "'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
                         </div>
+                        <?php echo "<?php } ?>"; ?>
+                        
 			<h2><?php echo "<?php echo __('{$pluralHumanName}'); ?>"; ?></h2>
 			
 			<div class="table-responsive">
@@ -33,6 +36,7 @@
 					<thead>
 						<tr>
 							<?php  foreach ($fields as $field):
+							        if(is_array($indexFields) && !in_array($field,$indexFields)) continue;
 							        $display = (empty($schema[$field]['comment'])?Inflector::humanize($field):addslashes($schema[$field]['comment']));
 							        if(isset($schema[$field]['key']) && $schema[$field]['key']=='primary') $display="#"; ?>
 								<th><?php echo "<?php echo \$this->Paginator->sort('{$field}', '".$display."'); ?>"; ?></th>
@@ -46,6 +50,7 @@
 						foreach (\${$pluralVar} as \${$singularVar}): ?>\n";
 						echo "\t<tr>\n";
 							foreach ($fields as $field) {
+							    if(is_array($indexFields) && !in_array($field,$indexFields)) continue;
 								$isKey = false;
 								if (!empty($associations['belongsTo'])) {
 									foreach ($associations['belongsTo'] as $alias => $details) {
@@ -57,13 +62,13 @@
 									}
 								}
 								if ($isKey !== true) {
-									echo "\t\t<td><?php echo \$this->element('value',array('page'=>'index', 'name'=>'{$field}', 'type'=>'{$schema[$field]['type']}', 'v'=>\${$singularVar}['{$modelClass}']['{$field}'])); ?>&nbsp;</td>\n";
+									echo "\t\t<td><?php echo \$this->element('value',array('page'=>'index', 'name'=>'{$field}', 'type'=>'".(isset($schema[$field])?$schema[$field]['type']:'virtual')."', 'v'=>\${$singularVar}['{$modelClass}']['{$field}'])); ?>&nbsp;</td>\n";
 								}
 							}
 
 							echo "\t\t<td class=\"actions\">\n";
 							echo "\t\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-file\"></span> '.__('Fiche'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
-							echo "\t\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-edit\"></span> '.__('Modifier'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
+							echo "\t\t\t<?php if(\$user_level>=5) echo \$this->Html->link('<span class=\"glyphicon glyphicon-edit\"></span> '.__('Modifier'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
 							/*echo "\t\t\t<?php echo \$this->Form->postLink(__('Effacer'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";*/
 							echo "\t\t</td>\n";
 						echo "\t</tr>\n";

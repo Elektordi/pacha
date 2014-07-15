@@ -5,15 +5,15 @@
 
 		<div class="soins index">
 		
-                        <div class="btn-group pull-right">
-                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Soin'), array('action' => 'add', 'type' => $type), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
-			<h2><?php echo __('Soins'); if($type) echo ': '.$types[$type]; ?></h2>
+		                <?php if($user_level>=5) { ?>                        <div class="btn-group pull-right">
+                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Soin'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+                        <?php } ?>                        
+			<h2><?php echo __('Soins'); ?></h2>
 			
 			<div class="table-responsive">
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-															<th><?php echo $this->Paginator->sort('id', '#'); ?></th>
 															<th><?php echo $this->Paginator->sort('chat_id', 'Chat'); ?></th>
 															<th><?php echo $this->Paginator->sort('type', 'Type de soin'); ?></th>
 															<th><?php echo $this->Paginator->sort('date_debut', 'Date des soins'); ?></th>
@@ -28,7 +28,6 @@
 						<?php
 						foreach ($soins as $soin): ?>
 	<tr>
-		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'id', 'type'=>'integer', 'v'=>$soin['Soin']['id'])); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($soin['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $soin['Chat']['id'])); ?>
 		</td>
@@ -42,7 +41,7 @@
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'montant', 'type'=>'float', 'v'=>$soin['Soin']['montant'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $soin['Soin']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $soin['Soin']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			<?php if($user_level>=5) echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $soin['Soin']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

@@ -20,9 +20,6 @@
 	<?php echo $this->MyForm->label('chat_id', 'Chat');?>
 		<?php echo $this->MyForm->input('chat_id', array('class' => 'form-control', 'value' => (empty($default_chat_id)?null:$default_chat_id))); ?>
 </div><!-- .form-group -->
-<script>
-$('#RappelChatId').selectpicker({ liveSearch: true });
-</script>
 
 <div class="form-group">
 	<?php echo $this->MyForm->label('echeance', 'Échéance');?>

@@ -5,15 +5,15 @@
 
 		<div class="rappels index">
 		
-                        <div class="btn-group pull-right">
+		                <?php if($user_level>=5) { ?>                        <div class="btn-group pull-right">
                                 <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Rappel'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+                        <?php } ?>                        
 			<h2><?php echo __('Rappels'); ?></h2>
 			
 			<div class="table-responsive">
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-															<th><?php echo $this->Paginator->sort('id', '#'); ?></th>
 															<th><?php echo $this->Paginator->sort('chat_id', 'Chat'); ?></th>
 															<th><?php echo $this->Paginator->sort('echeance', 'Échéance'); ?></th>
 															<th><?php echo $this->Paginator->sort('affectation', 'Affecté à'); ?></th>
@@ -27,7 +27,6 @@
 						<?php
 						foreach ($rappels as $rappel): ?>
 	<tr>
-		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'id', 'type'=>'integer', 'v'=>$rappel['Rappel']['id'])); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($rappel['Chat']['unique'], array('controller' => 'chats', 'action' => 'view', $rappel['Chat']['id'])); ?>
 		</td>
@@ -40,7 +39,7 @@
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'ok', 'type'=>'integer', 'v'=>$rappel['Rappel']['ok'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $rappel['Rappel']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $rappel['Rappel']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			<?php if($user_level>=5) echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $rappel['Rappel']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

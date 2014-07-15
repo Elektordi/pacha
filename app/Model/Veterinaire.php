@@ -45,4 +45,8 @@ class Veterinaire extends AppModel {
 	);
 	
     public $displayField = 'nom';
+    
+    public $indexFields = array('nom', 'adresse', 'telephone', 'fax', 'email', 'commentaires');
+    public $viewFields = array('id', 'nom', 'adresse', 'telephone', 'fax', 'email', 'commentaires');
+    public $formFields = null; // Tous les champs
 }

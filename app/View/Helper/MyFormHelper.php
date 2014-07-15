@@ -20,10 +20,16 @@ class MyFormHelper extends FormHelper {
 				
 			case 'number':
 			    if($fieldName=='ok') return $this->checkbox($fieldName, $options);
-			    
 			case 'text':
 				if(isset($options['maxlength']) && $options['maxlength']>100)
 				    return $this->textarea($fieldName, $options + array('cols' => '30', 'rows' => '6'));
+				break;
+				    
+			case 'select':
+				$options += array('options' => array(), 'value' => $selected, 'id' => $fieldName);
+				$list = $options['options'];
+				unset($options['options']);
+				return $this->select($fieldName, $list, $options).$this->Html->scriptBlock("\$('#{$fieldName}').selectpicker({ liveSearch: ".(count($list)>10?'true':'false')." });");
 
 		}
 		return parent::_getInput($args);

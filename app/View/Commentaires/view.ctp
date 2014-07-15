@@ -6,9 +6,9 @@
 		<div class="commentaires view content">
 
                     <div class="btn-toolbar pull-right">
-                        <div class="btn-group">
-                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier Commentaire'), array('action' => 'edit', $commentaire['Commentaire']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                            <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> '.__('Supprimer Commentaire'), array('action' => 'delete', $commentaire['Commentaire']['id']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', $commentaire['Commentaire']['id'])); ?>                        </div>
-                        <div class="btn-group">
+                    <?php if($user_level>=5) { ?>                        <div class="btn-group">
+                            <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier Commentaire'), array('action' => 'edit', $commentaire['Commentaire']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                            <?php if($user_level>=7) echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span> '.__('Supprimer Commentaire'), array('action' => 'delete', $commentaire['Commentaire']['id']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', $commentaire['Commentaire']['id'])); ?>                        </div>
+                    <?php } ?>                        <div class="btn-group">
                             <?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
                     </div>
                     <h2><?php  echo __('Fiche Commentaire').': '.$commentaire['Commentaire']['id']; ?></h2>

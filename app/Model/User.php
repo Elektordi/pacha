@@ -67,4 +67,8 @@ class User extends AppModel {
     }
     
     public $displayField = 'initiales';
+    
+    public $indexFields = array('username', 'initiales', 'level');
+    public $viewFields = array('id', 'username', 'initiales', 'level');
+    public $formFields = null; // Tous les champs
 }

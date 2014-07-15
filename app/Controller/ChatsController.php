@@ -38,6 +38,9 @@ class ChatsController extends AppController {
 		}
 		$options = array('conditions' => array('Chat.' . $this->Chat->primaryKey => $id));
 		$this->set('chat', $this->Chat->find('first', $options));
+		
+		$veterinaires = $this->Chat->Soin->Veterinaire->find('list');
+		$this->set(compact('veterinaires'));
 	}
 
 /**

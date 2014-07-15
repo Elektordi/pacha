@@ -5,15 +5,15 @@
 
 		<div class="veterinaires index">
 		
-                        <div class="btn-group pull-right">
+		                <?php if($user_level>=5) { ?>                        <div class="btn-group pull-right">
                                 <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Veterinaire'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
+                        <?php } ?>                        
 			<h2><?php echo __('Veterinaires'); ?></h2>
 			
 			<div class="table-responsive">
 				<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-															<th><?php echo $this->Paginator->sort('id', '#'); ?></th>
 															<th><?php echo $this->Paginator->sort('nom', 'Nom'); ?></th>
 															<th><?php echo $this->Paginator->sort('adresse', 'Adresse'); ?></th>
 															<th><?php echo $this->Paginator->sort('telephone', 'Téléphone'); ?></th>
@@ -27,7 +27,6 @@
 						<?php
 						foreach ($veterinaires as $veterinaire): ?>
 	<tr>
-		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'id', 'type'=>'integer', 'v'=>$veterinaire['Veterinaire']['id'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'nom', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['nom'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'adresse', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['adresse'])); ?>&nbsp;</td>
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'telephone', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['telephone'])); ?>&nbsp;</td>
@@ -36,7 +35,7 @@
 		<td><?php echo $this->element('value',array('page'=>'index', 'name'=>'commentaires', 'type'=>'string', 'v'=>$veterinaire['Veterinaire']['commentaires'])); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('action' => 'view', $veterinaire['Veterinaire']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $veterinaire['Veterinaire']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			<?php if($user_level>=5) echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('action' => 'edit', $veterinaire['Veterinaire']['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

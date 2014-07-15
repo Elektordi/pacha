@@ -24,10 +24,12 @@
 		<div class="<?php echo $pluralVar; ?> view content">
 
                     <div class="btn-toolbar pull-right">
+                    <?php echo "<?php if(\$user_level>=5) { ?>"; ?>
                         <div class="btn-group">
                             <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-edit\"></span> '.__('Modifier " . $singularHumanName . "'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
-                            <?php echo "<?php echo \$this->Form->postLink('<span class=\"glyphicon glyphicon-remove\"></span> '.__('Supprimer " . $singularHumanName . "'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>"; ?>
+                            <?php echo "<?php if(\$user_level>=7) echo \$this->Form->postLink('<span class=\"glyphicon glyphicon-remove\"></span> '.__('Supprimer " . $singularHumanName . "'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>"; ?>
                         </div>
+                    <?php echo "<?php } ?>"; ?>
                         <div class="btn-group">
                             <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-list\"></span> '.__('Retour à la liste'), array('action' => 'index'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
                         </div>
@@ -39,6 +41,7 @@
 					<tbody>
 						<?php
 						foreach ($fields as $field) {
+    						if(is_array($viewFields) && !in_array($field,$viewFields)) continue;
     						if(isset($schema[$field]['key']) && $schema[$field]['key']=='primary' && empty($schema[$field]['comment'])) continue;
 							$isKey = false;
 							if (!empty($associations['belongsTo'])) {
@@ -56,7 +59,7 @@
 							if ($isKey !== true) {
 								echo "<tr>";
 								echo "\t\t<td><strong><?php echo __('" . (empty($schema[$field]['comment'])?Inflector::humanize($field):addslashes($schema[$field]['comment'])) . "'); ?></strong></td>\n";
-								echo "\t\t<td>\n\t\t\t<?php echo \$this->element('value',array('page'=>'view', 'name'=>'{$field}', 'type'=>'{$schema[$field]['type']}', 'v'=>\${$singularVar}['{$modelClass}']['{$field}'])); ?>\n\t\t\t&nbsp;\n\t\t</td>\n";
+								echo "\t\t<td>\n\t\t\t<?php echo \$this->element('value',array('page'=>'view', 'name'=>'{$field}', 'type'=>'".(isset($schema[$field])?$schema[$field]['type']:'virtual')."', 'v'=>\${$singularVar}['{$modelClass}']['{$field}'])); ?>\n\t\t\t&nbsp;\n\t\t</td>\n";
 								echo "</tr>";
 							}
 						}
@@ -113,7 +116,7 @@
 			<div class="related" style="margin-top: 40px">
 
                                 <div class="btn-group btn-group-xs pull-right">
-                                    <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus\"></span> '.__('Créer " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add', '{$details['foreignKey']}' => \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
+                                    <?php echo "<?php if(\$user_level>=5) echo \$this->Html->link('<span class=\"glyphicon glyphicon-plus\"></span> '.__('Créer " . Inflector::humanize(Inflector::underscore($alias)) . "'), array('controller' => '{$details['controller']}', 'action' => 'add', '{$details['foreignKey']}' => \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
                                 </div>
 				<h3><?php echo "<?php echo __('" . $otherPluralHumanName . " lié(e)s:'); ?>"; ?></h3>
 				
@@ -125,7 +128,8 @@
 								<tr>
 									<?php
 										foreach ($details['schema'] as $field => $field_schema) {
-                                                                                        if($field==$fk) continue;
+                                            if($field==$fk) continue;
+                                            if(is_array($details['indexFields']) && !in_array($field,$details['indexFields'])) continue;
                                             $display = (empty($field_schema['comment'])?Inflector::humanize($field):addslashes($field_schema['comment']));
                                             if(isset($field_schema['key']) && $field_schema['key']=='primary') $display="#";
 											echo "\t\t<th><?php echo __('" . $display . "'); ?></th>";
@@ -141,13 +145,14 @@
 										foreach (\${$singularVar}['{$alias}'] as \${$otherSingularVar}): ?>\n";
 										echo "\t\t<tr>\n";
 											foreach ($details['schema'] as $field => $field_schema) {
-                                                                                            if($field==$fk) continue;
-                                                                                            echo "\t\t\t<td><?php echo \$this->element('value',array('page'=>'relation', 'name'=>'{$field}', 'type'=>'{$field_schema['type']}', 'v'=>\${$otherSingularVar}['{$field}'])); ?></td>\n";
+											    if(is_array($details['indexFields']) && !in_array($field,$details['indexFields'])) continue;
+                                                if($field==$fk) continue;
+                                                echo "\t\t\t<td><?php echo \$this->element('value',array('page'=>'relation', 'name'=>'{$field}', 'type'=>'{$field_schema['type']}', 'v'=>\${$otherSingularVar}['{$field}'])); ?></td>\n";
 											}
 
 											echo "\t\t\t<td class=\"actions\">\n";
-                                                                                        echo "\t\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-file\"></span> '.__('Fiche'), array('controller' => '{$details['controller']}', 'action' => 'view', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
-                                                                                        echo "\t\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-edit\"></span> '.__('Modifier'), array('controller' => '{$details['controller']}', 'action' => 'edit', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
+                                            echo "\t\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-file\"></span> '.__('Fiche'), array('controller' => '{$details['controller']}', 'action' => 'view', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
+                                            echo "\t\t\t<?php if(\$user_level>=5) echo \$this->Html->link('<span class=\"glyphicon glyphicon-edit\"></span> '.__('Modifier'), array('controller' => '{$details['controller']}', 'action' => 'edit', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
 											/*echo "\t\t\t\t<?php echo \$this->Form->postLink(__('Delete'), array('controller' => '{$details['controller']}', 'action' => 'delete', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', \${$otherSingularVar}['{$details['primaryKey']}'])); ?>\n";*/
 											echo "\t\t\t</td>\n";
 										echo "\t\t</tr>\n";

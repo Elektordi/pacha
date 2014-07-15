@@ -95,5 +95,9 @@ class Adoption extends AppModel {
 	);
         
         
-        public $displayField = 'nom';
+    public $displayField = 'nom';
+        
+    public $indexFields = array('id', 'chat_id', 'nom', 'adresse', 'telephone1', 'telephone2', 'email', 'date_debut', 'date_fin');
+    public $viewFields = array('id', 'chat_id', 'nom', 'adresse', 'telephone1', 'telephone2', 'email', 'nom_chat', 'date_debut', 'date_fin');
+    public $formFields = null; // Tous les champs
 }

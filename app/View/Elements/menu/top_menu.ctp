@@ -32,7 +32,9 @@
 					<li><?php echo $this->Html->Link('Familles d\'accueil', '/accueils'); ?></li>
 					<li><?php echo $this->Html->Link('Vétérinaires', '/veterinaires'); ?></li>
                     <li><?php echo $this->Html->Link('Commentaires', '/commentaires'); ?></li>
-					<li><?php echo $this->Html->Link('Comptes utilisateurs', '/users'); ?></li>
+                    <?php if($user_level>=9) { ?>
+    					<li><?php echo $this->Html->Link('Comptes utilisateurs', '/users'); ?></li>
+                    <?php } ?>
 					<li class="divider"></li>
 					<li><?php echo $this->Html->Link('A propos de...', '/pages/about'); ?></li>
 				</ul>

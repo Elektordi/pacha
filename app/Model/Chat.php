@@ -162,5 +162,7 @@ class Chat extends AppModel {
         'unique' => 'IFNULL(Chat.nom,IFNULL(Chat.identification,CONCAT("Chat #",CAST(Chat.id AS CHAR) COLLATE utf8_unicode_ci)))'
     );*/
 
-
+    public $indexFields = array('id', 'nom', 'naissance', 'identification', 'race', 'robe', 'sexe', 'etat', 'accueil_id');
+    public $viewFields = array('id', 'nom', 'naissance', 'identification', 'race', 'robe', 'sexe', 'etat', 'deces', 'accueil_id', 'provenance', 'detenteur');
+    public $formFields = array('nom', 'naissance', 'identification', 'race', 'robe', 'sexe', 'etat', 'deces', 'accueil_id', 'provenance', 'detenteur'); // Tous les champs
 }
