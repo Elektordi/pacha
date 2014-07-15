@@ -79,7 +79,7 @@ $cakeDescription = __d('cake_dev', 'PACHA');
 		
 		<div class="container">
 			<div class="well well-sm text-center">
-				<small><span title="Plateforme d'Accompagnement des CHAts">PACHA</span> version 0.3 - Développé par Guillaume Genty pour ECLVYS
+				<small><span title="Plateforme d'Accompagnement des CHAts">PACHA</span> version 1.0-RC1 - Développé par Guillaume Genty pour ECLVYS
 				    <span class="hidden-print"> - Logiciel sous license <a href="http://www.cecill.info/licences/Licence_CeCILL-B_V1-fr.html" target="_blank">CeCILL-B</a> - <i><a href="https://github.com/Elektordi/pacha" target="_blank">Fork me on GitHub</a></i></span>
 					<?php echo $this->element('sql_dump'); ?>
 				</small>

@@ -16,6 +16,14 @@ Installation
 * Injectez doc/pacha.sql dans votre base de données
 * Connectez vous avec le compte "admin" (mot de passe "admin")
 
+Niveaux d'accès
+===============
+
+* Lecture seule => Accès en lecture seule à toutes les données
+* Accès simplifié => Accès en lecture et écriture à toutes les données mais ne peut rien supprimer
+* Accès complet => Accès en lecture, écriture et suppression à toutes les données
+* Super-administrateur => Accès complet, de plus c'est le seul à avoir accès à la page de gestion des utilisateurs
+
 Sécurité
 ========
 
@@ -30,7 +38,7 @@ Conseils de sécurité:
 
 Note sur les mots de passe stockés:
 
-Tous les mots de passe stockés en base sont en md5 avec salt ("md5 salé"). Si vous perdez votre mot de passe ou que vous changer les clés de sécurité, utilisez la commande suivante pour le réinitialiser:
+Tous les mots de passe stockés en base sont en md5 avec salt ("md5 salé"). Si vous perdez votre mot de passe admin ou que vous changez les clés de sécurité, utilisez la commande suivante pour le réinitialiser:
 * Console/cake admin passwd admin admin
 
 Ou de façon plus générale:
@@ -65,3 +73,4 @@ License
 *Logiciel sous license CeCILL-B: http://www.cecill.info/licences/Licence_CeCILL-B_V1-fr.html*
 
 Merci de participer au développement de ce logiciel open-source en proposant vos modifications sous forme de "Pull Requests" !
+
