@@ -31,6 +31,7 @@ class SearchController extends AppController {
             );
             $data = $this->$model->find('all', $params);
             if(empty($data)) continue;
+            if(is_array($this->$model->indexFields)) $schema = array_intersect_key($schema, array_fill_keys($this->$model->indexFields,1));
             $results[$model] = array();
             foreach($data as $row) {
                 $result = array();

@@ -6,6 +6,8 @@ App::uses('AppModel', 'Model');
  */
 class Veterinaire extends AppModel {
 
+    public $SearchMe = 1;
+
 /**
  * Validation rules
  *
