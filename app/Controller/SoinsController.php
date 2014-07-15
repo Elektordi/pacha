@@ -21,10 +21,15 @@ class SoinsController extends AppController {
  * @return void
  */
 	public function index() {
+	    $this->Paginator->settings = array(
+            'order' => array(
+                'Soin.date_debut' => 'desc'
+            )
+        );
 		$this->Soin->recursive = 0;
 	    if(!empty($this->passedArgs['type'])) {
 	        if(empty($this->types[$this->passedArgs['type']])) throw new NotFoundException("Invalid type ".$this->passedArgs['type']);
-    		$this->set('soins', $this->paginate(array('type' => $this->passedArgs['type'])));	    
+    		$this->set('soins', $this->paginate(array('type' => $this->passedArgs['type'])));
     		$this->set('type', $this->passedArgs['type']);
 	    } else {
     		$this->set('soins', $this->paginate());

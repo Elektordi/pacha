@@ -21,6 +21,12 @@ class ChatsController extends AppController {
  * @return void
  */
 	public function index() {
+	    $this->Paginator->settings = array(
+            'order' => array(
+                //'Chat.nom' => 'asc'
+                'Chat.id' => 'desc'
+            )
+        );
 		$this->Chat->recursive = 0;
 		$this->set('chats', $this->paginate());
 	}

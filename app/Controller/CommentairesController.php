@@ -21,6 +21,11 @@ class CommentairesController extends AppController {
  * @return void
  */
 	public function index() {
+	    $this->Paginator->settings = array(
+            'order' => array(
+                'Commentaire.date' => 'desc'
+            )
+        );
 		$this->Commentaire->recursive = 0;
 		$this->set('commentaires', $this->paginate());
 	}

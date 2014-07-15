@@ -21,6 +21,11 @@ class AccueilsController extends AppController {
  * @return void
  */
 	public function index() {
+	    $this->Paginator->settings = array(
+            'order' => array(
+                'Accueil.nom' => 'asc'
+            )
+        );
 		$this->Accueil->recursive = 0;
 		$this->set('accueils', $this->paginate());
 	}

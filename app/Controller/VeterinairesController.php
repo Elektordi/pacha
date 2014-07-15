@@ -21,6 +21,11 @@ class VeterinairesController extends AppController {
  * @return void
  */
 	public function index() {
+	    $this->Paginator->settings = array(
+            'order' => array(
+                'Veterinaire.nom' => 'asc'
+            )
+        );
 		$this->Veterinaire->recursive = 0;
 		$this->set('veterinaires', $this->paginate());
 	}

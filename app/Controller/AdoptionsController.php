@@ -21,6 +21,11 @@ class AdoptionsController extends AppController {
  * @return void
  */
 	public function index() {
+	    $this->Paginator->settings = array(
+            'order' => array(
+                'Adoption.date_debut' => 'desc'
+            )
+        );
 		$this->Adoption->recursive = 0;
 		$this->set('adoptions', $this->paginate());
 	}

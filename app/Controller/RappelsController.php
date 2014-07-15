@@ -21,6 +21,11 @@ class RappelsController extends AppController {
  * @return void
  */
 	public function index() {
+	    $this->Paginator->settings = array(
+            'order' => array(
+                'Rappel.echeance' => 'desc'
+            )
+        );
 		$this->Rappel->recursive = 0;
 		$this->set('rappels', $this->paginate());
 	}
