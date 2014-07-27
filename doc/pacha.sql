@@ -165,8 +165,8 @@ CREATE TABLE IF NOT EXISTS `soins` (
 -- Contenu de la table `soins`
 --
 
-INSERT INTO `soins` (`id`, `chat_id`, `type`, `date_debut`, `date_fin`, `nature`, `veterinaire`, `montant`) VALUES
-(1, 1, 'm', '2013-01-23', NULL, 'Felidiarix 1cp', NULL, NULL);
+INSERT INTO `soins` (`id`, `chat_id`, `type`, `date_debut`, `date_fin`, `nature`, `veterinaire_id`, `montant`) VALUES
+(1, 1, 'm', '2013-01-23', NULL, 'Felidiarix 1cp', 1, NULL);
 
 
 -- --------------------------------------------------------

@@ -31,6 +31,12 @@ if(empty($img)) {
 		$img = 'eyes';
 	} elseif($ctrl == 'accueils') {
 		$img = 'cage';
+	} elseif($ctrl == 'rappels') {
+		$img = 'hungry';
+	} elseif($ctrl == 'veterinaires') {
+		$img = 'grumpy';
+	} elseif($ctrl == 'commentaires') {
+		$img = 'fish';
 	} elseif($ctrl == 'users') {
 		$img = 'poo';
 	} elseif($ctrl == 'search') {
