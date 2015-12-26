@@ -14,7 +14,7 @@
 			<li><?php echo $this->Html->Link('Chats', '/chats'); ?></li>
 			<li><?php echo $this->Html->Link('Adoptions', '/adoptions'); ?></li>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Suivi médical <b class="caret"></b></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Suivi vétérinaire <b class="caret"></b></a>
 				<ul class="dropdown-menu">
 				    <?php
 				        foreach($types as $k => $v)  {
