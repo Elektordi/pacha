@@ -75,8 +75,8 @@ CREATE TABLE IF NOT EXISTS `chats` (
   `nom` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Nom',
   `naissance` date DEFAULT NULL COMMENT 'Naissance',
   `identification` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Identification',
-  `race` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Race',
-  `robe` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Robe',
+  `race` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Race',
+  `robe` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Robe',
   `sexe` varchar(1) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Sexe',
   `etat` varchar(10) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Statut',
   `deces` date DEFAULT NULL COMMENT 'Décédé',
@@ -155,9 +155,9 @@ CREATE TABLE IF NOT EXISTS `soins` (
   `type` varchar(1) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Type de soin',
   `date_debut` date NOT NULL COMMENT 'Date des soins',
   `date_fin` date DEFAULT NULL COMMENT 'Jusqu''au (si longue durée)',
-  `nature` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nature des soins',
+  `nature` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nature des soins',
   `veterinaire_id` int(11) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Vétérinaire',
-  `montant` decimal(4,2) DEFAULT NULL COMMENT 'Montant',
+  `montant` decimal(5,2) DEFAULT NULL COMMENT 'Montant',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Soins' AUTO_INCREMENT=2 ;
 
