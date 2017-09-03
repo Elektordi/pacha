@@ -27,7 +27,7 @@
                     <?php echo "<?php if(\$user_level>=5) { ?>"; ?>
                         <div class="btn-group">
                             <?php echo "<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-edit\"></span> '.__('Modifier " . $singularHumanName . "'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>"; ?>
-                            <?php echo "<?php if(\$user_level>=7) echo \$this->Form->postLink('<span class=\"glyphicon glyphicon-remove\"></span> '.__('Supprimer " . $singularHumanName . "'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Are you sure you want to delete # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>"; ?>
+                            <?php echo "<?php if(\$user_level>=7) echo \$this->Form->postLink('<span class=\"glyphicon glyphicon-remove\"></span> '.__('Supprimer " . $singularHumanName . "'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), array('class' => 'btn btn-default', 'escape' => FALSE), __('Voulez-vous vraiement supprimer #%s ?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>"; ?>
                         </div>
                     <?php echo "<?php } ?>"; ?>
                         <div class="btn-group">
@@ -153,7 +153,7 @@
 											echo "\t\t\t<td class=\"actions\">\n";
                                             echo "\t\t\t<?php echo \$this->Html->link('<span class=\"glyphicon glyphicon-file\"></span> '.__('Fiche'), array('controller' => '{$details['controller']}', 'action' => 'view', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
                                             echo "\t\t\t<?php if(\$user_level>=5) echo \$this->Html->link('<span class=\"glyphicon glyphicon-edit\"></span> '.__('Modifier'), array('controller' => '{$details['controller']}', 'action' => 'edit', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>\n";
-											/*echo "\t\t\t\t<?php echo \$this->Form->postLink(__('Delete'), array('controller' => '{$details['controller']}', 'action' => 'delete', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs'), __('Are you sure you want to delete # %s?', \${$otherSingularVar}['{$details['primaryKey']}'])); ?>\n";*/
+											/*echo "\t\t\t\t<?php echo \$this->Form->postLink(__('Delete'), array('controller' => '{$details['controller']}', 'action' => 'delete', \${$otherSingularVar}['{$details['primaryKey']}']), array('class' => 'btn btn-default btn-xs'), __('Voulez-vous vraiement supprimer #%s ?', \${$otherSingularVar}['{$details['primaryKey']}'])); ?>\n";*/
 											echo "\t\t\t</td>\n";
 										echo "\t\t</tr>\n";
 
