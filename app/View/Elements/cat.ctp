@@ -12,6 +12,8 @@ if(empty($img)) {
 			$img = 'sing';
 		} elseif($page=='about') {
 			$img = 'random';
+		} else {
+		    return;
 		}
 	} elseif($ctrl == 'homepage') {
 		$img = 'sing';
@@ -24,7 +26,9 @@ if(empty($img)) {
 			$img = 'clean';
 		} elseif($action == 'add') {
 			$img = 'hungry';
-		} 
+		} else {
+		    return;
+		}
 	} elseif($ctrl == 'adoptions') {
 		$img = 'box';
 	} elseif($ctrl == 'soins') {
