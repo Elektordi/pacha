@@ -28,7 +28,14 @@ class ChatsController extends AppController {
             )
         );
 		$this->Chat->recursive = 0;
-		$this->set('chats', $this->paginate());
+	    if(!empty($this->passedArgs['etat'])) {
+	        if(empty($this->etats[$this->passedArgs['etat']])) throw new NotFoundException("Invalid status ".$this->passedArgs['etat']);
+    		$this->set('chats', $this->paginate(array('etat' => $this->passedArgs['etat'])));
+    		$this->set('etat', $this->passedArgs['etat']);
+	    } else {
+    		$this->set('chats', $this->paginate());
+    		$this->set('etat', '');	    
+	    }
 	}
 
 /**

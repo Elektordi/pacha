@@ -165,4 +165,5 @@ class Chat extends AppModel {
     public $indexFields = array('id', 'nom', 'naissance', 'identification', 'race', 'robe', 'sexe', 'etat', 'accueil_id');
     public $viewFields = array('id', 'nom', 'naissance', 'identification', 'race', 'robe', 'sexe', 'etat', 'deces', 'accueil_id', 'provenance', 'detenteur');
     public $formFields = array('nom', 'naissance', 'identification', 'race', 'robe', 'sexe', 'etat', 'deces', 'accueil_id', 'provenance', 'detenteur'); // Tous les champs
+    public $nosearchFields = array('etat');
 }

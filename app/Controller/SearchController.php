@@ -20,6 +20,8 @@ class SearchController extends AppController {
             $this->loadModel($model);
             if(empty($this->$model->SearchMe)) continue;
             $schema = $this->$model->schema();
+            if(is_array($this->$model->searchFields)) $schema = $this->$model->searchFields;
+            if(is_array($this->$model->nosearchFields)) $schema = array_diff_key($schema, array_fill_keys($this->$model->nosearchFields,1));
             $relations = $this->$model->belongsTo;
             $conditions = array();
             foreach($schema as $row => $info) {
@@ -36,8 +38,9 @@ class SearchController extends AppController {
             foreach($data as $row) {
                 $result = array();
                 foreach($relations as $params) {
-                    $this->loadModel($params['className']);
-                    $df = $this->$params['className']->displayField;
+                    $classname = $params['className'];
+                    $this->loadModel($classname);
+                    $df = $this->$classname->displayField;
                     if(!$df) $df = 'id';
                     $result[$params['foreignKey']] = $row[$params['className']][$df];
                 }

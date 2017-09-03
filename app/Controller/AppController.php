@@ -47,13 +47,15 @@ class AppController extends Controller {
     );
     
     public $etats = array(
-        'NOUVEAU' => 'Nouveau, en attente informations...',
-        'CHATON' => 'Chaton (En famille d\'accueil)',
-        'ACCUEIL' => 'Pas prêt (En famille d\'accueil)',
-        'ADOPTION' => 'Prêt pour l\'adoption (En famille d\'accueil)',
-        'ADOPTE' => 'Adopté !',
-        'DOMICILE' => 'Chat placé à domicile',
-        'DECEDE' => 'Chat décédé'
+        'NOUVEAU' => 'En attente d\'information',
+        'LIBRE' => 'Libre',
+        'ACCUEIL' => 'Non adoptable',
+        'ADOPTION' => 'Adoptable',
+        'ADOPTE' => 'Adopté',
+        'DOMICILE' => 'Placé',
+        'DECEDE' => 'Décédé'
+        // Anciens états et mapping de remplacement:
+        // CHATON => ACCUEIL
     );
     
     public $types = array(

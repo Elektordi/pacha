@@ -59,5 +59,7 @@ class AppModel extends Model {
     public $viewFields = null;
     public $formFields = null;
     public $assocFields = null;
+    public $searchFields = null;
+    public $nosearchFields = null;
 
 }

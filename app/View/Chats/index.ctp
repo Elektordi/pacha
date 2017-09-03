@@ -4,10 +4,19 @@
 	<div id="page-content">
 
 		<div class="chats index">
-		
-		                <?php if($user_level>=5) { ?>                        <div class="btn-group pull-right">
-                                <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Chat'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                        </div>
-                        <?php } ?>                        
+	        <div class="btn-toolbar pull-right">
+	            <div class="btn-group">
+                <?php
+                foreach($etats as $k=>$e) {
+                    echo $this->Html->link('<span class="glyphicon glyphicon-filter"></span> '.__($e), array('action'=>'index', 'etat'=>$k), array('class' => 'btn btn-default', 'escape' => FALSE));;
+                }
+                ?></div>
+                <div class="btn-group"><?php
+                if($user_level>=5) {
+                    echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Chat'), array('action' => 'add'), array('class' => 'btn btn-default', 'escape' => FALSE));
+                } ?>
+                </div>
+            </div>
 			<h2><?php echo __('Chats'); ?></h2>
 			
 			<div class="table-responsive">
