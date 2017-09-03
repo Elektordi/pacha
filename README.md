@@ -3,6 +3,8 @@ PACHA
 
 **Plateforme d'Accompagnement des CHAts**
 
+*Version 1.1*
+
 Ce logiciel est développé par Guillaume "Elektordi" Genty pour l'association ECLVYS (*École du Chat Libre Vals d'Yerres et de Seine*).
 
 
@@ -43,6 +45,11 @@ Tous les mots de passe stockés en base sont en md5 avec salt ("md5 salé"). Si 
 
 Ou de façon plus générale:
 * Console/cake admin passwd <identifiant> <nouveau mot de passe>
+
+Mise à jour
+===========
+
+Si vous mettez à jour, regardez bien le fichier [UPDATE.md] pour voir les actions à faire.
 
 Bugs
 ====
