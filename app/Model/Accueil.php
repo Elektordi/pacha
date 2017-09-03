@@ -61,7 +61,7 @@ class Accueil extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'Chat.id DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
@@ -70,12 +70,12 @@ class Accueil extends AppModel {
 		)
 	);
         
-        
+
     public $displayField = 'nom';
-        
     public $virtualFields = array(
         'compte' => '(SELECT COUNT(id) FROM chats WHERE deces IS NULL AND accueil_id=Accueil.id)'
     );
+    public $order = "Accueil.nom ASC";
     
     public $indexFields = array('nom', 'adresse', 'telephone1', 'telephone2', 'email', 'compte', 'limite');
     public $viewFields = array('id', 'nom', 'adresse', 'telephone1', 'telephone2', 'email', 'compte', 'limite');

@@ -86,6 +86,7 @@ class Adoption extends AppModel {
         
         
     public $displayField = 'nom';
+    public $order = "Adoption.date_debut DESC";
         
     public $indexFields = array('id', 'chat_id', 'nom', 'adresse', 'telephone1', 'telephone2', 'email', 'date_debut', 'date_fin');
     public $viewFields = array('id', 'chat_id', 'nom', 'adresse', 'telephone1', 'telephone2', 'email', 'nom_chat', 'date_debut', 'date_fin');

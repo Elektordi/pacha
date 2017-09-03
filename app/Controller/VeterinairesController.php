@@ -43,6 +43,9 @@ class VeterinairesController extends AppController {
 		}
 		$options = array('conditions' => array('Veterinaire.' . $this->Veterinaire->primaryKey => $id));
 		$this->set('veterinaire', $this->Veterinaire->find('first', $options));
+
+		$chats = $this->Veterinaire->Soin->Chat->find('list');
+		$this->set(compact('chats'));
 	}
 
 /**

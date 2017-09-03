@@ -95,7 +95,7 @@ class Soin extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'Rappel.echeance DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
@@ -108,6 +108,7 @@ class Soin extends AppModel {
     public $virtualFields = array(
         'display' => 'CONCAT((SELECT c.nom FROM chats c WHERE c.id = Soin.chat_id)," ",Soin.date_debut)'
     );
+    public $order = "Soin.date_debut DESC";
     
     public $indexFields = array('chat_id', 'type', 'date_debut', 'date_fin', 'nature', 'veterinaire_id', 'montant');
     public $viewFields = array('id', 'chat_id', 'type', 'date_debut', 'date_fin', 'nature', 'veterinaire_id', 'montant');

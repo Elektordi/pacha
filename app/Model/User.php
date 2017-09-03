@@ -67,6 +67,7 @@ class User extends AppModel {
     }
     
     public $displayField = 'initiales';
+    public $order = "User.username ASC";
     
     public $indexFields = array('username', 'initiales', 'level');
     public $viewFields = array('id', 'username', 'initiales', 'level');

@@ -100,7 +100,7 @@ class Chat extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'Adoption.date_debut DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
@@ -113,7 +113,7 @@ class Chat extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'Commentaire.date DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
@@ -126,7 +126,7 @@ class Chat extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'Rappel.echeance DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
@@ -139,7 +139,7 @@ class Chat extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'Soin.date_debut DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',
@@ -169,6 +169,7 @@ class Chat extends AppModel {
     /*public $virtualFields = array(
         'unique' => 'IFNULL(Chat.nom,IFNULL(Chat.identification,CONCAT("Chat #",CAST(Chat.id AS CHAR) COLLATE utf8_unicode_ci)))'
     );*/
+    public $order = "Chat.id DESC";
 
     public $indexFields = array('id', 'nom', 'naissance', 'identification', 'race', 'robe', 'sexe', 'etat', 'accueil_id');
     public $viewFields = array('id', 'nom', 'naissance', 'identification', 'race', 'robe', 'sexe', 'etat', 'deces', 'accueil_id', 'provenance', 'detenteur');

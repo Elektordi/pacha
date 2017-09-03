@@ -54,6 +54,48 @@
 
                 <div style="margin-top: 20px">&nbsp;</div>
                 
+					
+			<div class="related" style="margin-top: 40px">
+
+                                <div class="btn-group btn-group-xs pull-right">
+                                    <?php if($user_level>=5) echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span> '.__('Créer Soin'), array('controller' => 'soins', 'action' => 'add', 'veterinaire_id' => $veterinaire['Veterinaire']['id']), array('class' => 'btn btn-default', 'escape' => FALSE)); ?>                                </div>
+				<h3><?php echo __('Soins lié(e)s:'); ?></h3>
+				
+				<?php if (!empty($veterinaire['Soin'])): ?>
+					
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered">
+							<thead>
+								<tr>
+											<th><?php echo __('Type de soin'); ?></th>		<th><?php echo __('Date des soins'); ?></th>		<th><?php echo __('Jusqu\'au (si longue durée)'); ?></th>		<th><?php echo __('Nature des soins'); ?></th>		<th><?php echo __('Chat'); ?></th>		<th><?php echo __('Montant'); ?></th>									<th class="actions col-md-2"><?php echo __('Actions'); ?></th>
+								</tr>
+							</thead>
+							<tbody>
+									<?php
+										$i = 0;
+										foreach ($veterinaire['Soin'] as $soin): ?>
+		<tr>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'type', 'type'=>'string', 'v'=>$soin['type'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'date_debut', 'type'=>'date', 'v'=>$soin['date_debut'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'date_fin', 'type'=>'date', 'v'=>$soin['date_fin'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'nature', 'type'=>'string', 'v'=>$soin['nature'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'chat_id', 'type'=>'integer', 'v'=>$soin['chat_id'])); ?></td>
+			<td><?php echo $this->element('value',array('page'=>'relation', 'name'=>'montant', 'type'=>'float', 'v'=>$soin['montant'])); ?></td>
+			<td class="actions">
+			<?php echo $this->Html->link('<span class="glyphicon glyphicon-file"></span> '.__('Fiche'), array('controller' => 'soins', 'action' => 'view', $soin['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			<?php if($user_level>=5) echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> '.__('Modifier'), array('controller' => 'soins', 'action' => 'edit', $soin['id']), array('class' => 'btn btn-default btn-xs', 'escape' => FALSE)); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+							</tbody>
+						</table><!-- /.table table-striped table-bordered -->
+					</div><!-- /.table-responsive -->
+					
+				<?php else: echo '<i>'.__('Aucune donnée.').'</i>'; endif; ?>
+
+				
+			</div><!-- /.related -->
+
 			
 	</div><!-- /#page-content .span9 -->
 

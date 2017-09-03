@@ -90,6 +90,7 @@ class Rappel extends AppModel {
 	);
         
     public $displayField = 'texte';
+    public $order = "Rappel.echeance DESC";
         
     public $indexFields = array('chat_id', 'echeance', 'affectation', 'texte', 'soin_id', 'ok');
     public $viewFields = array('id', 'chat_id', 'echeance', 'affectation', 'texte', 'soin_id', 'ok');

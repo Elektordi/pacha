@@ -74,6 +74,8 @@ class Commentaire extends AppModel {
 		)
 	);
 	
+	public $order = "Commentaire.date DESC";
+	
     public $indexFields = array('chat_id', 'date', 'auteur', 'texte');
     public $viewFields = array('id', 'chat_id', 'date', 'auteur', 'texte');
     public $formFields = array('chat_id', 'texte');
