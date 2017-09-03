@@ -1,4 +1,13 @@
 <h1>Recherche: "<?php echo $query; ?>"</h1>
+
+<form class="hidden-md hidden-lg" role="search" method="post" action="<?php echo $this->Html->url("/search"); ?>">
+  <div class="input-group" style="width: 200px;">
+    <input type="text" class="form-control" placeholder="Rechercher..." name="query" size="15" value="<?php if(!empty($query)) echo h($query); ?>">
+    <span class="input-group-btn"><button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button></span>
+  </div>
+  
+</form>
+
 <?php
 
 if(!empty($error)) {
