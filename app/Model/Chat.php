@@ -19,6 +19,16 @@ class Chat extends AppModel {
  * @var array
  */
 	public $validate = array(
+		'identification' => array(
+			'unique' => array(
+				'rule' => array('isunique'),
+				'message' => 'Identification déjà utilisée',
+				'allowEmpty' => true,
+				'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'sexe' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -140,17 +150,15 @@ class Chat extends AppModel {
 	
     public function beforeSave($options = array()) {
     
-        if(!empty($this->data[$this->alias]['nom']))
-            $u = $this->data[$this->alias]['nom'].' (';
-        else
-            $u = '';
+        $u = '';
+        if(!empty($this->data[$this->alias]['nom'])) $u = $this->data[$this->alias]['nom'];
         
-        if(!empty($this->data[$this->alias]['identification']))
-            $u.= $this->data[$this->alias]['identification'];
-        else
-            $u.= "#".$this->id;
-            
-        if(!empty($this->data[$this->alias]['nom'])) $u.= ')';
+        if(!empty($this->data[$this->alias]['identification'])) {
+            if($u) $u.= ' ('.$this->data[$this->alias]['identification'].')';
+            else $u = $this->data[$this->alias]['identification'];
+        }
+
+        if(!$u) $u = '[Inconnu]';
         
         $this->data[$this->alias]['unique'] = $u;
         
