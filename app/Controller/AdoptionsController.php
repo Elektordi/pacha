@@ -54,7 +54,7 @@ class AdoptionsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Adoption->create();
 			if ($this->Adoption->save($this->request->data)) {
-				$this->Session->setFlash(__('Adoption enregistré.'), 'flash/success');
+				$this->Session->setFlash(__('Adoption enregistrée. '.$this->Adoption->warning), 'flash/success');
 				$this->redirect(array('action' => 'view', $this->Adoption->id));
 			} else {
 				$this->Session->setFlash(__('Adoption impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');
@@ -81,7 +81,7 @@ class AdoptionsController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Adoption->save($this->request->data)) {
-				$this->Session->setFlash(__('Adoption sauvegardé.'), 'flash/success');
+				$this->Session->setFlash(__('Adoption sauvegardée. '.$this->Adoption->warning), 'flash/success');
 				$this->redirect(array('action' => 'view', $this->Adoption->id));
 			} else {
 				$this->Session->setFlash(__('Adoption impossible à enregistrer. Réessayez ultérieurement.'), 'flash/error');

@@ -55,16 +55,6 @@ class Adoption extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'nom_chat' => array(
-			'notblank' => array(
-				'rule' => array('notblank'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'date_debut' => array(
 			'date' => array(
 				'rule' => array('date'),
@@ -99,5 +89,22 @@ class Adoption extends AppModel {
         
     public $indexFields = array('id', 'chat_id', 'nom', 'adresse', 'telephone1', 'telephone2', 'email', 'date_debut', 'date_fin');
     public $viewFields = array('id', 'chat_id', 'nom', 'adresse', 'telephone1', 'telephone2', 'email', 'nom_chat', 'date_debut', 'date_fin');
-    public $formFields = null; // Tous les champs
+
+    
+    public function beforeSave($options = array()) {
+    
+        if(!$this->data[$this->alias]['nom_chat']) {
+            $id = $this->data[$this->alias]['chat_id'];
+            if($id) {
+                $chat = $this->Chat->find('first', array('conditions'=>array('Chat.id'=>$id)));
+                if($chat) {
+                    $this->data[$this->alias]['nom_chat'] = $chat['Chat']['nom'];
+                    $this->warning = __('Nouveau nom automatiquement inscrit depuis la fiche chat.');
+                }
+                
+            }
+        }
+        
+        return true;
+    }
 }
